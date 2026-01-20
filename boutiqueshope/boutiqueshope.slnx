@@ -1,3 +1,7 @@
 <Solution>
-  <Project Path="boutiqueshope.csproj" />
+  <Project Path="../BoutiqueShope.Application/BoutiqueShope.Application.csproj" Id="c3a84d2b-8998-49e5-bb3e-cdd1ac33b7cc" />
+  <Project Path="../BoutiqueShope.CrossCutting/BoutiqueShope.CrossCutting.csproj" Id="883d89aa-dd24-43dd-8985-c00b58c525bd" />
+  <Project Path="../BoutiqueShope.Domain/BoutiqueShope.Domain.csproj" Id="884ce591-4b90-4ee9-b071-cc446086a698" />
+  <Project Path="../BoutiqueShope.Infrastructure/BoutiqueShope.Infrastructure.csproj" Id="40fbb128-1ec1-4a5d-83cf-5935aa10eb7b" />
+  <Project Path="boutiqueshope.csproj" Id="1bcbf428-6c0c-4084-a2da-c6d6bf267e46" />
 </Solution>
