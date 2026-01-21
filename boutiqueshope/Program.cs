@@ -14,7 +14,7 @@ namespace boutiqueshope
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UsuarioUI());
+            Application.Run(new MarcaUI());
         }
     }
 }

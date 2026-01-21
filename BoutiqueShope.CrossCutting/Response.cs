@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace BoutiqueShope.CrossCutting
@@ -44,7 +45,7 @@ namespace BoutiqueShope.CrossCutting
             {
                 Exitoso = false,
                 Mensaje = mensaje,
-                CodigoError = codigoError
+                CodigoError = String.IsNullOrEmpty(codigoError) ? "Validaciones logicas" : codigoError
             };
         }
     }

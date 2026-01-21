@@ -69,6 +69,9 @@ namespace boutiqueshope.UI
 
             dataGridUsuarios.DataSource = respuesta.Listado;
             ConfigurarColumnasUsuario();
+
+            dataGridUsuarios.ClearSelection();
+            dataGridUsuarios.CurrentCell = null;
         }
 
         private void ConfigurarColumnasUsuario()
@@ -96,6 +99,9 @@ namespace boutiqueshope.UI
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (!UIHelper.Confirmar("Seguro de eliminar este registro ?"))
+                return;
+
             var usuarioId = string.IsNullOrEmpty(lblIdUsuario.Text) ? 0 :
                             Convert.ToInt32(lblIdUsuario.Text);
             var response = await _usuarioService.EliminarAsync(usuarioId);
