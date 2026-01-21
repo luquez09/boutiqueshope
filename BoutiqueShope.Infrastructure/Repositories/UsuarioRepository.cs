@@ -32,7 +32,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
         protected override string GetUpdateSql()
         {
             return @"UPDATE usuarios SET nombre=@nombre, email=@email, telefono=@telefono,
-                     username=@username, activo=@activo WHERE id=@id";
+                     username=@username, activo=@activo, password_hash=@password WHERE id=@id";
         }
 
         protected override void MapInsertParameters(NpgsqlCommand cmd, Usuario u)
@@ -52,6 +52,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@email", (object)u.Email ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@telefono", (object)u.Telefono ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@username", u.Username);
+            cmd.Parameters.AddWithValue("@password", u.PasswordHash);
             cmd.Parameters.AddWithValue("@activo", u.Activo);
         }
     }

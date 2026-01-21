@@ -5,7 +5,7 @@ using BoutiqueShope.Infrastructure.Repositories;
 
 namespace BoutiqueShope.Application
 {
-    public class UsuarioService
+    public class UsuarioService 
     {
         private readonly UsuarioRepository _repo;
 
@@ -14,9 +14,6 @@ namespace BoutiqueShope.Application
             _repo = new UsuarioRepository();
         }
 
-        // ============================
-        // LISTAR TODOS
-        // ============================
         public async Task<Response<Usuario>> ListarAsync()
         {
             return await _repo.GetAllAsync();
@@ -38,7 +35,6 @@ namespace BoutiqueShope.Application
         // ============================
         public async Task<Response<Usuario>> CrearAsync(Usuario u)
         {
-            // Validaciones de negocio
             if (string.IsNullOrWhiteSpace(u.Nombre))
                 return Response<Usuario>.Fail("El nombre es obligatorio");
 
@@ -48,8 +44,6 @@ namespace BoutiqueShope.Application
             if (string.IsNullOrWhiteSpace(u.PasswordHash))
                 return Response<Usuario>.Fail("La contraseña es obligatoria");
 
-            // Aquí podrías agregar encriptación de contraseña
-            // u.PasswordHash = BCrypt.Net.BCrypt.HashPassword(u.PasswordHash);
 
             return await _repo.InsertAsync(u);
         }
@@ -59,25 +53,27 @@ namespace BoutiqueShope.Application
         // ============================
         public async Task<Response<Usuario>> EditarAsync(Usuario u)
         {
+            string errorsCheck = "";
+
             if (u.Id <= 0)
-                return Response<Usuario>.Fail("El ID del usuario no es válido");
+                errorsCheck += "El ID del usuario no es válido. \n";
 
             if (string.IsNullOrWhiteSpace(u.Nombre))
-                return Response<Usuario>.Fail("El nombre es obligatorio");
+                errorsCheck += "El nombre es obligatorio. \n";
 
             if (string.IsNullOrWhiteSpace(u.Username))
-                return Response<Usuario>.Fail("El nombre de usuario es obligatorio");
+                errorsCheck += "El nombre de usuario es obligatorio. ";
+
+            if (!string.IsNullOrEmpty(errorsCheck))
+                return Response<Usuario>.Fail(errorsCheck);
 
             return await _repo.UpdateAsync(u);
         }
 
-        // ============================
-        // ELIMINAR USUARIO
-        // ============================
         public async Task<Response<Usuario>> EliminarAsync(int id)
         {
             if (id <= 0)
-                return Response<Usuario>.Fail("El ID proporcionado no es válido");
+                return Response<Usuario>.Fail("Error al identificar el usuario, seleccione uno de la lista.");
 
             return await _repo.DeleteAsync(id);
         }

@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using boutiqueshope.UI;
 
 namespace boutiqueshope
 {
@@ -13,7 +14,7 @@ namespace boutiqueshope
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new UsuarioUI());
         }
     }
 }
