@@ -4,13 +4,13 @@ using Npgsql;
 
 namespace BoutiqueShope.Infrastructure.Repositories
 {
-    public class MarcaRepository : GenericRepository<Marca>
+    public class CategoriaRepository : GenericRepository<Categoria>
     {
-        protected override string TableName => "marca";
+        protected override string TableName => "categoria";
 
-        protected override Marca Map(NpgsqlDataReader reader)
+        protected override Categoria Map(NpgsqlDataReader reader)
         {
-            return new Marca
+            return new Categoria
             {
                 Id = Convert.ToInt32(reader["id"]),
                 Nombre = reader["nombre"].ToString(),
@@ -22,24 +22,24 @@ namespace BoutiqueShope.Infrastructure.Repositories
 
         protected override string GetInsertSql()
         {
-            return @"INSERT INTO marca (nombre, activo, descripcion, fecha_creacion)
+            return @"INSERT INTO categoria (nombre, activo, descripcion, fecha_creacion)
                      VALUES (@nombre, @activo, @descripcion, NOW())";
         }
 
         protected override string GetUpdateSql()
         {
-            return @"UPDATE marca SET nombre=@nombre, activo=@activo, descripcion=@descripcion
+            return @"UPDATE categoria SET nombre=@nombre, activo=@activo, descripcion=@descripcion
                      WHERE id=@id";
         }
 
-        protected override void MapInsertParameters(NpgsqlCommand cmd, Marca entity)
+        protected override void MapInsertParameters(NpgsqlCommand cmd, Categoria entity)
         {
             cmd.Parameters.AddWithValue("@nombre", entity.Nombre);
             cmd.Parameters.AddWithValue("@descripcion", entity.Descripcion);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
         }
 
-        protected override void MapUpdateParameters(NpgsqlCommand cmd, Marca entity)
+        protected override void MapUpdateParameters(NpgsqlCommand cmd, Categoria entity)
         {
             cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.Parameters.AddWithValue("@nombre", entity.Nombre);

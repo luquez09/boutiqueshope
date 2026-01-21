@@ -112,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\CategoriaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CategoriaUI.Designer.cs">
+      <DependentUpon>CategoriaUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MarcaUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CategoriaUI.resx">
+      <DependentUpon>CategoriaUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MarcaUI.resx">
       <DependentUpon>MarcaUI.cs</DependentUpon>
