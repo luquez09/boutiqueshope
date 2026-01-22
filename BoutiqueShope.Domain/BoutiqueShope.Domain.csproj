@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Categoria.cs" />
+    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
