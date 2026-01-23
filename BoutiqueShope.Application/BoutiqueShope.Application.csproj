@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Servicios\AlmacenService.cs" />
     <Compile Include="Servicios\CategoriaService.cs" />
     <Compile Include="Servicios\ClienteService.cs" />
     <Compile Include="Servicios\MarcaService.cs" />

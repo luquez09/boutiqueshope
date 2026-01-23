@@ -99,11 +99,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MenuOptions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MenuOptions.Designer.cs">
+      <DependentUpon>MenuOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +124,12 @@
     <Compile Include="UI\ClienteUI.Designer.cs">
       <DependentUpon>ClienteUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\AlmacenUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AlmacenUI.Designer.cs">
+      <DependentUpon>AlmacenUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MarcaUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,13 +148,16 @@
     <Compile Include="UI\UsuarioUI.Designer.cs">
       <DependentUpon>UsuarioUI.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MenuOptions.resx">
+      <DependentUpon>MenuOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AlmacenUI.resx">
+      <DependentUpon>AlmacenUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CategoriaUI.resx">
       <DependentUpon>CategoriaUI.cs</DependentUpon>

@@ -21,6 +21,9 @@ namespace BoutiqueShope.Application.Servicios
             if (string.IsNullOrWhiteSpace(c.Nombre))
                 return Response<Cliente>.Fail("El nombre del cliente es obligatorio");
 
+            if (string.IsNullOrWhiteSpace(c.Cedula))
+                return Response<Cliente>.Fail("La Cedula del cliente es obligatorio");
+
             return await _repo.InsertAsync(c);
         }
 
@@ -32,13 +35,16 @@ namespace BoutiqueShope.Application.Servicios
             if (string.IsNullOrWhiteSpace(c.Nombre))
                 return Response<Cliente>.Fail("El nombre es obligatorio");
 
+            if (string.IsNullOrWhiteSpace(c.Cedula))
+                return Response<Cliente>.Fail("La Cedula del cliente es obligatorio");
+
             return await _repo.UpdateAsync(c);
         }
 
         public async Task<Response<Cliente>> EliminarAsync(int id)
         {
             if (id <= 0)
-                return Response<Cliente>.Fail("Error al identificar el cliente, seleccione uno de la lista.");
+                return Response<Cliente>.Fail("Error al identificar el cliente, seleccione uno del listado.");
 
             return await _repo.DeleteAsync(id);
         }
