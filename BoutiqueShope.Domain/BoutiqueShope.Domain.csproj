@@ -45,6 +45,9 @@
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\ProductoVariacion.cs" />
+    <Compile Include="Entities\ProductoVariante.cs" />
     <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />

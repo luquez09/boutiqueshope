@@ -144,6 +144,7 @@
     <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\MarcaRepository.cs" />
+    <Compile Include="Repositories\ProductoRepository.cs" />
     <Compile Include="Repositories\ProveedorRepository.cs" />
     <Compile Include="Repositories\UsuarioRepository.cs" />
   </ItemGroup>

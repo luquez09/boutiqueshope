@@ -13,12 +13,12 @@ namespace boutiqueshope
         {
             InitializeComponent();
             CustomizeDesign();
-
         }
 
         private void MenuOptions_Load(object sender, System.EventArgs e)
         {
-
+            //this.MaximizedBounds = Screen.PrimaryScreen.WorkingArea;
+            this.Bounds = Screen.FromControl(this).Bounds;
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -157,7 +157,7 @@ namespace boutiqueshope
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new FrmProductos());
+            OpenChildForm(new ProductoUI());
         }
 
         private void btnVariacionesProducto_Click(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace boutiqueshope
 
         private void btnAlmacenes_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new FrmAlmacenes());
+            OpenChildForm(new AlmacenUI());
         }
 
         private void btnMovimientosInventario_Click(object sender, EventArgs e)

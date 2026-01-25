@@ -160,7 +160,7 @@ namespace boutiqueshope
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(214, 1305);
+            this.panelSidebar.Size = new System.Drawing.Size(214, 722);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnSalir
@@ -169,7 +169,7 @@ namespace boutiqueshope
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSalir.Location = new System.Drawing.Point(0, 1270);
+            this.btnSalir.Location = new System.Drawing.Point(0, 687);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(214, 35);
@@ -896,11 +896,11 @@ namespace boutiqueshope
             // 
             // panelChildForm
             // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
+            this.panelChildForm.BackColor = System.Drawing.Color.White;
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(214, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(815, 1305);
+            this.panelChildForm.Size = new System.Drawing.Size(638, 722);
             this.panelChildForm.TabIndex = 1;
             // 
             // timerSidebar
@@ -913,13 +913,16 @@ namespace boutiqueshope
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(1029, 1305);
+            this.ClientSize = new System.Drawing.Size(852, 722);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSidebar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MenuOptions";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Sistema de Ventas - Boutique";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MenuOptions_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelConfiguracionSubMenu.ResumeLayout(false);
             this.panelAdministracionSubMenu.ResumeLayout(false);
