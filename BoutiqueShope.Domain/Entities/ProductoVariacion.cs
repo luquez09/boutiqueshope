@@ -10,7 +10,7 @@ namespace BoutiqueShope.Domain.Entities
         public string Color { get; set; }
         public int Cantidad { get; set; }
         public string CodigoBarras { get; set; }
-        public string CodigoQr { get; set; }
+        public string CodigoSku { get; set; }
         public decimal PrecioVenta { get; set; }
         public decimal Costo { get; set; }
         public bool Activo { get; set; }

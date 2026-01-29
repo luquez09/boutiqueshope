@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BoutiqueShope.CrossCutting
 {
@@ -20,6 +21,16 @@ namespace BoutiqueShope.CrossCutting
         }
 
         public static Response<T> Success(string mensaje = "Operación exitosa", T data = default)
+        {
+            return new Response<T>
+            {
+                Exitoso = true,
+                Mensaje = mensaje,
+                Data = data
+            };
+        }
+
+        public static Response<T> Warning(string mensaje = "Operación exitosa", T data = default)
         {
             return new Response<T>
             {

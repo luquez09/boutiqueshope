@@ -70,5 +70,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@contacto_telefono", entity.ContactoTelefono ?? string.Empty);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

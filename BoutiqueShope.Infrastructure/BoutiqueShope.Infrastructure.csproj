@@ -141,6 +141,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AlmacenRepository.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />
+    <Compile Include="Repositories\ColoresRepository.cs" />
+    <Compile Include="Repositories\TallasRepository.cs" />
+    <Compile Include="Repositories\VariacionProductoRepository.cs" />
     <Compile Include="Repositories\ClienteRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\MarcaRepository.cs" />

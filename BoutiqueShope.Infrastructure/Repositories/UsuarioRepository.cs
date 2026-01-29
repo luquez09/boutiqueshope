@@ -55,5 +55,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@password", u.PasswordHash);
             cmd.Parameters.AddWithValue("@activo", u.Activo);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

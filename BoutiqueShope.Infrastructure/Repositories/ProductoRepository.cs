@@ -90,5 +90,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
             cmd.Parameters.AddWithValue("@codigo", entity.codigoSku);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

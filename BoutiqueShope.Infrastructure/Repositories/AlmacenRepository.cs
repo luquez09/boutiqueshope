@@ -56,5 +56,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@responsable_id", entity.ResponsableId.HasValue ? (object)entity.ResponsableId.Value : DBNull.Value);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

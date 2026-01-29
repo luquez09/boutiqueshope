@@ -162,7 +162,7 @@ namespace boutiqueshope
 
         private void btnVariacionesProducto_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new FrmProductoVariacion());
+            OpenChildForm(new ProductoVariacionUI());
         }
 
         private void btnCategorias_Click(object sender, EventArgs e)

@@ -46,5 +46,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@descripcion", entity.Descripcion);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

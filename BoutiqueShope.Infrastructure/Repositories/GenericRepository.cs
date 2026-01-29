@@ -188,5 +188,6 @@ namespace BoutiqueShope.Infrastructure
 
         protected abstract string GetInsertSql();
         protected abstract string GetUpdateSql();
+        protected abstract string GetUpdateParameterSql();
     }
 }

@@ -155,7 +155,6 @@ namespace boutiqueshope.UI
 
         private void CargarDatosDesdeGridProducto()
         {
-            Console.WriteLine("CargarDatosDesdeGridProducto called");
 
             if (dataGridViewProductos == null) return;
 

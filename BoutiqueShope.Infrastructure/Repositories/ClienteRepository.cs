@@ -78,5 +78,10 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@total_compras", entity.TotalCompras);
             cmd.Parameters.AddWithValue("@ultima_compra", entity.UltimaCompra.HasValue ? (object)entity.UltimaCompra.Value : DBNull.Value);
         }
+
+        protected override string GetUpdateParameterSql()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
