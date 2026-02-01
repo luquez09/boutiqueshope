@@ -24,17 +24,16 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 MarcaId = reader["marca_id"] is DBNull ? (int?)null : Convert.ToInt32(reader["marca_id"]),
                 CodigoBarras = reader["codigo_barras"] is DBNull ? string.Empty : reader["codigo_barras"].ToString(),
                 CodigoQr = reader["codigo_qr"] is DBNull ? string.Empty : reader["codigo_qr"].ToString(),
+                Tipo = reader["tipo"] is DBNull ? string.Empty : reader["codigo_qr"].ToString(),
                 Activo = reader["activo"] is DBNull ? true : Convert.ToBoolean(reader["activo"]),
-                codigoSku = reader["codigo"] is DBNull ? string.Empty : reader["codigo"].ToString(),
                 FechaCreacion = reader["fecha_creacion"] is DBNull ? DateTime.MinValue : Convert.ToDateTime(reader["fecha_creacion"])
             };
         }
 
         protected override string GetInsertSql()
         {
-            return @"INSERT INTO producto
-                     (nombre, descripcion, costo, porcentaje_ganancia, precio_venta, stock_minimo, proveedor_id, categoria_id, marca_id, codigo_barras, codigo_qr, activo, fecha_creacion, codigo)
-                     VALUES (@nombre, @descripcion, @costo, @porcentaje_ganancia, @precio_venta, @stock_minimo, @proveedor_id, @categoria_id, @marca_id, @codigo_barras, @codigo_qr, @activo, NOW(), @codigo)";
+            return @"INSERT INTO producto (nombre, descripcion, costo, porcentaje_ganancia, precio_venta, stock_minimo, proveedor_id, categoria_id, marca_id, codigo_barras, codigo_qr, tipo, activo, fecha_creacion)
+                     VALUES (@nombre, @descripcion, @costo, @porcentaje_ganancia, @precio_venta, @stock_minimo, @proveedor_id, @categoria_id, @marca_id, @codigo_barras, @codigo_qr, @tipo, @activo, NOW())";
         }
 
         protected override string GetUpdateSql()
@@ -52,7 +51,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
                         codigo_barras=@codigo_barras,
                         codigo_qr=@codigo_qr,
                         activo=@activo,
-                        codigo=@codigo
+                        tipo=@tipo
                      WHERE id=@id";
         }
 
@@ -70,7 +69,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@codigo_barras", string.IsNullOrEmpty(entity.CodigoBarras) ? (object)DBNull.Value : entity.CodigoBarras);
             cmd.Parameters.AddWithValue("@codigo_qr", string.IsNullOrEmpty(entity.CodigoQr) ? (object)DBNull.Value : entity.CodigoQr);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
-            cmd.Parameters.AddWithValue("@codigo", entity.codigoSku);
+            cmd.Parameters.AddWithValue("@tipo", entity.Tipo);
         }
 
         protected override void MapUpdateParameters(NpgsqlCommand cmd, Producto entity)
@@ -88,7 +87,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@codigo_barras", string.IsNullOrEmpty(entity.CodigoBarras) ? (object)DBNull.Value : entity.CodigoBarras);
             cmd.Parameters.AddWithValue("@codigo_qr", string.IsNullOrEmpty(entity.CodigoQr) ? (object)DBNull.Value : entity.CodigoQr);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
-            cmd.Parameters.AddWithValue("@codigo", entity.codigoSku);
+            cmd.Parameters.AddWithValue("@tipo", entity.Tipo);
         }
 
         protected override string GetUpdateParameterSql()

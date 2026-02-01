@@ -16,6 +16,7 @@ namespace BoutiqueShope.Domain.Entities
         public int? MarcaId { get; set; }
         public string CodigoBarras { get; set; }
         public string CodigoQr { get; set; }
+        public string Tipo { get; set; }
         public bool Activo { get; set; }
         public string codigoSku { get; set; }
         public DateTime FechaCreacion { get; set; }

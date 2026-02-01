@@ -33,6 +33,8 @@ namespace boutiqueshope.UI
             this.lblColores = new System.Windows.Forms.Label();
             this.lblTallas = new System.Windows.Forms.Label();
             this.dataGridViewVariacion = new System.Windows.Forms.DataGridView();
+            this.modificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregarVariacion = new System.Windows.Forms.Button();
             this.btnGestionarProducto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,9 +67,7 @@ namespace boutiqueshope.UI
             this.label9 = new System.Windows.Forms.Label();
             this.lblPrecioVenta = new System.Windows.Forms.Label();
             this.lblFechaCreacion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.lblCosto = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,8 +77,6 @@ namespace boutiqueshope.UI
             this.lblInformacion = new System.Windows.Forms.Label();
             this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.lblCodProdut = new System.Windows.Forms.Label();
-            this.modificado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVariacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducto)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -138,6 +136,26 @@ namespace boutiqueshope.UI
             this.dataGridViewVariacion.CurrentCellChanged += new System.EventHandler(this.dataGridViewVariacion_CurrentCellChanged);
             this.dataGridViewVariacion.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewVariacion_EditingControlShowing);
             this.dataGridViewVariacion.SelectionChanged += new System.EventHandler(this.dataGridViewVariacion_SelectionChanged);
+            // 
+            // modificado
+            // 
+            this.modificado.HeaderText = "modificado";
+            this.modificado.Name = "modificado";
+            this.modificado.Visible = false;
+            // 
+            // Acciones
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.Acciones.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Acciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Acciones.HeaderText = "Acciones";
+            this.Acciones.Name = "Acciones";
+            this.Acciones.Text = "Eliminar";
+            this.Acciones.ToolTipText = "Eliminacion registro";
+            this.Acciones.UseColumnTextForButtonValue = true;
             // 
             // btnAgregarVariacion
             // 
@@ -424,18 +442,16 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblCodigoSku, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblPrecioVenta, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblFechaCreacion, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnAgregarVariacion, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lblCantidad, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lblCosto, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.lblCodigoBarra, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnGestionarProducto, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblPrecioVenta, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.lblCodigoBarra, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(374, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
@@ -479,7 +495,7 @@ namespace boutiqueshope.UI
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 29);
+            this.label9.Location = new System.Drawing.Point(3, 116);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(134, 29);
             this.label9.TabIndex = 19;
@@ -492,7 +508,7 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.SetColumnSpan(this.lblPrecioVenta, 2);
             this.lblPrecioVenta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioVenta.Location = new System.Drawing.Point(143, 29);
+            this.lblPrecioVenta.Location = new System.Drawing.Point(143, 116);
             this.lblPrecioVenta.Name = "lblPrecioVenta";
             this.lblPrecioVenta.Size = new System.Drawing.Size(275, 29);
             this.lblPrecioVenta.TabIndex = 20;
@@ -512,18 +528,6 @@ namespace boutiqueshope.UI
             this.lblFechaCreacion.Text = "-";
             this.lblFechaCreacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 29);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Cantidad";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -535,19 +539,6 @@ namespace boutiqueshope.UI
             this.label16.TabIndex = 23;
             this.label16.Text = "Fecha Creacion";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblCantidad, 2);
-            this.lblCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(143, 58);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(275, 29);
-            this.lblCantidad.TabIndex = 14;
-            this.lblCantidad.Text = "-";
-            this.lblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCosto
             // 
@@ -579,7 +570,7 @@ namespace boutiqueshope.UI
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 116);
+            this.label5.Location = new System.Drawing.Point(3, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 29);
             this.label5.TabIndex = 15;
@@ -592,7 +583,7 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.SetColumnSpan(this.lblCodigoBarra, 2);
             this.lblCodigoBarra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCodigoBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoBarra.Location = new System.Drawing.Point(143, 116);
+            this.lblCodigoBarra.Location = new System.Drawing.Point(143, 29);
             this.lblCodigoBarra.Name = "lblCodigoBarra";
             this.lblCodigoBarra.Size = new System.Drawing.Size(275, 29);
             this.lblCodigoBarra.TabIndex = 16;
@@ -644,26 +635,6 @@ namespace boutiqueshope.UI
             this.lblCodProdut.Size = new System.Drawing.Size(0, 13);
             this.lblCodProdut.TabIndex = 20;
             this.lblCodProdut.Visible = false;
-            // 
-            // modificado
-            // 
-            this.modificado.HeaderText = "modificado";
-            this.modificado.Name = "modificado";
-            this.modificado.Visible = false;
-            // 
-            // Acciones
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.Acciones.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Acciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Acciones.HeaderText = "Acciones";
-            this.Acciones.Name = "Acciones";
-            this.Acciones.Text = "Eliminar";
-            this.Acciones.ToolTipText = "Eliminacion registro";
-            this.Acciones.UseColumnTextForButtonValue = true;
             // 
             // ProductoVariacionUI
             // 
@@ -720,8 +691,6 @@ namespace boutiqueshope.UI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblCodigoBarra;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblInformacion;
         private System.Windows.Forms.Label lblCodigoProducto;
         private System.Windows.Forms.Label lblCodProdut;

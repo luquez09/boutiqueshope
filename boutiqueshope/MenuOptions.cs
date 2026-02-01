@@ -182,7 +182,7 @@ namespace boutiqueshope
 
         private void btnMovimientosInventario_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new FrmMovimientoInventario());
+            OpenChildForm(new AlmacenUI());
         }
 
         private void btnAjustesInventario_Click(object sender, EventArgs e)

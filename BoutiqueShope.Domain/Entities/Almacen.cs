@@ -12,5 +12,11 @@ namespace BoutiqueShope.Domain.Entities
         public int? ResponsableId { get; set; }
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
     }
 }

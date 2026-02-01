@@ -8,7 +8,6 @@ namespace BoutiqueShope.Domain.Entities
         public int ProductoId { get; set; }
         public string Talla { get; set; }
         public string Color { get; set; }
-        public int Cantidad { get; set; }
         public string CodigoBarras { get; set; }
         public string CodigoSku { get; set; }
         public decimal PrecioVenta { get; set; }

@@ -52,6 +52,7 @@
     <Compile Include="Servicios\UsuarioService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\VariacionProductoService.cs" />
+    <Compile Include="Servicios\Ventas\MovimientoInventarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BoutiqueShope.CrossCutting\BoutiqueShope.CrossCutting.csproj">

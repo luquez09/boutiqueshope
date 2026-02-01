@@ -88,7 +88,8 @@ namespace boutiqueshope.UI
                 CategoriaId = categoriaId,
                 MarcaId = marcaId > 0 ? (int?)marcaId : null,
                 Activo = checkBoxActive.Checked,
-                codigoSku = txtCodigoProducto.Text?.Trim()
+                codigoSku = txtCodigoProducto.Text?.Trim(),
+                Tipo = comboBoxTipo.Text?.Trim()
             };
         }
 

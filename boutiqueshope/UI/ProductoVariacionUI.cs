@@ -161,7 +161,6 @@ namespace boutiqueshope.UI
             listaVariaciones.Clear();
             lblCodigoSku.Text = "--";
             lblPrecioVenta.Text = "--";
-            lblCantidad.Text = "--";
             lblCosto.Text = "--";
             lblCodigoBarra.Text = "--";
             lblFechaCreacion.Text = "--";
@@ -237,7 +236,6 @@ namespace boutiqueshope.UI
             dataGridViewVariacion.Columns["CodigoSku"].HeaderText = "Cod. Sku";
             dataGridViewVariacion.Columns["Talla"].HeaderText = "Talla";
             dataGridViewVariacion.Columns["Color"].HeaderText = "Color";
-            dataGridViewVariacion.Columns["Cantidad"].HeaderText = "Cantidad";
             dataGridViewVariacion.Columns["PrecioVenta"].HeaderText = "Precio de Venta";
             dataGridViewVariacion.Columns["Costo"].HeaderText = "Costo";
             dataGridViewVariacion.Columns["Activo"].HeaderText = "Activo";
@@ -262,7 +260,6 @@ namespace boutiqueshope.UI
             lblFechaCreacion.Text = row.Cells["FechaCreacion"].Value?.ToString();
             lblCodigoBarra.Text = row.Cells["CodigoBarras"].Value?.ToString();
             lblCodigoSku.Text = row.Cells["CodigoSku"].Value?.ToString();
-            lblCantidad.Text = row.Cells["Cantidad"].Value?.ToString();
             lblPrecioVenta.Text = row.Cells["PrecioVenta"].Value?.ToString();
             lblCosto.Text = row.Cells["Costo"].Value?.ToString();
         }
@@ -270,8 +267,7 @@ namespace boutiqueshope.UI
 
         private void dataGridViewVariacion_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            if (dataGridViewVariacion.CurrentCell.ColumnIndex == dataGridViewVariacion.Columns["Cantidad"].Index ||
-                dataGridViewVariacion.CurrentCell.ColumnIndex == dataGridViewVariacion.Columns["PrecioVenta"].Index ||
+            if (dataGridViewVariacion.CurrentCell.ColumnIndex == dataGridViewVariacion.Columns["PrecioVenta"].Index ||
                 dataGridViewVariacion.CurrentCell.ColumnIndex == dataGridViewVariacion.Columns["Costo"].Index)
             {
                 TextBox txt = e.Control as TextBox;
@@ -377,7 +373,6 @@ namespace boutiqueshope.UI
                     ProductoId = productoId,
                     Talla = talla,
                     Color = color,
-                    Cantidad = 0,
                     CodigoSku = GenerarCodigoSKU(lblCodProdut.Text, talla, color),
                     CodigoBarras = GenerarCodigoBarras(productoId, talla, color),
                     PrecioVenta = 0.00m,
@@ -436,7 +431,7 @@ namespace boutiqueshope.UI
             string col = dataGridViewVariacion.Columns[e.ColumnIndex].Name;
             int id = Convert.ToInt32(dataGridViewVariacion.Rows[e.RowIndex].Cells["Id"].Value);
 
-            if ((col == "PrecioVenta" || col == "Costo" || col == "Cantidad" || col == "Activo") &&
+            if ((col == "PrecioVenta" || col == "Costo" || col == "Activo") &&
                 (id > 0))
             {
                 dataGridViewVariacion.Rows[e.RowIndex].Cells["modificado"].Value = "1";
@@ -476,7 +471,6 @@ namespace boutiqueshope.UI
                 ProductoId = Convert.ToInt32(row.Cells["ProductoId"].Value),
                 Talla = row.Cells["Talla"].Value?.ToString(),
                 Color = row.Cells["Color"].Value?.ToString(),
-                Cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value),
                 CodigoBarras = row.Cells["CodigoBarras"].Value?.ToString(),
                 CodigoSku = row.Cells["CodigoSKU"].Value?.ToString(),
                 PrecioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value),

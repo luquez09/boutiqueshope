@@ -42,6 +42,8 @@ namespace boutiqueshope.UI
             this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
             this.lblProductoId = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.PanelProductoGeneral.SuspendLayout();
             this.layoutProductoGeneral.SuspendLayout();
@@ -84,7 +86,7 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(979, 392);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(979, 614);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -95,7 +97,7 @@ namespace boutiqueshope.UI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(973, 32);
+            this.label1.Size = new System.Drawing.Size(973, 51);
             this.label1.TabIndex = 0;
             this.label1.Text = "GESTION DE PRODUCTO";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,15 +107,14 @@ namespace boutiqueshope.UI
             this.PanelProductoGeneral.BackColor = System.Drawing.Color.LightGreen;
             this.tableLayoutPanel1.SetColumnSpan(this.PanelProductoGeneral, 6);
             this.PanelProductoGeneral.Controls.Add(this.layoutProductoGeneral);
-            this.PanelProductoGeneral.Location = new System.Drawing.Point(3, 35);
+            this.PanelProductoGeneral.Location = new System.Drawing.Point(3, 54);
             this.PanelProductoGeneral.Name = "PanelProductoGeneral";
             this.tableLayoutPanel1.SetRowSpan(this.PanelProductoGeneral, 10);
-            this.PanelProductoGeneral.Size = new System.Drawing.Size(468, 304);
+            this.PanelProductoGeneral.Size = new System.Drawing.Size(468, 497);
             this.PanelProductoGeneral.TabIndex = 1;
             // 
             // layoutProductoGeneral
             // 
-            this.layoutProductoGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.layoutProductoGeneral.ColumnCount = 10;
             this.layoutProductoGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.layoutProductoGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -125,12 +126,13 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.layoutProductoGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.layoutProductoGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.layoutProductoGeneral.Controls.Add(this.comboBoxTipo, 2, 6);
+            this.layoutProductoGeneral.Controls.Add(this.label12, 0, 6);
             this.layoutProductoGeneral.Controls.Add(this.label11, 7, 1);
             this.layoutProductoGeneral.Controls.Add(this.label4, 0, 2);
             this.layoutProductoGeneral.Controls.Add(this.label5, 0, 3);
             this.layoutProductoGeneral.Controls.Add(this.label6, 0, 4);
             this.layoutProductoGeneral.Controls.Add(this.label7, 0, 5);
-            this.layoutProductoGeneral.Controls.Add(this.label8, 0, 6);
             this.layoutProductoGeneral.Controls.Add(this.label9, 0, 7);
             this.layoutProductoGeneral.Controls.Add(this.label2, 0, 0);
             this.layoutProductoGeneral.Controls.Add(this.label3, 0, 1);
@@ -143,9 +145,10 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.Controls.Add(this.comboBoxProveedor, 2, 3);
             this.layoutProductoGeneral.Controls.Add(this.comboBoxCategoria, 2, 4);
             this.layoutProductoGeneral.Controls.Add(this.comboBoxMarca, 2, 5);
-            this.layoutProductoGeneral.Controls.Add(this.checkBoxActive, 2, 6);
             this.layoutProductoGeneral.Controls.Add(this.lblCreadoFecha, 2, 7);
             this.layoutProductoGeneral.Controls.Add(this.txtCodigoProducto, 7, 2);
+            this.layoutProductoGeneral.Controls.Add(this.checkBoxActive, 9, 3);
+            this.layoutProductoGeneral.Controls.Add(this.label8, 7, 3);
             this.layoutProductoGeneral.Location = new System.Drawing.Point(0, 0);
             this.layoutProductoGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.layoutProductoGeneral.Name = "layoutProductoGeneral";
@@ -160,7 +163,7 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.layoutProductoGeneral.Size = new System.Drawing.Size(465, 304);
+            this.layoutProductoGeneral.Size = new System.Drawing.Size(465, 497);
             this.layoutProductoGeneral.TabIndex = 0;
             // 
             // label11
@@ -169,9 +172,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label11, 3);
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(325, 30);
+            this.label11.Location = new System.Drawing.Point(325, 49);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(137, 30);
+            this.label11.Size = new System.Drawing.Size(137, 49);
             this.label11.TabIndex = 19;
             this.label11.Text = "Codigo SKU";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,9 +185,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label4, 2);
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 60);
+            this.label4.Location = new System.Drawing.Point(3, 98);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 30);
+            this.label4.Size = new System.Drawing.Size(86, 49);
             this.label4.TabIndex = 2;
             this.label4.Text = "Describir:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -195,9 +198,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label5, 2);
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 90);
+            this.label5.Location = new System.Drawing.Point(3, 147);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 30);
+            this.label5.Size = new System.Drawing.Size(86, 49);
             this.label5.TabIndex = 3;
             this.label5.Text = "Proveedor:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -208,9 +211,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label6, 2);
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 120);
+            this.label6.Location = new System.Drawing.Point(3, 196);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 30);
+            this.label6.Size = new System.Drawing.Size(86, 49);
             this.label6.TabIndex = 4;
             this.label6.Text = "Categoria:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,9 +224,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label7, 2);
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 150);
+            this.label7.Location = new System.Drawing.Point(3, 245);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 30);
+            this.label7.Size = new System.Drawing.Size(86, 49);
             this.label7.TabIndex = 5;
             this.label7.Text = "Marca:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -234,12 +237,12 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label8, 2);
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 180);
+            this.label8.Location = new System.Drawing.Point(325, 147);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 30);
+            this.label8.Size = new System.Drawing.Size(86, 49);
             this.label8.TabIndex = 6;
             this.label8.Text = "Activo:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label9
             // 
@@ -247,9 +250,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label9, 2);
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 210);
+            this.label9.Location = new System.Drawing.Point(3, 343);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 30);
+            this.label9.Size = new System.Drawing.Size(86, 49);
             this.label9.TabIndex = 7;
             this.label9.Text = "Creado el:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -262,7 +265,7 @@ namespace boutiqueshope.UI
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(459, 30);
+            this.label2.Size = new System.Drawing.Size(459, 49);
             this.label2.TabIndex = 0;
             this.label2.Text = "INFORMACION PRODUCTO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -273,9 +276,9 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.label3, 2);
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 30);
+            this.label3.Location = new System.Drawing.Point(3, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 30);
+            this.label3.Size = new System.Drawing.Size(86, 49);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nombre:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -284,7 +287,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.btnAgregar, 2);
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(3, 243);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 395);
             this.btnAgregar.Name = "btnAgregar";
             this.layoutProductoGeneral.SetRowSpan(this.btnAgregar, 2);
             this.btnAgregar.Size = new System.Drawing.Size(86, 35);
@@ -297,7 +300,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.btnActualizar, 2);
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(95, 243);
+            this.btnActualizar.Location = new System.Drawing.Point(95, 395);
             this.btnActualizar.Name = "btnActualizar";
             this.layoutProductoGeneral.SetRowSpan(this.btnActualizar, 2);
             this.btnActualizar.Size = new System.Drawing.Size(86, 35);
@@ -310,7 +313,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.btnEliminar, 2);
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(187, 243);
+            this.btnEliminar.Location = new System.Drawing.Point(187, 395);
             this.btnEliminar.Name = "btnEliminar";
             this.layoutProductoGeneral.SetRowSpan(this.btnEliminar, 2);
             this.btnEliminar.Size = new System.Drawing.Size(86, 35);
@@ -323,7 +326,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.btnCancelar, 2);
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(325, 243);
+            this.btnCancelar.Location = new System.Drawing.Point(325, 395);
             this.btnCancelar.Name = "btnCancelar";
             this.layoutProductoGeneral.SetRowSpan(this.btnCancelar, 2);
             this.btnCancelar.Size = new System.Drawing.Size(86, 35);
@@ -336,7 +339,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.txtNombreProducto, 5);
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreProducto.Location = new System.Drawing.Point(95, 33);
+            this.txtNombreProducto.Location = new System.Drawing.Point(95, 52);
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.Size = new System.Drawing.Size(201, 26);
             this.txtNombreProducto.TabIndex = 8;
@@ -347,17 +350,17 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.txtDescripcionProducto, 5);
             this.txtDescripcionProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionProducto.Location = new System.Drawing.Point(95, 63);
+            this.txtDescripcionProducto.Location = new System.Drawing.Point(95, 101);
             this.txtDescripcionProducto.Name = "txtDescripcionProducto";
             this.txtDescripcionProducto.Size = new System.Drawing.Size(201, 26);
             this.txtDescripcionProducto.TabIndex = 9;
             // 
             // comboBoxProveedor
             // 
-            this.layoutProductoGeneral.SetColumnSpan(this.comboBoxProveedor, 7);
+            this.layoutProductoGeneral.SetColumnSpan(this.comboBoxProveedor, 5);
             this.comboBoxProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxProveedor.FormattingEnabled = true;
-            this.comboBoxProveedor.Location = new System.Drawing.Point(95, 93);
+            this.comboBoxProveedor.Location = new System.Drawing.Point(95, 150);
             this.comboBoxProveedor.Name = "comboBoxProveedor";
             this.comboBoxProveedor.Size = new System.Drawing.Size(201, 28);
             this.comboBoxProveedor.TabIndex = 10;
@@ -367,7 +370,7 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.comboBoxCategoria, 7);
             this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(95, 123);
+            this.comboBoxCategoria.Location = new System.Drawing.Point(95, 199);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(201, 28);
             this.comboBoxCategoria.TabIndex = 11;
@@ -377,7 +380,7 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.SetColumnSpan(this.comboBoxMarca, 7);
             this.comboBoxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMarca.FormattingEnabled = true;
-            this.comboBoxMarca.Location = new System.Drawing.Point(95, 153);
+            this.comboBoxMarca.Location = new System.Drawing.Point(95, 248);
             this.comboBoxMarca.Name = "comboBoxMarca";
             this.comboBoxMarca.Size = new System.Drawing.Size(201, 28);
             this.comboBoxMarca.TabIndex = 12;
@@ -386,11 +389,12 @@ namespace boutiqueshope.UI
             // 
             this.checkBoxActive.AutoSize = true;
             this.checkBoxActive.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxActive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBoxActive.Location = new System.Drawing.Point(95, 183);
+            this.checkBoxActive.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkBoxActive.Location = new System.Drawing.Point(417, 150);
             this.checkBoxActive.Name = "checkBoxActive";
-            this.checkBoxActive.Size = new System.Drawing.Size(40, 24);
+            this.checkBoxActive.Size = new System.Drawing.Size(45, 14);
             this.checkBoxActive.TabIndex = 13;
+            this.checkBoxActive.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.checkBoxActive.UseVisualStyleBackColor = true;
             // 
             // lblCreadoFecha
@@ -398,9 +402,9 @@ namespace boutiqueshope.UI
             this.lblCreadoFecha.AutoSize = true;
             this.layoutProductoGeneral.SetColumnSpan(this.lblCreadoFecha, 6);
             this.lblCreadoFecha.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCreadoFecha.Location = new System.Drawing.Point(95, 210);
+            this.lblCreadoFecha.Location = new System.Drawing.Point(95, 343);
             this.lblCreadoFecha.Name = "lblCreadoFecha";
-            this.lblCreadoFecha.Size = new System.Drawing.Size(270, 30);
+            this.lblCreadoFecha.Size = new System.Drawing.Size(270, 49);
             this.lblCreadoFecha.TabIndex = 14;
             this.lblCreadoFecha.Text = "-/-/-";
             this.lblCreadoFecha.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -409,7 +413,7 @@ namespace boutiqueshope.UI
             // 
             this.layoutProductoGeneral.SetColumnSpan(this.txtCodigoProducto, 3);
             this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProducto.Location = new System.Drawing.Point(325, 63);
+            this.txtCodigoProducto.Location = new System.Drawing.Point(325, 101);
             this.txtCodigoProducto.Name = "txtCodigoProducto";
             this.txtCodigoProducto.Size = new System.Drawing.Size(86, 26);
             this.txtCodigoProducto.TabIndex = 20;
@@ -417,21 +421,22 @@ namespace boutiqueshope.UI
             // 
             // dataGridViewProductos
             // 
+            this.dataGridViewProductos.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewProductos, 6);
             this.dataGridViewProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewProductos.Location = new System.Drawing.Point(496, 74);
+            this.dataGridViewProductos.Location = new System.Drawing.Point(496, 112);
             this.dataGridViewProductos.Margin = new System.Windows.Forms.Padding(10);
             this.dataGridViewProductos.Name = "dataGridViewProductos";
             this.tableLayoutPanel1.SetRowSpan(this.dataGridViewProductos, 9);
-            this.dataGridViewProductos.Size = new System.Drawing.Size(473, 268);
+            this.dataGridViewProductos.Size = new System.Drawing.Size(473, 439);
             this.dataGridViewProductos.TabIndex = 4;
             this.dataGridViewProductos.SelectionChanged += new System.EventHandler(this.dataGridViewProductos_SelectionChanged);
             // 
             // lblProductoId
             // 
             this.lblProductoId.AutoSize = true;
-            this.lblProductoId.Location = new System.Drawing.Point(3, 352);
+            this.lblProductoId.Location = new System.Drawing.Point(3, 561);
             this.lblProductoId.Name = "lblProductoId";
             this.lblProductoId.Size = new System.Drawing.Size(0, 13);
             this.lblProductoId.TabIndex = 3;
@@ -444,16 +449,45 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.SetColumnSpan(this.label10, 6);
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(489, 32);
+            this.label10.Location = new System.Drawing.Point(489, 51);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(487, 32);
+            this.label10.Size = new System.Drawing.Size(487, 51);
             this.label10.TabIndex = 5;
             this.label10.Text = "LISTADO PRODUCTOS";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.layoutProductoGeneral.SetColumnSpan(this.label12, 2);
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 294);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 49);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Tipo:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxTipo
+            // 
+            this.layoutProductoGeneral.SetColumnSpan(this.comboBoxTipo, 7);
+            this.comboBoxTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Items.AddRange(new object[] {
+            "simple",
+            "variacion",
+            "servicio ",
+            "kit"});
+            this.comboBoxTipo.Location = new System.Drawing.Point(95, 297);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(201, 28);
+            this.comboBoxTipo.TabIndex = 22;
+            // 
             // ProductoUI
             // 
-            this.ClientSize = new System.Drawing.Size(979, 392);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(979, 658);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductoUI";
@@ -499,5 +533,7 @@ namespace boutiqueshope.UI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCodigoProducto;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.Label label12;
     }
 }
