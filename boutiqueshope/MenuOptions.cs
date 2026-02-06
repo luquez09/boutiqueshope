@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using boutiqueshope.UI;
+using boutiqueshope.UI.Inventario;
 
 namespace boutiqueshope
 {
@@ -182,7 +183,7 @@ namespace boutiqueshope
 
         private void btnMovimientosInventario_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AlmacenUI());
+            OpenChildForm(new AjusteInventarioUI());
         }
 
         private void btnAjustesInventario_Click(object sender, EventArgs e)

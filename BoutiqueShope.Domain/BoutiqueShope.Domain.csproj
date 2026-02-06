@@ -53,7 +53,9 @@
     <Compile Include="Entities\Tallas.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Inventario\MovimientoInventario.cs" />
+    <Compile Include="Inventarios\AjusteInventario.cs" />
+    <Compile Include="Inventarios\InventarioDomain.cs" />
+    <Compile Include="Inventarios\MovimientoInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

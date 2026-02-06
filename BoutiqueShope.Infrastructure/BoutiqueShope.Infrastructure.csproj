@@ -138,8 +138,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConnection.cs" />
-    <Compile Include="Implementations\MovimientoInventarioImpl.cs" />
-    <Compile Include="Interfaces\IMovimientoInventario.cs" />
+    <Compile Include="Implementations\Inventarios\AjusteInventarioImpl.cs" />
+    <Compile Include="Implementations\Inventarios\InventarioImpl.cs" />
+    <Compile Include="Implementations\Inventarios\MovimientoInventarioImpl.cs" />
+    <Compile Include="Interfaces\Inventario\IAjusteInventario.cs" />
+    <Compile Include="Interfaces\Inventario\IInventario.cs" />
+    <Compile Include="Interfaces\Inventario\IMovimientoInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AlmacenRepository.cs" />
     <Compile Include="Repositories\CategoriaRepository.cs" />

@@ -104,8 +104,6 @@ namespace boutiqueshope.UI
             _listProductos = new BindingList<Producto>(respuesta.Listado);
             dataGridViewProducto.DataSource = _listProductos;
             dataGridViewProducto.ClearSelection();
-
-            //LimpiarFormulario();
         }
 
         private void searchProducto()

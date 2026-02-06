@@ -112,10 +112,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UI\CategoriaUI.cs">
+    <Compile Include="UI\Inventario\AjusteInventarioUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\CategoriaUI.Designer.cs">
+    <Compile Include="UI\Inventario\AjusteInventarioUI.Designer.cs">
+      <DependentUpon>AjusteInventarioUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventario\CategoriaUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Inventario\CategoriaUI.Designer.cs">
       <DependentUpon>CategoriaUI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ClienteUI.cs">
@@ -124,29 +130,35 @@
     <Compile Include="UI\ClienteUI.Designer.cs">
       <DependentUpon>ClienteUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AlmacenUI.cs">
+    <Compile Include="UI\Inventario\AlmacenUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\AlmacenUI.Designer.cs">
+    <Compile Include="UI\Inventario\AlmacenUI.Designer.cs">
       <DependentUpon>AlmacenUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\MarcaUI.cs">
+    <Compile Include="UI\Inventario\MarcaUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\MarcaUI.Designer.cs">
+    <Compile Include="UI\Inventario\MarcaUI.Designer.cs">
       <DependentUpon>MarcaUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProductoUI.cs">
+    <Compile Include="UI\Inventario\ProductoUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ProductoUI.Designer.cs">
+    <Compile Include="UI\Inventario\ProductoUI.Designer.cs">
       <DependentUpon>ProductoUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ProductoVariacionUI.cs">
+    <Compile Include="UI\Inventario\ProductoVariacionUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ProductoVariacionUI.Designer.cs">
+    <Compile Include="UI\Inventario\ProductoVariacionUI.Designer.cs">
       <DependentUpon>ProductoVariacionUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Inventario\SearchProductUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Inventario\SearchProductUI.Designer.cs">
+      <DependentUpon>SearchProductUI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ProveedorUI.cs">
       <SubType>Form</SubType>
@@ -168,23 +180,29 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\AlmacenUI.resx">
+    <EmbeddedResource Include="UI\Inventario\AjusteInventarioUI.resx">
+      <DependentUpon>AjusteInventarioUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Inventario\AlmacenUI.resx">
       <DependentUpon>AlmacenUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CategoriaUI.resx">
+    <EmbeddedResource Include="UI\Inventario\CategoriaUI.resx">
       <DependentUpon>CategoriaUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ClienteUI.resx">
       <DependentUpon>ClienteUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\MarcaUI.resx">
+    <EmbeddedResource Include="UI\Inventario\MarcaUI.resx">
       <DependentUpon>MarcaUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ProductoUI.resx">
+    <EmbeddedResource Include="UI\Inventario\ProductoUI.resx">
       <DependentUpon>ProductoUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ProductoVariacionUI.resx">
+    <EmbeddedResource Include="UI\Inventario\ProductoVariacionUI.resx">
       <DependentUpon>ProductoVariacionUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Inventario\SearchProductUI.resx">
+      <DependentUpon>SearchProductUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProveedorUI.resx">
       <DependentUpon>ProveedorUI.cs</DependentUpon>
@@ -220,10 +238,18 @@
       <Project>{884ce591-4b90-4ee9-b071-cc446086a698}</Project>
       <Name>BoutiqueShope.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BoutiqueShope.Infrastructure\BoutiqueShope.Infrastructure.csproj">
+      <Project>{40FBB128-1EC1-4A5D-83CF-5935AA10EB7B}</Project>
+      <Name>BoutiqueShope.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\agregar-usuario.png" />
     <Content Include="Resources\agregar-usuario1.png" />
+    <None Include="Resources\Close Window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Ventas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
