@@ -10,5 +10,7 @@ namespace BoutiqueShope.Domain.Inventarios
         public int usuarioId { get; set; }
         public string tipoMovimiento { get; set; }
         public string documentoOrigen { get; set; }
+        public DateTime fechaInicio { get; set; }
+        public DateTime fechaFin { get; set; }
     }
 }

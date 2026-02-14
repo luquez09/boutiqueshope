@@ -78,7 +78,7 @@ namespace boutiqueshope.UI.Inventario
             if (rdEntradaTipoMov.Checked) return "entrada";
             if (rdSalidaTipoMov.Checked) return "salida";
             if (rdTodosTipoMov.Checked) return null;
-            
+
             return null;
         }
 
@@ -89,12 +89,34 @@ namespace boutiqueshope.UI.Inventario
             if (rdAjusteDocuOrigen.Checked) return "ajuste";
             if (rdTrasladoDocuOrigen.Checked) return "traslado";
             if (rdTodosDocuOrigen.Checked) return null;
-            
+
             return null;
         }
 
         private FiltorInventario CapturarFiltro()
         {
+
+            DateTime fechaInicio = dtDateDesde.Value.Date;
+            DateTime fechaFin = dtDateHasta.Value.Date.AddDays(1).AddSeconds(-1);
+
+            if (fechaInicio > fechaFin)
+            {
+                UIHelper.MostrarError("La fecha de inicio no puede ser mayor que la fecha de fin.");
+                return null;
+            }
+
+            if (comboProducto.SelectedValue == null || comboAlmacen.SelectedValue == null || comboVariacion.SelectedValue == null || comboUsuario.SelectedValue == null)
+            {
+                UIHelper.MostrarError("Por favor, seleccione un producto, almacén, variación y usuario.");
+                return null;
+            }
+
+            if ((int)comboProducto.SelectedValue == 0 || (int)comboAlmacen.SelectedValue == 0 || (int)comboVariacion.SelectedValue == 0 || (int)comboUsuario.SelectedValue == 0)
+            {
+                UIHelper.MostrarError("Por favor, seleccione un producto, almacén, variación y usuario válidos.");
+                return null;
+            }
+
             return new FiltorInventario
             {
                 productoId = (int)comboProducto.SelectedValue,
@@ -102,7 +124,9 @@ namespace boutiqueshope.UI.Inventario
                 variacionId = (int)comboVariacion.SelectedValue,
                 usuarioId = (int)comboUsuario.SelectedValue,
                 tipoMovimiento = ObtenerTipoMovimientoSeleccionado(),
-                documentoOrigen = ObtenerDocumentoOrigen()
+                documentoOrigen = ObtenerDocumentoOrigen(),
+                fechaInicio = dtDateDesde.Value.Date,
+                fechaFin = dtDateHasta.Value.Date.AddDays(1).AddSeconds(-1)
             };
         }
 
@@ -131,7 +155,6 @@ namespace boutiqueshope.UI.Inventario
         {
             dtDateDesde.Value = DateTime.Now.AddDays(-30);
         }
-
 
         private async void GetAllProductoVariacion()
         {

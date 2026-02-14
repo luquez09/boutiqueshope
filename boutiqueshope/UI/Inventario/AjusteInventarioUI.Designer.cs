@@ -29,7 +29,7 @@ namespace boutiqueshope.UI.Inventario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjusteInventarioUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProducto = new System.Windows.Forms.TextBox();
@@ -146,9 +146,10 @@ namespace boutiqueshope.UI.Inventario
             this.tableLayoutPanel1.SetColumnSpan(this.label3, 5);
             this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 50);
+            this.label3.Location = new System.Drawing.Point(33, 45);
+            this.label3.Margin = new System.Windows.Forms.Padding(5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 18);
+            this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Buscar Producto";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -201,14 +202,14 @@ namespace boutiqueshope.UI.Inventario
             this.dataGridViewVariacion.Name = "dataGridViewVariacion";
             this.dataGridViewVariacion.ReadOnly = true;
             this.dataGridViewVariacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewVariacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVariacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Format = "N2";
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.NullValue = "0";
@@ -330,7 +331,7 @@ namespace boutiqueshope.UI.Inventario
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 20);
+            this.label4.Location = new System.Drawing.Point(65, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 18);
             this.label4.TabIndex = 4;
@@ -426,6 +427,7 @@ namespace boutiqueshope.UI.Inventario
             this.radioButtonSalida.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonSalida.Location = new System.Drawing.Point(283, 3);
             this.radioButtonSalida.Name = "radioButtonSalida";
+            this.radioButtonSalida.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.radioButtonSalida.Size = new System.Drawing.Size(134, 27);
             this.radioButtonSalida.TabIndex = 14;
             this.radioButtonSalida.TabStop = true;
@@ -437,6 +439,11 @@ namespace boutiqueshope.UI.Inventario
             this.numericCostoUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericCostoUnitario.DecimalPlaces = 2;
             this.numericCostoUnitario.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericCostoUnitario.Increment = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            131072});
             this.numericCostoUnitario.Location = new System.Drawing.Point(145, 69);
             this.numericCostoUnitario.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
             this.numericCostoUnitario.Maximum = new decimal(new int[] {
@@ -444,10 +451,21 @@ namespace boutiqueshope.UI.Inventario
             0,
             0,
             0});
+            this.numericCostoUnitario.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numericCostoUnitario.Name = "numericCostoUnitario";
             this.numericCostoUnitario.Size = new System.Drawing.Size(122, 25);
             this.numericCostoUnitario.TabIndex = 12;
             this.numericCostoUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericCostoUnitario.ThousandsSeparator = true;
+            this.numericCostoUnitario.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // label11
             // 
@@ -543,6 +561,7 @@ namespace boutiqueshope.UI.Inventario
             this.radioButtonEntrada.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonEntrada.Location = new System.Drawing.Point(143, 3);
             this.radioButtonEntrada.Name = "radioButtonEntrada";
+            this.radioButtonEntrada.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.radioButtonEntrada.Size = new System.Drawing.Size(134, 27);
             this.radioButtonEntrada.TabIndex = 13;
             this.radioButtonEntrada.TabStop = true;

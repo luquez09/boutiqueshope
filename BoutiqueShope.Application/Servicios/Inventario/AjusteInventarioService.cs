@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Inventario;
 using BoutiqueShope.Infrastructure.Implementations;
-using BoutiqueShope.Infrastructure.Interfaces;
 
 namespace BoutiqueShope.Application.Servicios.Inventario
 {
@@ -16,7 +15,7 @@ namespace BoutiqueShope.Application.Servicios.Inventario
         {
             List<string> errores = new List<string>();
             string error = string.Empty;
-            //Validamos que los datos sean correctos
+
             error = validacionCampos.ValidacionCampoNumerico("Cantidad", ajusteInventario.Cantidad);
             if (!string.IsNullOrEmpty(error))
                 errores.Add(error);

@@ -21,7 +21,7 @@ namespace BoutiqueShope.Infrastructure.Implementations
                 using (var conn = DbConnection.GetConnection())
                 {
                     await conn.OpenAsync();
-                    string sqlConsult = "SELECT * FROM get_movimientos_inventario(@producto_id, @variacion_id, @almacen_id, @tipo_movimiento, @documento_origen)";
+                    string sqlConsult = "SELECT * FROM get_movimientos_inventario(@producto_id, @variacion_id, @almacen_id, @tipo_movimiento, @documento_origen, @fecha_inicio, @fecha_fin)";
                     using (var cmd = new NpgsqlCommand(sqlConsult, conn))
                     {
                         cmd.Parameters.AddWithValue("@producto_id", (object)filtorInventario.productoId ?? DBNull.Value);
@@ -29,6 +29,8 @@ namespace BoutiqueShope.Infrastructure.Implementations
                         cmd.Parameters.AddWithValue("@almacen_id", (object)filtorInventario.almacenId ?? DBNull.Value);
                         cmd.Parameters.AddWithValue("@tipo_movimiento", (object)filtorInventario.tipoMovimiento ?? DBNull.Value);
                         cmd.Parameters.AddWithValue("@documento_origen", (object)filtorInventario.documentoOrigen ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@fecha_inicio", (object)filtorInventario.fechaInicio ?? DBNull.Value);
+                        cmd.Parameters.AddWithValue("@fecha_fin", (object)filtorInventario.fechaFin ?? DBNull.Value);
 
                         using (var dr = await cmd.ExecuteReaderAsync())
                         {
@@ -56,6 +58,7 @@ namespace BoutiqueShope.Infrastructure.Implementations
             return new MovimientoInventario
             {
                 Id = dr.GetInt32(dr.GetOrdinal("id")),
+                Fecha = dr.GetDateTime(dr.GetOrdinal("fecha")),
                 Producto = dr.GetString(dr.GetOrdinal("producto")),
                 Variacion = dr.GetString(dr.GetOrdinal("variacion")),
                 Almacen = dr.GetString(dr.GetOrdinal("almacen")),

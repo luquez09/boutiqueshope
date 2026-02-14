@@ -47,8 +47,6 @@ namespace boutiqueshope.UI.Inventario
             this.comboUsuario = new System.Windows.Forms.ComboBox();
             this.comboVariacion = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.lblFechaDesde = new System.Windows.Forms.Label();
-            this.lblFechaHasta = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdTodosTipoMov = new System.Windows.Forms.RadioButton();
             this.rdSalidaTipoMov = new System.Windows.Forms.RadioButton();
@@ -59,11 +57,13 @@ namespace boutiqueshope.UI.Inventario
             this.rdAjusteDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdCompraDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdVentaDocuOrigen = new System.Windows.Forms.RadioButton();
+            this.lblFechaDesde = new System.Windows.Forms.Label();
+            this.dtDateDesde = new System.Windows.Forms.DateTimePicker();
+            this.lblFechaHasta = new System.Windows.Forms.Label();
+            this.dtDateHasta = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewMovimientos = new System.Windows.Forms.DataGridView();
-            this.dtDateDesde = new System.Windows.Forms.DateTimePicker();
-            this.dtDateHasta = new System.Windows.Forms.DateTimePicker();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -314,22 +314,6 @@ namespace boutiqueshope.UI.Inventario
             this.btnLimpiar.Text = "LIMPIAR BUSQUEDA";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             // 
-            // lblFechaDesde
-            // 
-            this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(720, 173);
-            this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(0, 18);
-            this.lblFechaDesde.TabIndex = 14;
-            // 
-            // lblFechaHasta
-            // 
-            this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(13, 82);
-            this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(0, 18);
-            this.lblFechaHasta.TabIndex = 15;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rdTodosTipoMov);
@@ -446,6 +430,38 @@ namespace boutiqueshope.UI.Inventario
             this.rdVentaDocuOrigen.Text = "Venta";
             this.rdVentaDocuOrigen.UseVisualStyleBackColor = true;
             // 
+            // lblFechaDesde
+            // 
+            this.lblFechaDesde.AutoSize = true;
+            this.lblFechaDesde.Location = new System.Drawing.Point(720, 173);
+            this.lblFechaDesde.Name = "lblFechaDesde";
+            this.lblFechaDesde.Size = new System.Drawing.Size(0, 18);
+            this.lblFechaDesde.TabIndex = 14;
+            // 
+            // dtDateDesde
+            // 
+            this.dtDateDesde.Checked = false;
+            this.dtDateDesde.Location = new System.Drawing.Point(720, 109);
+            this.dtDateDesde.MaxDate = new System.DateTime(2709, 12, 31, 0, 0, 0, 0);
+            this.dtDateDesde.Name = "dtDateDesde";
+            this.dtDateDesde.Size = new System.Drawing.Size(264, 26);
+            this.dtDateDesde.TabIndex = 1;
+            // 
+            // lblFechaHasta
+            // 
+            this.lblFechaHasta.AutoSize = true;
+            this.lblFechaHasta.Location = new System.Drawing.Point(13, 82);
+            this.lblFechaHasta.Name = "lblFechaHasta";
+            this.lblFechaHasta.Size = new System.Drawing.Size(0, 18);
+            this.lblFechaHasta.TabIndex = 15;
+            // 
+            // dtDateHasta
+            // 
+            this.dtDateHasta.Location = new System.Drawing.Point(720, 144);
+            this.dtDateHasta.Name = "dtDateHasta";
+            this.dtDateHasta.Size = new System.Drawing.Size(264, 26);
+            this.dtDateHasta.TabIndex = 18;
+            // 
             // panel3
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel3, 2);
@@ -495,22 +511,6 @@ namespace boutiqueshope.UI.Inventario
             this.dataGridViewMovimientos.Size = new System.Drawing.Size(1003, 291);
             this.dataGridViewMovimientos.TabIndex = 3;
             // 
-            // dtDateDesde
-            // 
-            this.dtDateDesde.Checked = false;
-            this.dtDateDesde.Location = new System.Drawing.Point(720, 109);
-            this.dtDateDesde.MaxDate = new System.DateTime(2709, 12, 31, 0, 0, 0, 0);
-            this.dtDateDesde.Name = "dtDateDesde";
-            this.dtDateDesde.Size = new System.Drawing.Size(264, 26);
-            this.dtDateDesde.TabIndex = 1;
-            // 
-            // dtDateHasta
-            // 
-            this.dtDateHasta.Location = new System.Drawing.Point(720, 144);
-            this.dtDateHasta.Name = "dtDateHasta";
-            this.dtDateHasta.Size = new System.Drawing.Size(264, 26);
-            this.dtDateHasta.TabIndex = 18;
-            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -544,7 +544,7 @@ namespace boutiqueshope.UI.Inventario
             // 
             // Almacen
             // 
-            this.Almacen.DataPropertyName = "Alamacen";
+            this.Almacen.DataPropertyName = "Almacen";
             this.Almacen.HeaderText = "Almacen";
             this.Almacen.Name = "Almacen";
             // 

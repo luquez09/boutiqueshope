@@ -50,7 +50,6 @@ namespace BoutiqueShope.Infrastructure.Implementations
                         catch (Exception ex)
                         {
                             await tx.RollbackAsync();
-                            // Captura el error específico de la lógica del procedimiento (ej. stock insuficiente)
                             return Response<AjusteInventario>.Fail("Error en la transacción: \n" + ex.Message, ex.InnerException.ToString());
                         }
                     }
