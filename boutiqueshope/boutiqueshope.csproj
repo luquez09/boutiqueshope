@@ -142,6 +142,12 @@
     <Compile Include="UI\Inventario\MarcaUI.Designer.cs">
       <DependentUpon>MarcaUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Inventario\MovimientoInventarioUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Inventario\MovimientoInventarioUI.Designer.cs">
+      <DependentUpon>MovimientoInventarioUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Inventario\ProductoUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="UI\Inventario\MarcaUI.resx">
       <DependentUpon>MarcaUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Inventario\MovimientoInventarioUI.resx">
+      <DependentUpon>MovimientoInventarioUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Inventario\ProductoUI.resx">
       <DependentUpon>ProductoUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +255,8 @@
   <ItemGroup>
     <Content Include="Resources\agregar-usuario.png" />
     <Content Include="Resources\agregar-usuario1.png" />
+    <None Include="Resources\XLS-32.png" />
+    <None Include="Resources\XLS.png" />
     <None Include="Resources\Close Window.png" />
   </ItemGroup>
   <ItemGroup>

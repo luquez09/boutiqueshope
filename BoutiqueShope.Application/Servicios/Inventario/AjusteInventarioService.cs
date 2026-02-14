@@ -28,7 +28,6 @@ namespace BoutiqueShope.Application.Servicios.Inventario
             if (errores.Count > 0)
                 return Response<AjusteInventario>.Fail(string.Join("; ", errores), "400");
 
-            //Si todo es correcto, se realiza el ajuste de inventario
             return await _ajusteInventario.RegistrarAjusteInventario(ajusteInventario);
         }
     }

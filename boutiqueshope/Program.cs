@@ -12,6 +12,9 @@ namespace boutiqueshope
         [STAThread]
         static void Main()
         {
+
+            //AppContext.SetSwitch("System.Windows.Forms.UseLegacyAccessibilityFeatures", false);
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MenuOptions());

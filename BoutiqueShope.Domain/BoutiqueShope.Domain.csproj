@@ -54,13 +54,12 @@
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Inventarios\AjusteInventario.cs" />
+    <Compile Include="Inventarios\FiltorInventario.cs" />
     <Compile Include="Inventarios\InventarioDomain.cs" />
     <Compile Include="Inventarios\MovimientoInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Implementacion\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BoutiqueShope.CrossCutting\BoutiqueShope.CrossCutting.csproj">
       <Project>{883d89aa-dd24-43dd-8985-c00b58c525bd}</Project>

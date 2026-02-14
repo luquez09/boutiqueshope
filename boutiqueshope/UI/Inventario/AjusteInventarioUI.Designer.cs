@@ -71,7 +71,6 @@ namespace boutiqueshope.UI.Inventario
             this.comboBoxTipoAjuste = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblInformacion = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVariacion)).BeginInit();
             this.panel1.SuspendLayout();
@@ -213,7 +212,7 @@ namespace boutiqueshope.UI.Inventario
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Format = "N2";
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.NullValue = "0";
-            this.dataGridViewVariacion.Size = new System.Drawing.Size(600, 353);
+            this.dataGridViewVariacion.Size = new System.Drawing.Size(600, 419);
             this.dataGridViewVariacion.TabIndex = 3;
             this.dataGridViewVariacion.SelectionChanged += new System.EventHandler(this.dataGridViewVariacion_SelectionChanged);
             // 
@@ -399,6 +398,7 @@ namespace boutiqueshope.UI.Inventario
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.txtMotivo, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.numericCantidad, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.radioButtonEntrada, 1, 0);
@@ -434,12 +434,20 @@ namespace boutiqueshope.UI.Inventario
             // 
             // numericCostoUnitario
             // 
+            this.numericCostoUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numericCostoUnitario.DecimalPlaces = 2;
             this.numericCostoUnitario.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericCostoUnitario.Location = new System.Drawing.Point(145, 69);
             this.numericCostoUnitario.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.numericCostoUnitario.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numericCostoUnitario.Name = "numericCostoUnitario";
             this.numericCostoUnitario.Size = new System.Drawing.Size(122, 25);
             this.numericCostoUnitario.TabIndex = 12;
+            this.numericCostoUnitario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label11
             // 
@@ -503,12 +511,29 @@ namespace boutiqueshope.UI.Inventario
             // 
             // numericCantidad
             // 
+            this.numericCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numericCantidad.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericCantidad.Location = new System.Drawing.Point(145, 36);
             this.numericCantidad.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.numericCantidad.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericCantidad.Name = "numericCantidad";
             this.numericCantidad.Size = new System.Drawing.Size(122, 25);
             this.numericCantidad.TabIndex = 9;
+            this.numericCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // radioButtonEntrada
             // 
@@ -570,9 +595,9 @@ namespace boutiqueshope.UI.Inventario
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(367, 413);
+            this.button1.Location = new System.Drawing.Point(3, 201);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 55);
+            this.button1.Size = new System.Drawing.Size(131, 33);
             this.button1.TabIndex = 10;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
@@ -588,31 +613,18 @@ namespace boutiqueshope.UI.Inventario
             this.lblInformacion.TabIndex = 7;
             this.lblInformacion.Text = "- - -";
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(504, 413);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(108, 55);
-            this.btnLimpiar.TabIndex = 8;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            // 
             // AjusteInventarioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 524);
             this.ControlBox = false;
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.lblInformacion);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewVariacion);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -678,6 +690,5 @@ namespace boutiqueshope.UI.Inventario
         private System.Windows.Forms.RadioButton radioButtonEntrada;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxTipoAjuste;
-        private System.Windows.Forms.Button btnLimpiar;
     }
 }

@@ -167,6 +167,7 @@ namespace boutiqueshope.UI.Inventario
                 Cantidad = Convert.ToInt32(numericCantidad.Value),
                 CostoUnitario = Convert.ToInt32(numericCostoUnitario.Value),
                 Motivo = txtMotivo.Text,
+                idUsuario = 1
             };
 
             return ajuste;
@@ -201,10 +202,22 @@ namespace boutiqueshope.UI.Inventario
         }
          private void btnGuardarAjuste_Click(object sender, EventArgs e)
         {
-            var respuesta = _ajusteInventarioService.RealizarAjusteAsync(ObtenerAjusteInventario());
-
-            UIHelper.MostrarExito("Ajuste de inventario registrado exitosamente.");
+            GuardarAjusteDataBase();
             
+        }
+
+        private async void GuardarAjusteDataBase()
+        {
+            var respuesta = await _ajusteInventarioService.RealizarAjusteAsync(ObtenerAjusteInventario());
+            if (respuesta.Exitoso)
+            {
+                UIHelper.MostrarExito(respuesta.Mensaje);
+                callGetInventarioForIds();
+            }
+            else
+            {
+                UIHelper.MostrarError("Error al registrar el ajuste: " + respuesta.Mensaje);
+            }
         }
 
         private void dataGridViewVariacion_SelectionChanged(object sender, EventArgs e)

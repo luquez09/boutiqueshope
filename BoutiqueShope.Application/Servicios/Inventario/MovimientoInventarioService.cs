@@ -1,23 +1,18 @@
 using System.Threading.Tasks;
+using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Inventario;
-using BoutiqueShope.Infrastructure.Interfaces;
+using BoutiqueShope.Domain.Inventarios;
+using BoutiqueShope.Infrastructure.Implementations;
 
 namespace BoutiqueShope.Application.Servicios.Ventas
 {
     public class MovimientoInventarioService
     {
+        private readonly MovimientoInventarioImpl _repo = new MovimientoInventarioImpl();
 
-        private readonly IMovimientoInventario _repo;
-
-        public MovimientoInventarioService(IMovimientoInventario movimientoInventarioRepository)
+        public async Task<Response<MovimientoInventario>> GetAllMovimientoForIds(FiltorInventario filtorInventario)
         {
-            _repo = movimientoInventarioRepository;
+            return await _repo.GetAllMovimientoForIds(filtorInventario);
         }
-
-        public async Task RegistrarEntradaAsync(MovimientoInventario movimientoInventario)
-        {
-            await _repo.RegistrarEntradaAsync(movimientoInventario);
-        }
-
     }
 }

@@ -100,6 +100,7 @@ namespace boutiqueshope
             this.btnCrearCliente = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panelInventarioSubMenu = new System.Windows.Forms.Panel();
+            this.btnHistorialInventario = new System.Windows.Forms.Button();
             this.btnAjusteInventarios = new System.Windows.Forms.Button();
             this.btnAlmacenes = new System.Windows.Forms.Button();
             this.btnMarcas = new System.Windows.Forms.Button();
@@ -179,7 +180,7 @@ namespace boutiqueshope
             this.panelConfiguracionSubMenu.Controls.Add(this.btnImpresoras);
             this.panelConfiguracionSubMenu.Controls.Add(this.btnParametros);
             this.panelConfiguracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 1069);
+            this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 1092);
             this.panelConfiguracionSubMenu.Name = "panelConfiguracionSubMenu";
             this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(214, 121);
             this.panelConfiguracionSubMenu.TabIndex = 16;
@@ -255,7 +256,7 @@ namespace boutiqueshope
             this.btnConfiguracion.FlatAppearance.BorderSize = 0;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConfiguracion.Location = new System.Drawing.Point(0, 1034);
+            this.btnConfiguracion.Location = new System.Drawing.Point(0, 1057);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnConfiguracion.Size = new System.Drawing.Size(214, 35);
@@ -271,7 +272,7 @@ namespace boutiqueshope
             this.panelAdministracionSubMenu.Controls.Add(this.btnRoles);
             this.panelAdministracionSubMenu.Controls.Add(this.btnUsuarios);
             this.panelAdministracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAdministracionSubMenu.Location = new System.Drawing.Point(0, 968);
+            this.panelAdministracionSubMenu.Location = new System.Drawing.Point(0, 991);
             this.panelAdministracionSubMenu.Name = "panelAdministracionSubMenu";
             this.panelAdministracionSubMenu.Size = new System.Drawing.Size(214, 66);
             this.panelAdministracionSubMenu.TabIndex = 14;
@@ -315,7 +316,7 @@ namespace boutiqueshope
             this.btnAdministracion.FlatAppearance.BorderSize = 0;
             this.btnAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdministracion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAdministracion.Location = new System.Drawing.Point(0, 933);
+            this.btnAdministracion.Location = new System.Drawing.Point(0, 956);
             this.btnAdministracion.Name = "btnAdministracion";
             this.btnAdministracion.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnAdministracion.Size = new System.Drawing.Size(214, 35);
@@ -333,7 +334,7 @@ namespace boutiqueshope
             this.panelFinanzasSubMenu.Controls.Add(this.btnPagosDocumento);
             this.panelFinanzasSubMenu.Controls.Add(this.btnCuentas);
             this.panelFinanzasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFinanzasSubMenu.Location = new System.Drawing.Point(0, 805);
+            this.panelFinanzasSubMenu.Location = new System.Drawing.Point(0, 828);
             this.panelFinanzasSubMenu.Name = "panelFinanzasSubMenu";
             this.panelFinanzasSubMenu.Size = new System.Drawing.Size(214, 128);
             this.panelFinanzasSubMenu.TabIndex = 12;
@@ -409,7 +410,7 @@ namespace boutiqueshope
             this.btnFinanzas.FlatAppearance.BorderSize = 0;
             this.btnFinanzas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinanzas.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFinanzas.Location = new System.Drawing.Point(0, 770);
+            this.btnFinanzas.Location = new System.Drawing.Point(0, 793);
             this.btnFinanzas.Name = "btnFinanzas";
             this.btnFinanzas.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnFinanzas.Size = new System.Drawing.Size(214, 35);
@@ -425,7 +426,7 @@ namespace boutiqueshope
             this.panelProveedoresSubMenu.Controls.Add(this.btnCrearProveedor);
             this.panelProveedoresSubMenu.Controls.Add(this.btnListadoProveedores);
             this.panelProveedoresSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProveedoresSubMenu.Location = new System.Drawing.Point(0, 709);
+            this.panelProveedoresSubMenu.Location = new System.Drawing.Point(0, 732);
             this.panelProveedoresSubMenu.Name = "panelProveedoresSubMenu";
             this.panelProveedoresSubMenu.Size = new System.Drawing.Size(214, 61);
             this.panelProveedoresSubMenu.TabIndex = 10;
@@ -469,7 +470,7 @@ namespace boutiqueshope
             this.btnProveedores.FlatAppearance.BorderSize = 0;
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedores.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 674);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 697);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(214, 35);
@@ -486,7 +487,7 @@ namespace boutiqueshope
             this.panelClientesSubMenu.Controls.Add(this.btnCreditosCliente);
             this.panelClientesSubMenu.Controls.Add(this.btnCrearCliente);
             this.panelClientesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClientesSubMenu.Location = new System.Drawing.Point(0, 553);
+            this.panelClientesSubMenu.Location = new System.Drawing.Point(0, 576);
             this.panelClientesSubMenu.Name = "panelClientesSubMenu";
             this.panelClientesSubMenu.Size = new System.Drawing.Size(214, 121);
             this.panelClientesSubMenu.TabIndex = 8;
@@ -546,7 +547,7 @@ namespace boutiqueshope
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnClientes.Location = new System.Drawing.Point(0, 518);
+            this.btnClientes.Location = new System.Drawing.Point(0, 541);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(214, 35);
@@ -559,6 +560,7 @@ namespace boutiqueshope
             // panelInventarioSubMenu
             // 
             this.panelInventarioSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.panelInventarioSubMenu.Controls.Add(this.btnHistorialInventario);
             this.panelInventarioSubMenu.Controls.Add(this.btnAjusteInventarios);
             this.panelInventarioSubMenu.Controls.Add(this.btnAlmacenes);
             this.panelInventarioSubMenu.Controls.Add(this.btnMarcas);
@@ -568,9 +570,25 @@ namespace boutiqueshope
             this.panelInventarioSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInventarioSubMenu.Location = new System.Drawing.Point(0, 330);
             this.panelInventarioSubMenu.Name = "panelInventarioSubMenu";
-            this.panelInventarioSubMenu.Size = new System.Drawing.Size(214, 188);
+            this.panelInventarioSubMenu.Size = new System.Drawing.Size(214, 211);
             this.panelInventarioSubMenu.TabIndex = 6;
             this.panelInventarioSubMenu.Visible = false;
+            // 
+            // btnHistorialInventario
+            // 
+            this.btnHistorialInventario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHistorialInventario.FlatAppearance.BorderSize = 0;
+            this.btnHistorialInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialInventario.ForeColor = System.Drawing.Color.Silver;
+            this.btnHistorialInventario.Location = new System.Drawing.Point(0, 180);
+            this.btnHistorialInventario.Name = "btnHistorialInventario";
+            this.btnHistorialInventario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnHistorialInventario.Size = new System.Drawing.Size(214, 30);
+            this.btnHistorialInventario.TabIndex = 6;
+            this.btnHistorialInventario.Text = "Historial Inventario";
+            this.btnHistorialInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialInventario.UseVisualStyleBackColor = true;
+            this.btnHistorialInventario.Click += new System.EventHandler(this.btnHistorialInventario_Click);
             // 
             // btnAjusteInventarios
             // 
@@ -840,7 +858,7 @@ namespace boutiqueshope
             this.ClientSize = new System.Drawing.Size(852, 1340);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSidebar);
-            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MenuOptions";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -860,5 +878,7 @@ namespace boutiqueshope
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnHistorialInventario;
     }
 }

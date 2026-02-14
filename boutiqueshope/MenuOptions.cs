@@ -321,5 +321,10 @@ namespace boutiqueshope
         {
             //OpenChildForm(new FrmBackup());
         }
+
+        private void btnHistorialInventario_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new MovimientoInventarioUI());
+        }
     }
 }
