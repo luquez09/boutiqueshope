@@ -88,7 +88,7 @@ namespace boutiqueshope.UI
                 CategoriaId = categoriaId,
                 MarcaId = marcaId > 0 ? (int?)marcaId : null,
                 Activo = checkBoxActive.Checked,
-                codigoSku = txtCodigoProducto.Text?.Trim(),
+                CodigoSku = txtCodigoProducto.Text?.Trim(),
                 Tipo = comboBoxTipo.Text?.Trim()
             };
         }
@@ -115,29 +115,6 @@ namespace boutiqueshope.UI
             return 0;
         }
 
-        private void ConfigurarColumnasProductos()
-        {
-            if (dataGridViewProductos.Columns.Count == 0) return;
-
-            dataGridViewProductos.Columns["Id"].HeaderText = "Id";
-            dataGridViewProductos.Columns["Id"].Visible = false;
-            dataGridViewProductos.Columns["Costo"].Visible = false;
-            dataGridViewProductos.Columns["PorcentajeGanancia"].Visible = false;
-            dataGridViewProductos.Columns["PrecioVenta"].Visible = false;
-            dataGridViewProductos.Columns["StockMinimo"].Visible = false;
-            dataGridViewProductos.Columns["ProveedorId"].Visible = false;
-            dataGridViewProductos.Columns["MarcaId"].Visible = false;
-            dataGridViewProductos.Columns["CategoriaId"].Visible = false;
-            dataGridViewProductos.Columns["CodigoBarras"].Visible = false;
-            dataGridViewProductos.Columns["CodigoQr"].Visible = false;
-            dataGridViewProductos.Columns["Nombre"].HeaderText = "Nombre";
-            dataGridViewProductos.Columns["Descripcion"].HeaderText = "Descripción";
-            dataGridViewProductos.Columns["Activo"].HeaderText = "Activo";
-            dataGridViewProductos.Columns["FechaCreacion"].HeaderText = "Creado el";
-            dataGridViewProductos.Columns["CodigoSku"].HeaderText = "Codigo";
-            dataGridViewProductos.Columns["FechaCreacion"].Visible = false;
-        }
-
         private async Task CargarProductosAsync()
         {
             var respuesta = await _productoService.ListarAsync();
@@ -148,10 +125,6 @@ namespace boutiqueshope.UI
             }
 
             dataGridViewProductos.DataSource = respuesta.Listado;
-            dataGridViewProductos.CurrentCell = null;
-            dataGridViewProductos.ClearSelection();
-            ConfigurarColumnasProductos();
-            CleanProductoForm();
         }
 
         private void CargarDatosDesdeGridProducto()
@@ -215,6 +188,15 @@ namespace boutiqueshope.UI
                 SeleccionarValorEnCombo(comboBoxCategoria, cateId);
             else
                 comboBoxCategoria.SelectedIndex = -1;
+
+            BotonesNoAccion(true);
+        }
+
+        private void BotonesNoAccion(bool accion)
+        {
+            btnAgregar.Enabled = !accion;
+            btnActualizar.Enabled = accion;
+            btnEliminar.Enabled = accion;
         }
 
         private void SeleccionarValorEnCombo(ComboBox cb, int id)
@@ -282,6 +264,7 @@ namespace boutiqueshope.UI
             checkBoxActive.Checked = false;
             lblCreadoFecha.Text = "-/-/-";
             txtNombreProducto.Focus();
+            comboBoxTipo.SelectedIndex = 1;
         }
 
         private async void btnAgregar_Click_1(object sender, EventArgs e)
@@ -315,6 +298,7 @@ namespace boutiqueshope.UI
                 var response = await _productoService.EditarAsync(producto);
                 UIHelper.MostrarRespuesta(response);
                 await CargarProductosAsync();
+                BotonesNoAccion(false);
             }
             catch (Exception ex)
             {
@@ -325,6 +309,7 @@ namespace boutiqueshope.UI
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             await EliminarProductoSeleccionadoAsync();
+            BotonesNoAccion(false);
         }
 
         private void dataGridViewProductos_SelectionChanged(object sender, EventArgs e)
@@ -335,6 +320,7 @@ namespace boutiqueshope.UI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             CleanProductoForm();
+            BotonesNoAccion(false);
         }
 
         private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,6 +330,11 @@ namespace boutiqueshope.UI
 
         private void txtNombreProducto_TextChanged(object sender, EventArgs e)
         {
+            getNombreSku();
+        }
+
+        private void getNombreSku()
+        {
             string texto = txtNombreProducto.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(texto))
@@ -352,7 +343,6 @@ namespace boutiqueshope.UI
                 return;
             }
 
-            // Dividir por espacios, ignorando vacíos
             string[] palabras = texto
                 .Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
 
@@ -361,6 +351,14 @@ namespace boutiqueshope.UI
             );
 
             txtCodigoProducto.Text = codigo;
+        }
+
+        private void dataGridViewProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewProductos.ClearSelection();
+            dataGridViewProductos.CurrentCell = null;
+            CleanProductoForm();
+            BotonesNoAccion(false);
         }
     }
 }

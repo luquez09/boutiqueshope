@@ -109,7 +109,6 @@ namespace boutiqueshope.UI.Inventario
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Image = global::boutiqueshope.Properties.Resources.Close_Window;
             this.pictureBox1.Location = new System.Drawing.Point(363, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox1.Name = "pictureBox1";

@@ -116,7 +116,7 @@ namespace boutiqueshope.UI
 
             var searchProducto = _listProductos.Where(p =>
                 (!buscarPorNombre || p.Nombre.ToLower().Contains(criterioProducto)) &&
-                (!buscarPorCodigo || p.codigoSku.ToLower().Contains(criterioCodigo))
+                (!buscarPorCodigo || p.CodigoSku.ToLower().Contains(criterioCodigo))
             ).ToList();
 
             dataGridViewProducto.DataSource = null;

@@ -63,9 +63,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap agregar_usuario {
+        internal static System.Drawing.Bitmap Check_Mark {
             get {
-                object obj = ResourceManager.GetObject("agregar-usuario", resourceCulture);
+                object obj = ResourceManager.GetObject("Check Mark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap agregar_usuario1 {
+        internal static System.Drawing.Bitmap Close {
             get {
-                object obj = ResourceManager.GetObject("agregar-usuario1", resourceCulture);
+                object obj = ResourceManager.GetObject("Close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap agregar_usuario2 {
+        internal static System.Drawing.Bitmap Delete_Trash {
             get {
-                object obj = ResourceManager.GetObject("agregar-usuario2", resourceCulture);
+                object obj = ResourceManager.GetObject("Delete-Trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap agregar_usuario3 {
+        internal static System.Drawing.Bitmap Edit {
             get {
-                object obj = ResourceManager.GetObject("agregar-usuario3", resourceCulture);
+                object obj = ResourceManager.GetObject("Edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap agregar_usuario4 {
+        internal static System.Drawing.Bitmap Plus {
             get {
-                object obj = ResourceManager.GetObject("agregar-usuario4", resourceCulture);
+                object obj = ResourceManager.GetObject("Plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Close_Window {
+        internal static System.Drawing.Bitmap Trash_Can {
             get {
-                object obj = ResourceManager.GetObject("Close Window", resourceCulture);
+                object obj = ResourceManager.GetObject("Trash Can", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,19 +123,9 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap XLS {
+        internal static System.Drawing.Bitmap Unavailable {
             get {
-                object obj = ResourceManager.GetObject("XLS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap XLS_32 {
-            get {
-                object obj = ResourceManager.GetObject("XLS-32", resourceCulture);
+                object obj = ResourceManager.GetObject("Unavailable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

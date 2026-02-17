@@ -255,6 +255,19 @@
   <ItemGroup>
     <Content Include="Resources\agregar-usuario.png" />
     <Content Include="Resources\agregar-usuario1.png" />
+    <None Include="Resources\Delete-Trash.png" />
+    <None Include="Resources\Check Mark.png" />
+    <None Include="Resources\Plus1.png" />
+    <None Include="Resources\Close1.png" />
+    <None Include="Resources\Edit1.png" />
+    <None Include="Resources\Trash Can.png" />
+    <None Include="Resources\Unavailable.png" />
+    <None Include="Resources\Cancel.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Plus.png" />
+    <None Include="Resources\Trash.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\Search-new.png" />
     <None Include="Resources\XLS-32.png" />
     <None Include="Resources\XLS.png" />
     <None Include="Resources\Close Window.png" />
