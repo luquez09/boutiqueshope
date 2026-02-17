@@ -238,39 +238,6 @@ namespace boutiqueshope
             OpenChildForm(new ProveedorUI());
         }
 
-        /**
-         BOTONES DE FINANZAS
-         */
-        private void btnFinanzas_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(panelFinanzasSubMenu);
-        }
-
-        private void btnMetodosPago_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new FrmMetodoPago());
-        }
-
-        private void btnCuentas_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new FrmCuenta());
-        }
-
-        private void btnPagosDocumento_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new FrmPagoDocumento());
-        }
-
-        private void btnFinanzasCreditos_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new FrmCreditosCliente());
-        }
-
-        private void btnFinanzasAbonos_Click(object sender, EventArgs e)
-        {
-            //OpenChildForm(new FrmAbonosCliente());
-        }
-
         /*
          * BOTONES ADMINISTRACION
          * **/

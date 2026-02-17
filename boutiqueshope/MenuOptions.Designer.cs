@@ -13,7 +13,6 @@ namespace boutiqueshope
         private System.Windows.Forms.Panel panelVentasSubMenu;
         private System.Windows.Forms.Button btnNuevaVenta;
         private System.Windows.Forms.Button btnHistorialVentas;
-        private System.Windows.Forms.Button btnVentasCredito;
         private System.Windows.Forms.Button btnPagosClientes;
 
         private System.Windows.Forms.Button btnInventario;
@@ -28,20 +27,11 @@ namespace boutiqueshope
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Panel panelClientesSubMenu;
         private System.Windows.Forms.Button btnCrearCliente;
-        private System.Windows.Forms.Button btnCreditosCliente;
-        private System.Windows.Forms.Button btnAbonosCliente;
 
         private System.Windows.Forms.Button btnProveedores;
         private System.Windows.Forms.Panel panelProveedoresSubMenu;
         private System.Windows.Forms.Button btnListadoProveedores;
         private System.Windows.Forms.Button btnCrearProveedor;
-
-        private System.Windows.Forms.Button btnFinanzas;
-        private System.Windows.Forms.Panel panelFinanzasSubMenu;
-        private System.Windows.Forms.Button btnCuentas;
-        private System.Windows.Forms.Button btnPagosDocumento;
-        private System.Windows.Forms.Button btnFinanzasCreditos;
-        private System.Windows.Forms.Button btnFinanzasAbonos;
 
         private System.Windows.Forms.Button btnAdministracion;
         private System.Windows.Forms.Panel panelAdministracionSubMenu;
@@ -52,8 +42,6 @@ namespace boutiqueshope
         private System.Windows.Forms.Panel panelConfiguracionSubMenu;
         private System.Windows.Forms.Button btnParametros;
         private System.Windows.Forms.Button btnImpresoras;
-        private System.Windows.Forms.Button btnImpuestos;
-        private System.Windows.Forms.Button btnBackup;
 
         private System.Windows.Forms.Button btnSalir;
 
@@ -75,8 +63,6 @@ namespace boutiqueshope
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelConfiguracionSubMenu = new System.Windows.Forms.Panel();
-            this.btnBackup = new System.Windows.Forms.Button();
-            this.btnImpuestos = new System.Windows.Forms.Button();
             this.btnImpresoras = new System.Windows.Forms.Button();
             this.btnParametros = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
@@ -84,19 +70,11 @@ namespace boutiqueshope
             this.btnRoles = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnAdministracion = new System.Windows.Forms.Button();
-            this.panelFinanzasSubMenu = new System.Windows.Forms.Panel();
-            this.btnFinanzasAbonos = new System.Windows.Forms.Button();
-            this.btnFinanzasCreditos = new System.Windows.Forms.Button();
-            this.btnPagosDocumento = new System.Windows.Forms.Button();
-            this.btnCuentas = new System.Windows.Forms.Button();
-            this.btnFinanzas = new System.Windows.Forms.Button();
             this.panelProveedoresSubMenu = new System.Windows.Forms.Panel();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
             this.btnListadoProveedores = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.panelClientesSubMenu = new System.Windows.Forms.Panel();
-            this.btnAbonosCliente = new System.Windows.Forms.Button();
-            this.btnCreditosCliente = new System.Windows.Forms.Button();
             this.btnCrearCliente = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panelInventarioSubMenu = new System.Windows.Forms.Panel();
@@ -110,7 +88,6 @@ namespace boutiqueshope
             this.btnInventario = new System.Windows.Forms.Button();
             this.panelVentasSubMenu = new System.Windows.Forms.Panel();
             this.btnPagosClientes = new System.Windows.Forms.Button();
-            this.btnVentasCredito = new System.Windows.Forms.Button();
             this.btnHistorialVentas = new System.Windows.Forms.Button();
             this.btnNuevaVenta = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -119,10 +96,10 @@ namespace boutiqueshope
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.timerSidebar = new System.Windows.Forms.Timer(this.components);
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelConfiguracionSubMenu.SuspendLayout();
             this.panelAdministracionSubMenu.SuspendLayout();
-            this.panelFinanzasSubMenu.SuspendLayout();
             this.panelProveedoresSubMenu.SuspendLayout();
             this.panelClientesSubMenu.SuspendLayout();
             this.panelInventarioSubMenu.SuspendLayout();
@@ -137,8 +114,6 @@ namespace boutiqueshope
             this.panelSidebar.Controls.Add(this.btnConfiguracion);
             this.panelSidebar.Controls.Add(this.panelAdministracionSubMenu);
             this.panelSidebar.Controls.Add(this.btnAdministracion);
-            this.panelSidebar.Controls.Add(this.panelFinanzasSubMenu);
-            this.panelSidebar.Controls.Add(this.btnFinanzas);
             this.panelSidebar.Controls.Add(this.panelProveedoresSubMenu);
             this.panelSidebar.Controls.Add(this.btnProveedores);
             this.panelSidebar.Controls.Add(this.panelClientesSubMenu);
@@ -153,7 +128,7 @@ namespace boutiqueshope
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(214, 1340);
+            this.panelSidebar.Size = new System.Drawing.Size(214, 1061);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnSalir
@@ -162,7 +137,7 @@ namespace boutiqueshope
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSalir.Location = new System.Drawing.Point(0, 1305);
+            this.btnSalir.Location = new System.Drawing.Point(0, 1026);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(214, 35);
@@ -175,48 +150,14 @@ namespace boutiqueshope
             // panelConfiguracionSubMenu
             // 
             this.panelConfiguracionSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.panelConfiguracionSubMenu.Controls.Add(this.btnBackup);
-            this.panelConfiguracionSubMenu.Controls.Add(this.btnImpuestos);
             this.panelConfiguracionSubMenu.Controls.Add(this.btnImpresoras);
             this.panelConfiguracionSubMenu.Controls.Add(this.btnParametros);
             this.panelConfiguracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 1092);
+            this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 847);
             this.panelConfiguracionSubMenu.Name = "panelConfiguracionSubMenu";
-            this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(214, 121);
+            this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(214, 63);
             this.panelConfiguracionSubMenu.TabIndex = 16;
             this.panelConfiguracionSubMenu.Visible = false;
-            // 
-            // btnBackup
-            // 
-            this.btnBackup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBackup.FlatAppearance.BorderSize = 0;
-            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.ForeColor = System.Drawing.Color.Silver;
-            this.btnBackup.Location = new System.Drawing.Point(0, 90);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnBackup.Size = new System.Drawing.Size(214, 30);
-            this.btnBackup.TabIndex = 3;
-            this.btnBackup.Text = "Backup / Restore";
-            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBackup.UseVisualStyleBackColor = true;
-            this.btnBackup.Click += new System.EventHandler(this.btnBackup_Click);
-            // 
-            // btnImpuestos
-            // 
-            this.btnImpuestos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnImpuestos.FlatAppearance.BorderSize = 0;
-            this.btnImpuestos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImpuestos.ForeColor = System.Drawing.Color.Silver;
-            this.btnImpuestos.Location = new System.Drawing.Point(0, 60);
-            this.btnImpuestos.Name = "btnImpuestos";
-            this.btnImpuestos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnImpuestos.Size = new System.Drawing.Size(214, 30);
-            this.btnImpuestos.TabIndex = 2;
-            this.btnImpuestos.Text = "Impuestos";
-            this.btnImpuestos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpuestos.UseVisualStyleBackColor = true;
-            this.btnImpuestos.Click += new System.EventHandler(this.btnImpuestos_Click);
             // 
             // btnImpresoras
             // 
@@ -256,7 +197,7 @@ namespace boutiqueshope
             this.btnConfiguracion.FlatAppearance.BorderSize = 0;
             this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfiguracion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnConfiguracion.Location = new System.Drawing.Point(0, 1057);
+            this.btnConfiguracion.Location = new System.Drawing.Point(0, 812);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnConfiguracion.Size = new System.Drawing.Size(214, 35);
@@ -272,7 +213,7 @@ namespace boutiqueshope
             this.panelAdministracionSubMenu.Controls.Add(this.btnRoles);
             this.panelAdministracionSubMenu.Controls.Add(this.btnUsuarios);
             this.panelAdministracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAdministracionSubMenu.Location = new System.Drawing.Point(0, 991);
+            this.panelAdministracionSubMenu.Location = new System.Drawing.Point(0, 746);
             this.panelAdministracionSubMenu.Name = "panelAdministracionSubMenu";
             this.panelAdministracionSubMenu.Size = new System.Drawing.Size(214, 66);
             this.panelAdministracionSubMenu.TabIndex = 14;
@@ -316,7 +257,7 @@ namespace boutiqueshope
             this.btnAdministracion.FlatAppearance.BorderSize = 0;
             this.btnAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdministracion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnAdministracion.Location = new System.Drawing.Point(0, 956);
+            this.btnAdministracion.Location = new System.Drawing.Point(0, 711);
             this.btnAdministracion.Name = "btnAdministracion";
             this.btnAdministracion.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnAdministracion.Size = new System.Drawing.Size(214, 35);
@@ -326,107 +267,13 @@ namespace boutiqueshope
             this.btnAdministracion.UseVisualStyleBackColor = true;
             this.btnAdministracion.Click += new System.EventHandler(this.btnAdministracion_Click);
             // 
-            // panelFinanzasSubMenu
-            // 
-            this.panelFinanzasSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.panelFinanzasSubMenu.Controls.Add(this.btnFinanzasAbonos);
-            this.panelFinanzasSubMenu.Controls.Add(this.btnFinanzasCreditos);
-            this.panelFinanzasSubMenu.Controls.Add(this.btnPagosDocumento);
-            this.panelFinanzasSubMenu.Controls.Add(this.btnCuentas);
-            this.panelFinanzasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFinanzasSubMenu.Location = new System.Drawing.Point(0, 828);
-            this.panelFinanzasSubMenu.Name = "panelFinanzasSubMenu";
-            this.panelFinanzasSubMenu.Size = new System.Drawing.Size(214, 128);
-            this.panelFinanzasSubMenu.TabIndex = 12;
-            this.panelFinanzasSubMenu.Visible = false;
-            // 
-            // btnFinanzasAbonos
-            // 
-            this.btnFinanzasAbonos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFinanzasAbonos.FlatAppearance.BorderSize = 0;
-            this.btnFinanzasAbonos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinanzasAbonos.ForeColor = System.Drawing.Color.Silver;
-            this.btnFinanzasAbonos.Location = new System.Drawing.Point(0, 90);
-            this.btnFinanzasAbonos.Name = "btnFinanzasAbonos";
-            this.btnFinanzasAbonos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnFinanzasAbonos.Size = new System.Drawing.Size(214, 30);
-            this.btnFinanzasAbonos.TabIndex = 4;
-            this.btnFinanzasAbonos.Text = "Abonos de clientes";
-            this.btnFinanzasAbonos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinanzasAbonos.UseVisualStyleBackColor = true;
-            this.btnFinanzasAbonos.Click += new System.EventHandler(this.btnFinanzasAbonos_Click);
-            // 
-            // btnFinanzasCreditos
-            // 
-            this.btnFinanzasCreditos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFinanzasCreditos.FlatAppearance.BorderSize = 0;
-            this.btnFinanzasCreditos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinanzasCreditos.ForeColor = System.Drawing.Color.Silver;
-            this.btnFinanzasCreditos.Location = new System.Drawing.Point(0, 60);
-            this.btnFinanzasCreditos.Name = "btnFinanzasCreditos";
-            this.btnFinanzasCreditos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnFinanzasCreditos.Size = new System.Drawing.Size(214, 30);
-            this.btnFinanzasCreditos.TabIndex = 3;
-            this.btnFinanzasCreditos.Text = "Créditos de clientes";
-            this.btnFinanzasCreditos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinanzasCreditos.UseVisualStyleBackColor = true;
-            this.btnFinanzasCreditos.Click += new System.EventHandler(this.btnFinanzasCreditos_Click);
-            // 
-            // btnPagosDocumento
-            // 
-            this.btnPagosDocumento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPagosDocumento.FlatAppearance.BorderSize = 0;
-            this.btnPagosDocumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagosDocumento.ForeColor = System.Drawing.Color.Silver;
-            this.btnPagosDocumento.Location = new System.Drawing.Point(0, 30);
-            this.btnPagosDocumento.Name = "btnPagosDocumento";
-            this.btnPagosDocumento.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnPagosDocumento.Size = new System.Drawing.Size(214, 30);
-            this.btnPagosDocumento.TabIndex = 2;
-            this.btnPagosDocumento.Text = "Pagos de documentos";
-            this.btnPagosDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagosDocumento.UseVisualStyleBackColor = true;
-            this.btnPagosDocumento.Click += new System.EventHandler(this.btnPagosDocumento_Click);
-            // 
-            // btnCuentas
-            // 
-            this.btnCuentas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCuentas.FlatAppearance.BorderSize = 0;
-            this.btnCuentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCuentas.ForeColor = System.Drawing.Color.Silver;
-            this.btnCuentas.Location = new System.Drawing.Point(0, 0);
-            this.btnCuentas.Name = "btnCuentas";
-            this.btnCuentas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCuentas.Size = new System.Drawing.Size(214, 30);
-            this.btnCuentas.TabIndex = 1;
-            this.btnCuentas.Text = "Cuentas";
-            this.btnCuentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCuentas.UseVisualStyleBackColor = true;
-            this.btnCuentas.Click += new System.EventHandler(this.btnCuentas_Click);
-            // 
-            // btnFinanzas
-            // 
-            this.btnFinanzas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFinanzas.FlatAppearance.BorderSize = 0;
-            this.btnFinanzas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinanzas.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnFinanzas.Location = new System.Drawing.Point(0, 793);
-            this.btnFinanzas.Name = "btnFinanzas";
-            this.btnFinanzas.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnFinanzas.Size = new System.Drawing.Size(214, 35);
-            this.btnFinanzas.TabIndex = 11;
-            this.btnFinanzas.Text = "💰  Finanzas";
-            this.btnFinanzas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinanzas.UseVisualStyleBackColor = true;
-            this.btnFinanzas.Click += new System.EventHandler(this.btnFinanzas_Click);
-            // 
             // panelProveedoresSubMenu
             // 
             this.panelProveedoresSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.panelProveedoresSubMenu.Controls.Add(this.btnCrearProveedor);
             this.panelProveedoresSubMenu.Controls.Add(this.btnListadoProveedores);
             this.panelProveedoresSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProveedoresSubMenu.Location = new System.Drawing.Point(0, 732);
+            this.panelProveedoresSubMenu.Location = new System.Drawing.Point(0, 650);
             this.panelProveedoresSubMenu.Name = "panelProveedoresSubMenu";
             this.panelProveedoresSubMenu.Size = new System.Drawing.Size(214, 61);
             this.panelProveedoresSubMenu.TabIndex = 10;
@@ -470,7 +317,7 @@ namespace boutiqueshope
             this.btnProveedores.FlatAppearance.BorderSize = 0;
             this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedores.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 697);
+            this.btnProveedores.Location = new System.Drawing.Point(0, 615);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnProveedores.Size = new System.Drawing.Size(214, 35);
@@ -483,47 +330,14 @@ namespace boutiqueshope
             // panelClientesSubMenu
             // 
             this.panelClientesSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.panelClientesSubMenu.Controls.Add(this.btnAbonosCliente);
-            this.panelClientesSubMenu.Controls.Add(this.btnCreditosCliente);
+            this.panelClientesSubMenu.Controls.Add(this.btnBuscarCliente);
             this.panelClientesSubMenu.Controls.Add(this.btnCrearCliente);
             this.panelClientesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelClientesSubMenu.Location = new System.Drawing.Point(0, 576);
+            this.panelClientesSubMenu.Location = new System.Drawing.Point(0, 549);
             this.panelClientesSubMenu.Name = "panelClientesSubMenu";
-            this.panelClientesSubMenu.Size = new System.Drawing.Size(214, 121);
+            this.panelClientesSubMenu.Size = new System.Drawing.Size(214, 66);
             this.panelClientesSubMenu.TabIndex = 8;
             this.panelClientesSubMenu.Visible = false;
-            // 
-            // btnAbonosCliente
-            // 
-            this.btnAbonosCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAbonosCliente.FlatAppearance.BorderSize = 0;
-            this.btnAbonosCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbonosCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnAbonosCliente.Location = new System.Drawing.Point(0, 60);
-            this.btnAbonosCliente.Name = "btnAbonosCliente";
-            this.btnAbonosCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnAbonosCliente.Size = new System.Drawing.Size(214, 30);
-            this.btnAbonosCliente.TabIndex = 3;
-            this.btnAbonosCliente.Text = "Abonos del cliente";
-            this.btnAbonosCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbonosCliente.UseVisualStyleBackColor = true;
-            this.btnAbonosCliente.Click += new System.EventHandler(this.btnAbonosCliente_Click);
-            // 
-            // btnCreditosCliente
-            // 
-            this.btnCreditosCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCreditosCliente.FlatAppearance.BorderSize = 0;
-            this.btnCreditosCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreditosCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnCreditosCliente.Location = new System.Drawing.Point(0, 30);
-            this.btnCreditosCliente.Name = "btnCreditosCliente";
-            this.btnCreditosCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCreditosCliente.Size = new System.Drawing.Size(214, 30);
-            this.btnCreditosCliente.TabIndex = 2;
-            this.btnCreditosCliente.Text = "Créditos del cliente";
-            this.btnCreditosCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreditosCliente.UseVisualStyleBackColor = true;
-            this.btnCreditosCliente.Click += new System.EventHandler(this.btnCreditosCliente_Click);
             // 
             // btnCrearCliente
             // 
@@ -547,7 +361,7 @@ namespace boutiqueshope
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnClientes.Location = new System.Drawing.Point(0, 541);
+            this.btnClientes.Location = new System.Drawing.Point(0, 514);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnClientes.Size = new System.Drawing.Size(214, 35);
@@ -568,7 +382,7 @@ namespace boutiqueshope
             this.panelInventarioSubMenu.Controls.Add(this.btnVariacionesProducto);
             this.panelInventarioSubMenu.Controls.Add(this.btnProductos);
             this.panelInventarioSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInventarioSubMenu.Location = new System.Drawing.Point(0, 330);
+            this.panelInventarioSubMenu.Location = new System.Drawing.Point(0, 303);
             this.panelInventarioSubMenu.Name = "panelInventarioSubMenu";
             this.panelInventarioSubMenu.Size = new System.Drawing.Size(214, 211);
             this.panelInventarioSubMenu.TabIndex = 6;
@@ -692,7 +506,7 @@ namespace boutiqueshope
             this.btnInventario.FlatAppearance.BorderSize = 0;
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnInventario.Location = new System.Drawing.Point(0, 295);
+            this.btnInventario.Location = new System.Drawing.Point(0, 268);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnInventario.Size = new System.Drawing.Size(214, 35);
@@ -706,13 +520,12 @@ namespace boutiqueshope
             // 
             this.panelVentasSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.panelVentasSubMenu.Controls.Add(this.btnPagosClientes);
-            this.panelVentasSubMenu.Controls.Add(this.btnVentasCredito);
             this.panelVentasSubMenu.Controls.Add(this.btnHistorialVentas);
             this.panelVentasSubMenu.Controls.Add(this.btnNuevaVenta);
             this.panelVentasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVentasSubMenu.Location = new System.Drawing.Point(0, 174);
             this.panelVentasSubMenu.Name = "panelVentasSubMenu";
-            this.panelVentasSubMenu.Size = new System.Drawing.Size(214, 121);
+            this.panelVentasSubMenu.Size = new System.Drawing.Size(214, 94);
             this.panelVentasSubMenu.TabIndex = 4;
             this.panelVentasSubMenu.Visible = false;
             // 
@@ -722,7 +535,7 @@ namespace boutiqueshope
             this.btnPagosClientes.FlatAppearance.BorderSize = 0;
             this.btnPagosClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagosClientes.ForeColor = System.Drawing.Color.Silver;
-            this.btnPagosClientes.Location = new System.Drawing.Point(0, 90);
+            this.btnPagosClientes.Location = new System.Drawing.Point(0, 60);
             this.btnPagosClientes.Name = "btnPagosClientes";
             this.btnPagosClientes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnPagosClientes.Size = new System.Drawing.Size(214, 30);
@@ -731,22 +544,6 @@ namespace boutiqueshope
             this.btnPagosClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagosClientes.UseVisualStyleBackColor = true;
             this.btnPagosClientes.Click += new System.EventHandler(this.btnPagosClientes_Click);
-            // 
-            // btnVentasCredito
-            // 
-            this.btnVentasCredito.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVentasCredito.FlatAppearance.BorderSize = 0;
-            this.btnVentasCredito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVentasCredito.ForeColor = System.Drawing.Color.Silver;
-            this.btnVentasCredito.Location = new System.Drawing.Point(0, 60);
-            this.btnVentasCredito.Name = "btnVentasCredito";
-            this.btnVentasCredito.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnVentasCredito.Size = new System.Drawing.Size(214, 30);
-            this.btnVentasCredito.TabIndex = 2;
-            this.btnVentasCredito.Text = "Ventas a crédito";
-            this.btnVentasCredito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentasCredito.UseVisualStyleBackColor = true;
-            this.btnVentasCredito.Click += new System.EventHandler(this.btnVentasCredito_Click);
             // 
             // btnHistorialVentas
             // 
@@ -810,6 +607,7 @@ namespace boutiqueshope
             this.btnDashboard.Text = "🏠  Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Visible = false;
             // 
             // btnMenu
             // 
@@ -842,7 +640,7 @@ namespace boutiqueshope
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(214, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(638, 1340);
+            this.panelChildForm.Size = new System.Drawing.Size(834, 1061);
             this.panelChildForm.TabIndex = 1;
             // 
             // timerSidebar
@@ -850,12 +648,27 @@ namespace boutiqueshope
             this.timerSidebar.Interval = 10;
             this.timerSidebar.Tick += new System.EventHandler(this.timerSidebar_Tick);
             // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.Silver;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(0, 30);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(214, 30);
+            this.btnBuscarCliente.TabIndex = 2;
+            this.btnBuscarCliente.Text = "Buscar cliente";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            // 
             // MenuOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(852, 1340);
+            this.ClientSize = new System.Drawing.Size(1048, 1061);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSidebar);
             this.MinimizeBox = false;
@@ -868,7 +681,6 @@ namespace boutiqueshope
             this.panelSidebar.ResumeLayout(false);
             this.panelConfiguracionSubMenu.ResumeLayout(false);
             this.panelAdministracionSubMenu.ResumeLayout(false);
-            this.panelFinanzasSubMenu.ResumeLayout(false);
             this.panelProveedoresSubMenu.ResumeLayout(false);
             this.panelClientesSubMenu.ResumeLayout(false);
             this.panelInventarioSubMenu.ResumeLayout(false);
@@ -880,5 +692,6 @@ namespace boutiqueshope
         #endregion
 
         private System.Windows.Forms.Button btnHistorialInventario;
+        private System.Windows.Forms.Button btnBuscarCliente;
     }
 }
