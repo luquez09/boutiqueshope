@@ -28,8 +28,8 @@ namespace boutiqueshope.UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblColores = new System.Windows.Forms.Label();
             this.lblTallas = new System.Windows.Forms.Label();
             this.dataGridViewVariacion = new System.Windows.Forms.DataGridView();
@@ -64,13 +64,13 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.lblCodigoSku = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblPrecioVenta = new System.Windows.Forms.Label();
             this.lblFechaCreacion = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.lblCosto = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblPrecioVenta = new System.Windows.Forms.Label();
             this.lblCodigoBarra = new System.Windows.Forms.Label();
             this.checkedListBoxTallas = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxColores = new System.Windows.Forms.CheckedListBox();
@@ -117,15 +117,15 @@ namespace boutiqueshope.UI
             this.dataGridViewVariacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.modificado,
             this.Acciones});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.NullValue = "0";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewVariacion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.NullValue = "0";
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewVariacion.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewVariacion.Location = new System.Drawing.Point(8, 265);
             this.dataGridViewVariacion.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridViewVariacion.Name = "dataGridViewVariacion";
@@ -145,11 +145,11 @@ namespace boutiqueshope.UI
             // 
             // Acciones
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.Acciones.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.Acciones.DefaultCellStyle = dataGridViewCellStyle3;
             this.Acciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Acciones.HeaderText = "Acciones";
             this.Acciones.Name = "Acciones";
@@ -490,31 +490,6 @@ namespace boutiqueshope.UI
             this.lblCodigoSku.Text = "-";
             this.lblCodigoSku.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 116);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(134, 29);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Precio Venta";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblPrecioVenta
-            // 
-            this.lblPrecioVenta.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblPrecioVenta, 2);
-            this.lblPrecioVenta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioVenta.Location = new System.Drawing.Point(143, 116);
-            this.lblPrecioVenta.Name = "lblPrecioVenta";
-            this.lblPrecioVenta.Size = new System.Drawing.Size(275, 29);
-            this.lblPrecioVenta.TabIndex = 20;
-            this.lblPrecioVenta.Text = "-";
-            this.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblFechaCreacion
             // 
             this.lblFechaCreacion.AutoSize = true;
@@ -576,6 +551,31 @@ namespace boutiqueshope.UI
             this.label5.TabIndex = 15;
             this.label5.Text = "Codigo Barras";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(134, 29);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Precio Venta";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblPrecioVenta
+            // 
+            this.lblPrecioVenta.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lblPrecioVenta, 2);
+            this.lblPrecioVenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioVenta.Location = new System.Drawing.Point(143, 116);
+            this.lblPrecioVenta.Name = "lblPrecioVenta";
+            this.lblPrecioVenta.Size = new System.Drawing.Size(275, 29);
+            this.lblPrecioVenta.TabIndex = 20;
+            this.lblPrecioVenta.Text = "-";
+            this.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCodigoBarra
             // 

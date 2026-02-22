@@ -2,9 +2,11 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using boutiqueshope.UI.Inventario;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
+using BoutiqueShope.Domain.Inventario;
 
 namespace boutiqueshope.UI
 {
@@ -17,20 +19,19 @@ namespace boutiqueshope.UI
 
         public ProductoUI()
         {
+            InitializeComponent();
+
             _productoService = new ProductoService();
             _proveedorService = new ProveedorService();
             _categoria_service = new CategoriaService();
             _marcaService = new MarcaService();
-
-            InitializeComponent();
         }
 
         private async void ProductoUI_Load_1(object sender, EventArgs e)
         {
-            await CargarProductosAsync();
             await CargarCombosAsync();
             CleanProductoForm();
-
+            BotonesNoAccion(false);
         }
 
         private async Task CargarCombosAsync()
@@ -84,9 +85,9 @@ namespace boutiqueshope.UI
                 Id = id,
                 Nombre = txtNombreProducto.Text?.Trim(),
                 Descripcion = txtDescripcionProducto.Text?.Trim(),
-                ProveedorId = proveedorId > 0 ? (int?)proveedorId : null,
+                ProveedorId = proveedorId > 0 ? proveedorId : 0,
                 CategoriaId = categoriaId,
-                MarcaId = marcaId > 0 ? (int?)marcaId : null,
+                MarcaId = marcaId > 0 ? marcaId : 0,
                 Activo = checkBoxActive.Checked,
                 CodigoSku = txtCodigoProducto.Text?.Trim(),
                 Tipo = comboBoxTipo.Text?.Trim()
@@ -115,88 +116,138 @@ namespace boutiqueshope.UI
             return 0;
         }
 
-        private async Task CargarProductosAsync()
-        {
-            var respuesta = await _productoService.ListarAsync();
-            if (!respuesta.Exitoso)
-            {
-                UIHelper.MostrarRespuesta(respuesta);
-                return;
-            }
-
-            dataGridViewProductos.DataSource = respuesta.Listado;
-        }
-
-        private void CargarDatosDesdeGridProducto()
-        {
-
-            if (dataGridViewProductos == null) return;
-
-            DataGridViewRow fila = null;
-
-            if (dataGridViewProductos.SelectedRows != null && dataGridViewProductos.SelectedRows.Count > 0)
-            {
-                fila = dataGridViewProductos.SelectedRows[0];
-            }
-            else if (dataGridViewProductos.CurrentRow != null)
-            {
-                fila = dataGridViewProductos.CurrentRow;
-            }
-            else if (dataGridViewProductos.CurrentCell != null)
-            {
-                var idx = dataGridViewProductos.CurrentCell.RowIndex;
-                if (idx >= 0 && idx < dataGridViewProductos.Rows.Count)
-                    fila = dataGridViewProductos.Rows[idx];
-            }
-
-            if (fila == null) return;
-
-            object val;
-
-            val = fila.Cells["Id"].Value;
-            lblProductoId.Text = val != null && val != DBNull.Value ? val.ToString() : string.Empty;
-
-            val = fila.Cells["Nombre"].Value;
-            txtNombreProducto.Text = val != null && val != DBNull.Value ? val.ToString() : string.Empty;
-
-            val = fila.Cells["Descripcion"].Value;
-            txtDescripcionProducto.Text = val != null && val != DBNull.Value ? val.ToString() : string.Empty;
-
-            val = fila.Cells["CodigoSku"].Value;
-            txtCodigoProducto.Text = val != null && val != DBNull.Value ? val.ToString() : string.Empty;
-
-            val = fila.Cells["Activo"].Value;
-            checkBoxActive.Checked = val != null && val != DBNull.Value && Convert.ToBoolean(val);
-
-            val = fila.Cells["FechaCreacion"].Value;
-            lblCreadoFecha.Text = val != null && val != DBNull.Value ? Convert.ToDateTime(val).ToString("g") : "-/-/-";
-
-            var respVal = fila.Cells["ProveedorId"].Value;
-            if (respVal != null && respVal != DBNull.Value && int.TryParse(respVal.ToString(), out var provId))
-                SeleccionarValorEnCombo(comboBoxProveedor, provId);
-            else
-                comboBoxProveedor.SelectedIndex = -1;
-
-            var respMarc = fila.Cells["MarcaId"].Value;
-            if (respMarc != null && respMarc != DBNull.Value && int.TryParse(respMarc.ToString(), out var marcId))
-                SeleccionarValorEnCombo(comboBoxMarca, marcId);
-            else
-                comboBoxMarca.SelectedIndex = -1;
-
-            var respCate = fila.Cells["CategoriaId"].Value;
-            if (respCate != null && respCate != DBNull.Value && int.TryParse(respCate.ToString(), out var cateId))
-                SeleccionarValorEnCombo(comboBoxCategoria, cateId);
-            else
-                comboBoxCategoria.SelectedIndex = -1;
-
-            BotonesNoAccion(true);
-        }
-
         private void BotonesNoAccion(bool accion)
         {
             btnAgregar.Enabled = !accion;
-            btnActualizar.Enabled = accion;
-            btnEliminar.Enabled = accion;
+            btnActualizar.Visible = accion;
+            btnEliminar.Visible = accion;
+        }
+
+        public async Task<bool> EliminarProductoSeleccionadoAsync()
+        {
+            if (string.IsNullOrWhiteSpace(lblProductoId.Text) ||
+                !int.TryParse(lblProductoId.Text, out var id) ||
+                id <= 0)
+            {
+                UIHelper.MostrarError("Seleccione un producto válido para eliminar.");
+                return false;
+            }
+
+            if (!UIHelper.Confirmar("¿Seguro de eliminar este producto?")) return false;
+
+            var response = await _productoService.EliminarAsync(id);
+            UIHelper.MostrarRespuesta(response);
+
+            if (response != null && response.Exitoso)
+            {
+                CleanProductoForm();
+                return true;
+            }
+
+            return false;
+        }
+
+        private void CleanProductoForm()
+        {
+            lblProductoId.Text = string.Empty;
+            txtNombreProducto.Text = string.Empty;
+            txtDescripcionProducto.Text = string.Empty;
+            checkBoxActive.Checked = false;
+            lblCreadoFecha.Text = "-/-/-";
+            txtNombreProducto.Focus();
+            comboBoxTipo.SelectedIndex = 1;
+        }
+
+        private async void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var producto = MapearProducto();
+                producto.Id = 0;
+
+                var response = await _productoService.CrearAsync(producto);
+                UIHelper.MostrarRespuesta(response);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado al agregar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var producto = MapearProducto();
+                if (producto.Id <= 0)
+                {
+                    UIHelper.MostrarError("Seleccione un producto válido para actualizar.");
+                    return;
+                }
+
+                var response = await _productoService.EditarAsync(producto);
+                UIHelper.MostrarRespuesta(response);
+                BotonesNoAccion(false);
+            }
+            catch (Exception ex)
+            {
+                UIHelper.MostrarError($"Error inesperado al actualizar: {ex.Message}");
+            }
+        }
+
+        private async void btnEliminar_Click(object sender, EventArgs e)
+        {
+            await EliminarProductoSeleccionadoAsync();
+            BotonesNoAccion(false);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CleanProductoForm();
+            BotonesNoAccion(false);
+        }
+
+        private void getNombreSku()
+        {
+            string nombre = txtNombreProducto.Text.Trim();
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                txtCodigoProducto.Text = string.Empty;
+                return;
+            }
+
+            string[] palabras = nombre.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // 1. Prefijo: 3 letras de la primera palabra (ej. CAM para Camisa)
+            string prefijo = palabras[0].Length >= 3
+                ? palabras[0].Substring(0, 3).ToUpper()
+                : palabras[0].ToUpper().PadRight(3, 'X');
+
+            // 2. Sufijo: Iniciales de las demás palabras (ej. BN para Blanco Niño)
+            string sufijo = string.Concat(palabras.Skip(1).Select(p => p[0])).ToUpper();
+
+            txtCodigoProducto.Text = $"{prefijo}-{sufijo}";
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            SearchProductUI formSearch = new SearchProductUI();
+            formSearch.SearchProduct += (productoRecibido) =>
+            {
+                txtNombreProducto.Text = productoRecibido.Nombre.Trim();
+                txtDescripcionProducto.Text = productoRecibido.Descripcion.ToString();
+                SeleccionarValorEnCombo(comboBoxCategoria, productoRecibido.CategoriaId);
+                SeleccionarValorEnCombo(comboBoxMarca, productoRecibido.MarcaId);
+                SeleccionarValorEnCombo(comboBoxProveedor, productoRecibido.ProveedorId);
+                txtCodigoProducto.Text = productoRecibido.CodigoSku.ToString();
+                comboBoxTipo.Text = productoRecibido.Tipo.ToLower().Trim();
+                checkBoxActive.Checked = productoRecibido.Activo;
+                lblCreadoFecha.Text = productoRecibido.FechaCreacion.ToString();
+                txtNombreProducto.Text = productoRecibido.Nombre;
+                lblProductoId.Text = productoRecibido.Id.ToString();
+                BotonesNoAccion(true);
+            };
+            formSearch.ShowDialog();
         }
 
         private void SeleccionarValorEnCombo(ComboBox cb, int id)
@@ -231,134 +282,14 @@ namespace boutiqueshope.UI
             cb.SelectedIndex = -1;
         }
 
-        public async Task<bool> EliminarProductoSeleccionadoAsync()
-        {
-            if (string.IsNullOrWhiteSpace(lblProductoId.Text) ||
-                !int.TryParse(lblProductoId.Text, out var id) ||
-                id <= 0)
-            {
-                UIHelper.MostrarError("Seleccione un producto válido para eliminar.");
-                return false;
-            }
-
-            if (!UIHelper.Confirmar("¿Seguro de eliminar este producto?")) return false;
-
-            var response = await _productoService.EliminarAsync(id);
-            UIHelper.MostrarRespuesta(response);
-
-            if (response != null && response.Exitoso)
-            {
-                await CargarProductosAsync();
-                CleanProductoForm();
-                return true;
-            }
-
-            return false;
-        }
-
-        private void CleanProductoForm()
-        {
-            lblProductoId.Text = string.Empty;
-            txtNombreProducto.Text = string.Empty;
-            txtDescripcionProducto.Text = string.Empty;
-            checkBoxActive.Checked = false;
-            lblCreadoFecha.Text = "-/-/-";
-            txtNombreProducto.Focus();
-            comboBoxTipo.SelectedIndex = 1;
-        }
-
-        private async void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                var producto = MapearProducto();
-                producto.Id = 0;
-
-                var response = await _productoService.CrearAsync(producto);
-                UIHelper.MostrarRespuesta(response);
-                await CargarProductosAsync();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error inesperado al agregar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private async void btnActualizar_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                var producto = MapearProducto();
-                if (producto.Id <= 0)
-                {
-                    UIHelper.MostrarError("Seleccione un producto válido para actualizar.");
-                    return;
-                }
-
-                var response = await _productoService.EditarAsync(producto);
-                UIHelper.MostrarRespuesta(response);
-                await CargarProductosAsync();
-                BotonesNoAccion(false);
-            }
-            catch (Exception ex)
-            {
-                UIHelper.MostrarError($"Error inesperado al actualizar: {ex.Message}");
-            }
-        }
-
-        private async void btnEliminar_Click(object sender, EventArgs e)
-        {
-            await EliminarProductoSeleccionadoAsync();
-            BotonesNoAccion(false);
-        }
-
-        private void dataGridViewProductos_SelectionChanged(object sender, EventArgs e)
-        {
-            CargarDatosDesdeGridProducto();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            CleanProductoForm();
-            BotonesNoAccion(false);
-        }
-
-        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InputValidatorHelper.LetrasYNumeros(e);
-        }
-
         private void txtNombreProducto_TextChanged(object sender, EventArgs e)
         {
             getNombreSku();
         }
 
-        private void getNombreSku()
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string texto = txtNombreProducto.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(texto))
-            {
-                txtCodigoProducto.Text = string.Empty;
-                return;
-            }
-
-            string[] palabras = texto
-                .Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
-
-            string codigo = string.Concat(
-                palabras.Select(p => p[0].ToString().ToUpper())
-            );
-
-            txtCodigoProducto.Text = codigo;
-        }
-
-        private void dataGridViewProductos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dataGridViewProductos.ClearSelection();
-            dataGridViewProductos.CurrentCell = null;
-            CleanProductoForm();
-            BotonesNoAccion(false);
+            InputValidatorHelper.LetrasYNumeros(e);
         }
     }
 }

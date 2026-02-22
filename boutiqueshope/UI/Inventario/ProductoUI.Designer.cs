@@ -14,11 +14,7 @@ namespace boutiqueshope.UI
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTituloGestion = new System.Windows.Forms.Label();
-            this.PanelProductoGeneral = new System.Windows.Forms.Panel();
+            this.lblProductoId = new System.Windows.Forms.Label();
             this.layoutProductoGeneral = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -41,83 +37,20 @@ namespace boutiqueshope.UI
             this.btnActualizar = new System.Windows.Forms.Button();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblProductoId = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProveedorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoriaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarcaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoSku = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.PanelProductoGeneral.SuspendLayout();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.layoutProductoGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // lblProductoId
             // 
-            this.tableLayoutPanel1.ColumnCount = 12;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.333335F));
-            this.tableLayoutPanel1.Controls.Add(this.lblTituloGestion, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PanelProductoGeneral, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewProductos, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 6, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1222, 474);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // lblTituloGestion
-            // 
-            this.lblTituloGestion.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblTituloGestion, 12);
-            this.lblTituloGestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTituloGestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloGestion.Location = new System.Drawing.Point(3, 0);
-            this.lblTituloGestion.Name = "lblTituloGestion";
-            this.lblTituloGestion.Size = new System.Drawing.Size(1216, 47);
-            this.lblTituloGestion.TabIndex = 0;
-            this.lblTituloGestion.Text = "GESTION DE PRODUCTO";
-            this.lblTituloGestion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PanelProductoGeneral
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.PanelProductoGeneral, 6);
-            this.PanelProductoGeneral.Controls.Add(this.layoutProductoGeneral);
-            this.PanelProductoGeneral.Location = new System.Drawing.Point(3, 50);
-            this.PanelProductoGeneral.Name = "PanelProductoGeneral";
-            this.tableLayoutPanel1.SetRowSpan(this.PanelProductoGeneral, 9);
-            this.PanelProductoGeneral.Size = new System.Drawing.Size(600, 386);
-            this.PanelProductoGeneral.TabIndex = 1;
+            this.lblProductoId.AutoSize = true;
+            this.lblProductoId.Location = new System.Drawing.Point(12, 479);
+            this.lblProductoId.Name = "lblProductoId";
+            this.lblProductoId.Size = new System.Drawing.Size(0, 13);
+            this.lblProductoId.TabIndex = 1;
+            this.lblProductoId.Visible = false;
             // 
             // layoutProductoGeneral
             // 
@@ -153,9 +86,10 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.Controls.Add(this.btnActualizar, 2, 8);
             this.layoutProductoGeneral.Controls.Add(this.comboBoxTipo, 2, 6);
             this.layoutProductoGeneral.Controls.Add(this.btnAgregar, 0, 8);
-            this.layoutProductoGeneral.Controls.Add(this.btnCancelar, 8, 8);
             this.layoutProductoGeneral.Controls.Add(this.btnEliminar, 4, 8);
-            this.layoutProductoGeneral.Location = new System.Drawing.Point(0, 0);
+            this.layoutProductoGeneral.Controls.Add(this.btnBuscar, 7, 4);
+            this.layoutProductoGeneral.Controls.Add(this.btnCancelar, 7, 6);
+            this.layoutProductoGeneral.Location = new System.Drawing.Point(9, 9);
             this.layoutProductoGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.layoutProductoGeneral.Name = "layoutProductoGeneral";
             this.layoutProductoGeneral.RowCount = 9;
@@ -170,7 +104,7 @@ namespace boutiqueshope.UI
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.7265F));
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.layoutProductoGeneral.Size = new System.Drawing.Size(600, 386);
-            this.layoutProductoGeneral.TabIndex = 0;
+            this.layoutProductoGeneral.TabIndex = 2;
             // 
             // label12
             // 
@@ -320,19 +254,19 @@ namespace boutiqueshope.UI
             this.comboBoxProveedor.FormattingEnabled = true;
             this.comboBoxProveedor.Location = new System.Drawing.Point(123, 117);
             this.comboBoxProveedor.Name = "comboBoxProveedor";
-            this.comboBoxProveedor.Size = new System.Drawing.Size(201, 28);
+            this.comboBoxProveedor.Size = new System.Drawing.Size(292, 28);
             this.comboBoxProveedor.TabIndex = 10;
             // 
             // comboBoxCategoria
             // 
-            this.layoutProductoGeneral.SetColumnSpan(this.comboBoxCategoria, 7);
+            this.layoutProductoGeneral.SetColumnSpan(this.comboBoxCategoria, 5);
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Location = new System.Drawing.Point(123, 155);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(201, 28);
+            this.comboBoxCategoria.Size = new System.Drawing.Size(292, 28);
             this.comboBoxCategoria.TabIndex = 11;
             // 
             // comboBoxMarca
@@ -344,7 +278,7 @@ namespace boutiqueshope.UI
             this.comboBoxMarca.FormattingEnabled = true;
             this.comboBoxMarca.Location = new System.Drawing.Point(123, 194);
             this.comboBoxMarca.Name = "comboBoxMarca";
-            this.comboBoxMarca.Size = new System.Drawing.Size(201, 28);
+            this.comboBoxMarca.Size = new System.Drawing.Size(292, 28);
             this.comboBoxMarca.TabIndex = 12;
             // 
             // lblCreadoFecha
@@ -420,11 +354,10 @@ namespace boutiqueshope.UI
             this.comboBoxTipo.Items.AddRange(new object[] {
             "simple",
             "variacion",
-            "servicio ",
             "kit"});
             this.comboBoxTipo.Location = new System.Drawing.Point(123, 227);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(201, 28);
+            this.comboBoxTipo.Size = new System.Drawing.Size(292, 28);
             this.comboBoxTipo.TabIndex = 22;
             // 
             // btnAgregar
@@ -443,22 +376,6 @@ namespace boutiqueshope.UI
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.layoutProductoGeneral.SetColumnSpan(this.btnCancelar, 2);
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Unavailable;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(481, 305);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 51);
-            this.btnCancelar.TabIndex = 18;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -475,193 +392,85 @@ namespace boutiqueshope.UI
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // dataGridViewProductos
+            // btnBuscar
             // 
-            this.dataGridViewProductos.AllowUserToAddRows = false;
-            this.dataGridViewProductos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewProductos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Nombre,
-            this.Descripcion,
-            this.ProveedorId,
-            this.CategoriaId,
-            this.MarcaId,
-            this.CodigoSku,
-            this.Tipo,
-            this.FechaCreacion});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewProductos, 6);
-            this.dataGridViewProductos.Location = new System.Drawing.Point(616, 104);
-            this.dataGridViewProductos.Margin = new System.Windows.Forms.Padding(10);
-            this.dataGridViewProductos.Name = "dataGridViewProductos";
-            this.dataGridViewProductos.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewProductos, 8);
-            this.dataGridViewProductos.Size = new System.Drawing.Size(596, 360);
-            this.dataGridViewProductos.TabIndex = 4;
-            this.dataGridViewProductos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewProductos_DataBindingComplete);
-            this.dataGridViewProductos.SelectionChanged += new System.EventHandler(this.dataGridViewProductos_SelectionChanged);
+            this.btnBuscar.BackColor = System.Drawing.Color.Yellow;
+            this.layoutProductoGeneral.SetColumnSpan(this.btnBuscar, 2);
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::boutiqueshope.Properties.Resources.Search_new;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnBuscar.Location = new System.Drawing.Point(421, 155);
+            this.btnBuscar.Name = "btnBuscar";
+            this.layoutProductoGeneral.SetRowSpan(this.btnBuscar, 2);
+            this.btnBuscar.Size = new System.Drawing.Size(91, 51);
+            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.Text = "BUSCAR";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label10
+            // btnCancelar
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPanel1.SetColumnSpan(this.label10, 6);
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(609, 47);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(610, 47);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "LISTADO PRODUCTOS";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblProductoId
-            // 
-            this.lblProductoId.AutoSize = true;
-            this.lblProductoId.Location = new System.Drawing.Point(12, 479);
-            this.lblProductoId.Name = "lblProductoId";
-            this.lblProductoId.Size = new System.Drawing.Size(0, 13);
-            this.lblProductoId.TabIndex = 1;
-            this.lblProductoId.Visible = false;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 250;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Visible = false;
-            // 
-            // ProveedorId
-            // 
-            this.ProveedorId.DataPropertyName = "ProveedorId";
-            this.ProveedorId.HeaderText = "ProveedorId";
-            this.ProveedorId.Name = "ProveedorId";
-            this.ProveedorId.ReadOnly = true;
-            this.ProveedorId.Visible = false;
-            // 
-            // CategoriaId
-            // 
-            this.CategoriaId.DataPropertyName = "CategoriaId";
-            this.CategoriaId.HeaderText = "CategoriaId";
-            this.CategoriaId.Name = "CategoriaId";
-            this.CategoriaId.ReadOnly = true;
-            this.CategoriaId.Visible = false;
-            // 
-            // MarcaId
-            // 
-            this.MarcaId.DataPropertyName = "MarcaId";
-            this.MarcaId.HeaderText = "MarcaId";
-            this.MarcaId.Name = "MarcaId";
-            this.MarcaId.ReadOnly = true;
-            this.MarcaId.Visible = false;
-            // 
-            // CodigoSku
-            // 
-            this.CodigoSku.DataPropertyName = "CodigoSku";
-            this.CodigoSku.HeaderText = "CodigoSku";
-            this.CodigoSku.Name = "CodigoSku";
-            this.CodigoSku.ReadOnly = true;
-            this.CodigoSku.Width = 120;
-            // 
-            // Tipo
-            // 
-            this.Tipo.DataPropertyName = "Tipo";
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Visible = false;
-            this.Tipo.Width = 200;
-            // 
-            // FechaCreacion
-            // 
-            this.FechaCreacion.DataPropertyName = "FechaCreacion";
-            this.FechaCreacion.HeaderText = "FechaCreacion";
-            this.FechaCreacion.Name = "FechaCreacion";
-            this.FechaCreacion.ReadOnly = true;
-            this.FechaCreacion.Width = 200;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.layoutProductoGeneral.SetColumnSpan(this.btnCancelar, 2);
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Unavailable;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(421, 227);
+            this.btnCancelar.Name = "btnCancelar";
+            this.layoutProductoGeneral.SetRowSpan(this.btnCancelar, 2);
+            this.btnCancelar.Size = new System.Drawing.Size(91, 51);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ProductoUI
             // 
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1225, 501);
+            this.ClientSize = new System.Drawing.Size(644, 493);
+            this.Controls.Add(this.layoutProductoGeneral);
             this.Controls.Add(this.lblProductoId);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductoUI";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.ProductoUI_Load_1);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.PanelProductoGeneral.ResumeLayout(false);
             this.layoutProductoGeneral.ResumeLayout(false);
             this.layoutProductoGeneral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblTituloGestion;
-        private System.Windows.Forms.Panel PanelProductoGeneral;
+        private System.Windows.Forms.Label lblProductoId;
         private System.Windows.Forms.TableLayoutPanel layoutProductoGeneral;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.TextBox txtDescripcionProducto;
         private System.Windows.Forms.ComboBox comboBoxProveedor;
         private System.Windows.Forms.ComboBox comboBoxCategoria;
         private System.Windows.Forms.ComboBox comboBoxMarca;
-        private System.Windows.Forms.CheckBox checkBoxActive;
         private System.Windows.Forms.Label lblCreadoFecha;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.DataGridView dataGridViewProductos;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtCodigoProducto;
+        private System.Windows.Forms.CheckBox checkBoxActive;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ComboBox comboBoxTipo;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lblProductoId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProveedorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MarcaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoSku;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

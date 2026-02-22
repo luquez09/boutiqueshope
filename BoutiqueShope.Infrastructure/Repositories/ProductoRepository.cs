@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
+using BoutiqueShope.Domain.Inventarios;
 using Npgsql;
 
 namespace BoutiqueShope.Infrastructure.Repositories
@@ -8,6 +12,38 @@ namespace BoutiqueShope.Infrastructure.Repositories
     {
         protected override string TableName => "producto";
 
+        public async Task<Response<Producto>> BuscarProducto(String nombreProducto)
+        {
+            try
+            {
+                var lista = new List<Producto>();
+                using (var conn = DbConnection.GetConnection())
+                {
+                    await conn.OpenAsync();
+
+                    string sql = "SELECT * FROM producto p WHERE p.nombre ILIKE @nombreProducto";
+
+                    using (var cmd = new NpgsqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nombreProducto", $"%{nombreProducto}%");
+
+                        using (var dr = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await dr.ReadAsync())
+                                lista.Add(Map(dr));
+
+                            return Response<Producto>.SuccessList(lista);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Response<Producto>.Fail("Error al consultar registro - Producto busqueda", ex.Message);
+            }
+        }
+
+
         protected override Producto Map(NpgsqlDataReader reader)
         {
             return new Producto
@@ -15,9 +51,9 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 Id = Convert.ToInt32(reader["id"]),
                 Nombre = reader["nombre"] is DBNull ? string.Empty : reader["nombre"].ToString(),
                 Descripcion = reader["descripcion"] is DBNull ? string.Empty : reader["descripcion"].ToString(),
-                ProveedorId = reader["proveedor_id"] is DBNull ? (int?)null : Convert.ToInt32(reader["proveedor_id"]),
+                ProveedorId = Convert.ToInt32(reader["proveedor_id"]),
                 CategoriaId = reader["categoria_id"] is DBNull ? 0 : Convert.ToInt32(reader["categoria_id"]),
-                MarcaId = reader["marca_id"] is DBNull ? (int?)null : Convert.ToInt32(reader["marca_id"]),
+                MarcaId = Convert.ToInt32(reader["marca_id"]),
                 CodigoSku = reader["codigo_sku"] is DBNull ? string.Empty : reader["codigo_sku"].ToString(),
                 Tipo = reader["tipo"] is DBNull ? string.Empty : reader["tipo"].ToString(),
                 Activo = reader["activo"] is DBNull ? true : Convert.ToBoolean(reader["activo"]),
@@ -49,9 +85,9 @@ namespace BoutiqueShope.Infrastructure.Repositories
         {
             cmd.Parameters.AddWithValue("@nombre", entity.Nombre ?? string.Empty);
             cmd.Parameters.AddWithValue("@descripcion", string.IsNullOrEmpty(entity.Descripcion) ? (object)DBNull.Value : entity.Descripcion);
-            cmd.Parameters.AddWithValue("@proveedor_id", entity.ProveedorId.HasValue ? (object)entity.ProveedorId.Value : DBNull.Value);
+            cmd.Parameters.AddWithValue("@proveedor_id",  entity.ProveedorId);
             cmd.Parameters.AddWithValue("@categoria_id", entity.CategoriaId);
-            cmd.Parameters.AddWithValue("@marca_id", entity.MarcaId.HasValue ? (object)entity.MarcaId.Value : DBNull.Value);
+            cmd.Parameters.AddWithValue("@marca_id",entity.MarcaId);
             cmd.Parameters.AddWithValue("@codigo_sku", string.IsNullOrEmpty(entity.CodigoSku) ? (object)DBNull.Value : entity.CodigoSku);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
             cmd.Parameters.AddWithValue("@tipo", entity.Tipo);
@@ -62,9 +98,9 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@id", entity.Id);
             cmd.Parameters.AddWithValue("@nombre", entity.Nombre ?? string.Empty);
             cmd.Parameters.AddWithValue("@descripcion", string.IsNullOrEmpty(entity.Descripcion) ? (object)DBNull.Value : entity.Descripcion);
-            cmd.Parameters.AddWithValue("@proveedor_id", entity.ProveedorId.HasValue ? (object)entity.ProveedorId.Value : DBNull.Value);
+            cmd.Parameters.AddWithValue("@proveedor_id", entity.ProveedorId);
             cmd.Parameters.AddWithValue("@categoria_id", entity.CategoriaId);
-            cmd.Parameters.AddWithValue("@marca_id", entity.MarcaId.HasValue ? (object)entity.MarcaId.Value : DBNull.Value);
+            cmd.Parameters.AddWithValue("@marca_id", entity.MarcaId);
             cmd.Parameters.AddWithValue("@codigo_sku", string.IsNullOrEmpty(entity.CodigoSku) ? (object)DBNull.Value : entity.CodigoSku);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
             cmd.Parameters.AddWithValue("@tipo", entity.Tipo);

@@ -30,20 +30,10 @@ namespace boutiqueshope.UI
             listaVariaciones = new BindingList<ProductoVariacion>();
 
             InitializeComponent();
-            configurationDataGridViewProducto();
+            dataGridViewProducto.AutoGenerateColumns = false;
         }
 
         #region Gestion de procesos del producto.
-        private void configurationDataGridViewProducto()
-        {
-            dataGridViewProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewProducto.MultiSelect = false;
-            dataGridViewProducto.ReadOnly = true;
-            dataGridViewProducto.AllowUserToAddRows = false;
-            dataGridViewProducto.AllowUserToDeleteRows = false;
-            dataGridViewProducto.AllowUserToResizeRows = false;
-            dataGridViewProducto.AutoGenerateColumns = false;
-        }
         private async void ProductoVariacionUI_Load(object sender, EventArgs e)
         {
             await CargarProductosAsync();
@@ -100,10 +90,9 @@ namespace boutiqueshope.UI
                 return;
             }
 
-            dataGridViewProducto.AutoGenerateColumns = true;
             _listProductos = new BindingList<Producto>(respuesta.Listado);
             dataGridViewProducto.DataSource = _listProductos;
-            dataGridViewProducto.ClearSelection();
+            limpiarGridVariacion();
         }
 
         private void searchProducto()
@@ -119,8 +108,7 @@ namespace boutiqueshope.UI
                 (!buscarPorCodigo || p.CodigoSku.ToLower().Contains(criterioCodigo))
             ).ToList();
 
-            dataGridViewProducto.DataSource = null;
-            dataGridViewProducto.DataSource = new BindingSource { DataSource = searchProducto };
+            dataGridViewProducto.DataSource = new BindingList<Producto>(searchProducto);
             dataGridViewProducto.ClearSelection();
         }
 
@@ -152,8 +140,8 @@ namespace boutiqueshope.UI
 
         private void limpiarGridVariacion()
         {
-            dataGridViewVariacion.DataSource = null;
             dataGridViewVariacion.ClearSelection();
+            dataGridViewVariacion.DataSource = null;
             dataGridViewVariacion.CurrentCell = null;
 
             listaVariaciones.Clear();
@@ -188,7 +176,7 @@ namespace boutiqueshope.UI
             {
                 if (!int.TryParse(lblProductoId.Text, out int idProducto) || idProducto <= 0)
                 {
-                    lblInformacion.Text = "Seleccione un producto válido.";
+                    lblInformacion.Text = "No se ha seleccionado algun producto.";
                     dataGridViewVariacion.DataSource = null;
                     return;
                 }
@@ -296,7 +284,8 @@ namespace boutiqueshope.UI
 
         private string GenerarCodigoSKU(string codigoProducto, string talla, string color)
         {
-            return $"{codigoProducto}-{talla}-{color}".ToUpper();
+            string unico = DateTime.Now.ToString("ssfff");
+            return $"{codigoProducto}-{talla}-{color}-{unico}".ToUpper();
         }
 
         public string GenerarCodigoBarras(int productoId, string talla, string color)
@@ -477,13 +466,16 @@ namespace boutiqueshope.UI
             };
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+        private async void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtProducto.Text = string.Empty;
             txtCodigoSku.Text = string.Empty;
-            lblProductoId.Text = string.Empty;
             txtProducto.Focus();
+
             dataGridViewProducto.Enabled = false;
+
+            limpiarGridVariacion();
+            await CargarProductosAsync();
         }
 
       
@@ -563,7 +555,7 @@ namespace boutiqueshope.UI
             if (fila == null) return;
             int idVariacion = Convert.ToInt32(fila.Cells["Id"].Value);
             if (idVariacion <= 0) return;
-            var confirmar = UIHelper.Confirmar($"¿ Esta seguro de eliminar la variación del producto ?");
+            var confirmar = UIHelper.Confirmar("¿ Esta seguro de eliminar la variación del producto ?");
             if (!confirmar) return;
             var respuesta = await _productoVariacion.EliminarAsync(idVariacion);
             listaVariaciones.RemoveAt(rowIndex);
@@ -580,6 +572,13 @@ namespace boutiqueshope.UI
             if (!confirmar) return;
 
             listaVariaciones.RemoveAt(rowIndex);
+        }
+
+        private void dataGridViewProducto_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridViewProducto.ClearSelection();
+            dataGridViewProducto.CurrentCell = null;
+            txtProducto.Focus();
         }
     }
 }

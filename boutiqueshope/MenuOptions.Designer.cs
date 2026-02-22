@@ -46,7 +46,6 @@ namespace boutiqueshope
         private System.Windows.Forms.Button btnSalir;
 
         private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Timer timerSidebar;
 
         protected override void Dispose(bool disposing)
         {
@@ -59,7 +58,6 @@ namespace boutiqueshope
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panelConfiguracionSubMenu = new System.Windows.Forms.Panel();
@@ -75,6 +73,7 @@ namespace boutiqueshope
             this.btnListadoProveedores = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
             this.panelClientesSubMenu = new System.Windows.Forms.Panel();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnCrearCliente = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panelInventarioSubMenu = new System.Windows.Forms.Panel();
@@ -95,8 +94,6 @@ namespace boutiqueshope
             this.btnMenu = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.timerSidebar = new System.Windows.Forms.Timer(this.components);
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelConfiguracionSubMenu.SuspendLayout();
             this.panelAdministracionSubMenu.SuspendLayout();
@@ -128,7 +125,7 @@ namespace boutiqueshope
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(214, 1061);
+            this.panelSidebar.Size = new System.Drawing.Size(214, 749);
             this.panelSidebar.TabIndex = 0;
             // 
             // btnSalir
@@ -137,10 +134,10 @@ namespace boutiqueshope
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnSalir.Location = new System.Drawing.Point(0, 1026);
+            this.btnSalir.Location = new System.Drawing.Point(0, 709);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnSalir.Size = new System.Drawing.Size(214, 35);
+            this.btnSalir.Size = new System.Drawing.Size(214, 40);
             this.btnSalir.TabIndex = 17;
             this.btnSalir.Text = "⏻  Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -338,6 +335,21 @@ namespace boutiqueshope
             this.panelClientesSubMenu.Size = new System.Drawing.Size(214, 66);
             this.panelClientesSubMenu.TabIndex = 8;
             this.panelClientesSubMenu.Visible = false;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.Silver;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(0, 30);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(214, 30);
+            this.btnBuscarCliente.TabIndex = 2;
+            this.btnBuscarCliente.Text = "Buscar cliente";
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // btnCrearCliente
             // 
@@ -640,41 +652,21 @@ namespace boutiqueshope
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(214, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(834, 1061);
+            this.panelChildForm.Size = new System.Drawing.Size(770, 749);
             this.panelChildForm.TabIndex = 1;
-            // 
-            // timerSidebar
-            // 
-            this.timerSidebar.Interval = 10;
-            this.timerSidebar.Tick += new System.EventHandler(this.timerSidebar_Tick);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.Silver;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(0, 30);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnBuscarCliente.Size = new System.Drawing.Size(214, 30);
-            this.btnBuscarCliente.TabIndex = 2;
-            this.btnBuscarCliente.Text = "Buscar cliente";
-            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
             // MenuOptions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(47)))));
-            this.ClientSize = new System.Drawing.Size(1048, 1061);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSidebar);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "MenuOptions";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Ventas - Boutique";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MenuOptions_Load);

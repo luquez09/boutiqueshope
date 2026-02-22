@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
+using BoutiqueShope.Domain.Inventarios;
 using BoutiqueShope.Infrastructure.Repositories;
 
 namespace BoutiqueShope.Application.Servicios
@@ -20,6 +22,11 @@ namespace BoutiqueShope.Application.Servicios
         public async Task<Response<ProductoVariacion>> ListarAsync()
         {
             return await _repo.GetAllAsync();
+        }
+
+        public async Task<Response<ProductoVariacionFilter>> GetVariacionProductoFilter(String busqueda)
+        {
+            return await _repo.GetVariacionCodigoBarra(busqueda);
         }
 
         public async Task<Response<ProductoVariacion>> ObtenerPorIdAsync(int id)

@@ -60,5 +60,10 @@ namespace BoutiqueShope.Application.Servicios
 
             return await _repo.DeleteAsync(id);
         }
+
+        public async Task<Response<Producto>> BuscarProducto(string nombreProducto)
+        {
+            return await _repo.BuscarProducto(nombreProducto);
+        }
     }
 }

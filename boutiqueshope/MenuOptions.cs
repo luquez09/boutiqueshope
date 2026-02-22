@@ -7,7 +7,6 @@ namespace boutiqueshope
 {
     public partial class MenuOptions : Form
     {
-        bool sidebarExpand = true;
         private Form activeForm = null;
 
         public MenuOptions()
@@ -24,7 +23,6 @@ namespace boutiqueshope
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            timerSidebar.Start();
         }
 
         private void OpenChildForm(Form childForm)
@@ -77,28 +75,6 @@ namespace boutiqueshope
         // -------------------------
         // EVENTOS DEL MENÚ LATERAL
         // -------------------------
-
-        private void timerSidebar_Tick(object sender, EventArgs e)
-        {
-            if (sidebarExpand)
-            {
-                panelSidebar.Width -= 10;
-                if (panelSidebar.Width <= 60)
-                {
-                    sidebarExpand = false;
-                    timerSidebar.Stop();
-                }
-            }
-            else
-            {
-                panelSidebar.Width += 10;
-                if (panelSidebar.Width >= 250)
-                {
-                    sidebarExpand = true;
-                    timerSidebar.Stop();
-                }
-            }
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

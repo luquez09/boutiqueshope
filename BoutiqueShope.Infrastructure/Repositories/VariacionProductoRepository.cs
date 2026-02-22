@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
+using BoutiqueShope.Domain.Inventarios;
 using Npgsql;
 
 namespace BoutiqueShope.Infrastructure.Repositories
@@ -10,7 +12,47 @@ namespace BoutiqueShope.Infrastructure.Repositories
     public class VariacionProductoRepository : GenericRepository<ProductoVariacion>
     {
         protected override string TableName => "producto_variacion";
-        
+
+        public async Task<Response<ProductoVariacionFilter>> GetVariacionCodigoBarra(String busqueda)
+        {
+
+            try
+            {
+                var lista = new List<ProductoVariacionFilter>();
+                using (var conn = DbConnection.GetConnection())
+                {
+                    await conn.OpenAsync();
+                    string sql = @"SELECT
+                                    p.id AS ProductoId,
+                                    p.nombre, 
+                                    pv.id AS VariacionId, 
+                                    pv.talla, 
+                                    pv.color,
+                                    pv.codigoSku,
+                                    pv.codigo_barras
+                                    FROM producto p
+                                    INNER JOIN producto_variacion pv ON p.id = pv.producto_id
+                                    WHERE p.nombre ILIKE %@busqueda%
+                                    OR pv.codigo_barras = @busqueda;";
+                    using (var cmd = new NpgsqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@busqueda", busqueda);
+                        using (var dr = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await dr.ReadAsync())
+                                lista.Add(MapFilter(dr));
+
+                            return Response<ProductoVariacionFilter>.SuccessList(lista);                                
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Response<ProductoVariacionFilter>.Fail("Error al consultar registro - Producto Variacion", ex.Message);
+            }
+        }
+
         public async Task<Response<ProductoVariacion>> GetByIdProductoAsync(int id)
         {
             try
@@ -103,6 +145,21 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 Costo = dr.GetInt32(dr.GetOrdinal("costo")),
                 Activo = dr.GetBoolean(dr.GetOrdinal("activo")),
                 FechaCreacion = dr.GetDateTime(dr.GetOrdinal("fecha_creacion"))
+            };
+        }
+
+        private ProductoVariacionFilter MapFilter(NpgsqlDataReader dr)
+        {
+            return new ProductoVariacionFilter
+            {
+                ProductoId = dr.GetInt32(dr.GetOrdinal("productoid")),
+                Nombre = dr.GetString(dr.GetOrdinal("nombre")),
+                VariacionId = dr.GetInt32(dr.GetOrdinal("variacionid")),
+                Talla = dr.GetString(dr.GetOrdinal("talla")),
+                Color = dr.GetString(dr.GetOrdinal("color")),
+                CodigoBarra = dr.GetString(dr.GetOrdinal("codigoSku")),
+                CodigoSku = dr.GetString(dr.GetOrdinal("codigo_barra")),
+                PrecioVenta = dr.GetInt32(dr.GetOrdinal("precio_venta"))
             };
         }
 
