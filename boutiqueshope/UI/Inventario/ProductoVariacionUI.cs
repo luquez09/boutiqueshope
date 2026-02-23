@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using boutiqueshope.UI.Inventario;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
@@ -18,9 +19,10 @@ namespace boutiqueshope.UI
         private TallasServicios _tallasServicios;
         private ColoresServicios _coloresServicios;
 
-
         private BindingList<ProductoVariacion> listaVariaciones;
         private BindingList<Producto> _listProductos;
+
+        private Producto _productoSearch;
         public ProductoVariacionUI()
         {
             _productoService = new ProductoService();
@@ -28,27 +30,15 @@ namespace boutiqueshope.UI
             _tallasServicios = new TallasServicios();
             _coloresServicios = new ColoresServicios();
             listaVariaciones = new BindingList<ProductoVariacion>();
-
+            _productoSearch = new Producto();
             InitializeComponent();
-            dataGridViewProducto.AutoGenerateColumns = false;
         }
 
         #region Gestion de procesos del producto.
         private async void ProductoVariacionUI_Load(object sender, EventArgs e)
         {
-            await CargarProductosAsync();
             await CargarTallas();
             await CargarColores();
-        }
-
-        private void txtProducto_TextChanged(object sender, EventArgs e)
-        {
-            searchProducto();
-        }
-
-        private void txtCodigoSku_TextChanged(object sender, EventArgs e)
-        {
-            searchProducto();
         }
 
         private async Task CargarTallas()
@@ -81,80 +71,25 @@ namespace boutiqueshope.UI
             }
         }
 
-        private async Task CargarProductosAsync()
-        {
-            var respuesta = await _productoService.ListarAsync();
-            if (!respuesta.Exitoso)
-            {
-                UIHelper.MostrarRespuesta(respuesta);
-                return;
-            }
-
-            _listProductos = new BindingList<Producto>(respuesta.Listado);
-            dataGridViewProducto.DataSource = _listProductos;
-            limpiarGridVariacion();
-        }
-
-        private void searchProducto()
-        {
-            string criterioProducto = txtProducto.Text.Trim().ToLower();
-            string criterioCodigo = txtCodigoSku.Text.Trim().ToLower();
-
-            bool buscarPorNombre = !string.IsNullOrWhiteSpace(criterioProducto);
-            bool buscarPorCodigo = !string.IsNullOrWhiteSpace(criterioCodigo);
-
-            var searchProducto = _listProductos.Where(p =>
-                (!buscarPorNombre || p.Nombre.ToLower().Contains(criterioProducto)) &&
-                (!buscarPorCodigo || p.CodigoSku.ToLower().Contains(criterioCodigo))
-            ).ToList();
-
-            dataGridViewProducto.DataSource = new BindingList<Producto>(searchProducto);
-            dataGridViewProducto.ClearSelection();
-        }
-
-        private void SeleccionProductoDataGrid()
-        {
-            var grid = dataGridViewProducto;
-            if (grid?.CurrentRow == null) return;
-
-            var fila = grid.CurrentRow;
-
-            lblProductoId.Text = ObtenerValor(fila, "Id");
-            lblCodProdut.Text = ObtenerValor(fila, "CodigoSku");
-        }
-
-        private string ObtenerValor(DataGridViewRow fila, string columna)
-        {
-            if (!fila.DataGridView.Columns.Contains(columna))
-                return string.Empty;
-
-            var val = fila.Cells[columna].Value;
-            return val == null || val == DBNull.Value ? string.Empty : val.ToString();
-        }
-        private void dataGridViewProducto_SelectionChanged(object sender, EventArgs e)
-        {
-            SeleccionProductoDataGrid();
-            limpiarGridVariacion();
-            cargarVariaciones();
-        }
-
-        private void limpiarGridVariacion()
+        private void LimpiarGridVariacion()
         {
             dataGridViewVariacion.ClearSelection();
             dataGridViewVariacion.DataSource = null;
             dataGridViewVariacion.CurrentCell = null;
 
             listaVariaciones.Clear();
-            lblCodigoSku.Text = "--";
-            lblPrecioVenta.Text = "--";
-            lblCosto.Text = "--";
-            lblCodigoBarra.Text = "--";
-            lblFechaCreacion.Text = "--";
-            limpiarCheckBox(checkedListBoxTallas);
-            limpiarCheckBox(checkedListBoxColores);
+            lblCodigoSku.Text = "- - - - - - - - -";
+            lblPrecioVenta.Text = "- - - - - - - - -";
+            lblCosto.Text = "- - - - - - - - -";
+            lblCodigoBarra.Text = "- - - - - - - - -";
+            lblFechaCreacion.Text = "- - - - - - - - -";
+            lblIva.Text = "- - - - - - - - -";
+            txtProductoNombre.Text = string.Empty;
+            LimpiarCheckBox(checkedListBoxTallas);
+            LimpiarCheckBox(checkedListBoxColores);
         }
 
-        private void limpiarCheckBox(CheckedListBox checkedListBox)
+        private void LimpiarCheckBox(CheckedListBox checkedListBox)
         {
             checkedListBox.ClearSelected();
 
@@ -167,37 +102,41 @@ namespace boutiqueshope.UI
         #endregion
 
         #region Gestion de procesos de variaciones del producto.
-
         private async void cargarVariaciones()
         {
             dataGridViewVariacion.SelectionChanged -= dataGridViewVariacion_SelectionChanged;
 
             try
             {
-                if (!int.TryParse(lblProductoId.Text, out int idProducto) || idProducto <= 0)
+                if (_productoSearch is null)
                 {
-                    lblInformacion.Text = "No se ha seleccionado algun producto.";
+                    lblInformacion.Text = "No se ha seleccionado algún producto.";
                     dataGridViewVariacion.DataSource = null;
                     return;
                 }
 
-                var respuesta = await _productoVariacion.ObtenerPorIdProductoAsync(idProducto);
+                dataGridViewVariacion.AutoGenerateColumns = false;
+
+                var respuesta = await _productoVariacion.ObtenerPorIdProductoAsync(_productoSearch.Id);
 
                 if (!respuesta.Exitoso || respuesta.Listado == null || respuesta.Listado.Count == 0)
                 {
-                    lblInformacion.Text = "No hay variaciones registradas para el producto seleccionado.";
+                    lblInformacion.Text = "No hay variaciones registradas.";
                     dataGridViewVariacion.DataSource = null;
                     return;
                 }
 
                 lblInformacion.Text = $"Existen {respuesta.Listado.Count} registros de variaciones.";
-
                 listaVariaciones = new BindingList<ProductoVariacion>(respuesta.Listado);
                 dataGridViewVariacion.DataSource = listaVariaciones;
 
-                configurarDatagridVariacion();
                 dataGridViewVariacion.ClearSelection();
-                dataGridViewVariacion.CurrentCell = null;
+                if (dataGridViewVariacion.CurrentCell != null)
+                    dataGridViewVariacion.CurrentCell = null;
+            }
+            catch (Exception ex)
+            {
+                lblInformacion.Text = "Error al cargar datos: " + ex.Message;
             }
             finally
             {
@@ -205,51 +144,16 @@ namespace boutiqueshope.UI
             }
         }
 
-        private void configurarDatagridVariacion()
-        {
-            if (dataGridViewVariacion.Columns.Count == 0) return;
-
-            dataGridViewVariacion.Columns["Id"].Visible = false;
-            dataGridViewVariacion.Columns["ProductoId"].Visible = false;
-            dataGridViewVariacion.Columns["FechaCreacion"].Visible = false;
-            dataGridViewVariacion.Columns["CodigoBarras"].Visible = false;
-            dataGridViewVariacion.Columns["CodigoSku"].Visible = false;
-
-
-            dataGridViewVariacion.Columns["ProductoId"].HeaderText = "Producto Id";
-            dataGridViewVariacion.Columns["FechaCreacion"].HeaderText = "Fecha registrado";
-            dataGridViewVariacion.Columns["CodigoBarras"].HeaderText = "Cod. Barra";
-            dataGridViewVariacion.Columns["CodigoSku"].HeaderText = "Cod. Sku";
-            dataGridViewVariacion.Columns["Talla"].HeaderText = "Talla";
-            dataGridViewVariacion.Columns["Color"].HeaderText = "Color";
-            dataGridViewVariacion.Columns["PrecioVenta"].HeaderText = "Precio de Venta";
-            dataGridViewVariacion.Columns["Costo"].HeaderText = "Costo";
-            dataGridViewVariacion.Columns["Activo"].HeaderText = "Activo";
-
-            //No editables
-            dataGridViewVariacion.Columns["Talla"].ReadOnly = true;
-            dataGridViewVariacion.Columns["Color"].ReadOnly = true;
-
-            //Evita filas manuelas.
-            dataGridViewVariacion.AllowUserToAddRows = false;
-            dataGridViewVariacion.AllowUserToDeleteRows = false;
-            dataGridViewVariacion.AllowUserToResizeRows = false;
-
-            dataGridViewVariacion.Columns["PrecioVenta"].DefaultCellStyle.Format = "N2";
-            dataGridViewVariacion.Columns["Costo"].DefaultCellStyle.Format = "N2";
-
-        }
 
         private void CargarDatosFilaSeleccionada(DataGridViewRow row)
         {
-            lblProductoId.Text = row.Cells["ProductoId"].Value?.ToString();
             lblFechaCreacion.Text = row.Cells["FechaCreacion"].Value?.ToString();
             lblCodigoBarra.Text = row.Cells["CodigoBarras"].Value?.ToString();
             lblCodigoSku.Text = row.Cells["CodigoSku"].Value?.ToString();
             lblPrecioVenta.Text = row.Cells["PrecioVenta"].Value?.ToString();
             lblCosto.Text = row.Cells["Costo"].Value?.ToString();
+            lblIva.Text = row.Cells["Impuesto"].Value?.ToString();
         }
-
 
         private void dataGridViewVariacion_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
@@ -264,7 +168,6 @@ namespace boutiqueshope.UI
                     txt.KeyPress += InputValidatorHelper.SoloNumeros_KeyPress;
                 }
             }
-
         }
 
         private List<string> ObtenerCheckListBox(CheckedListBox checkedListBox)
@@ -290,16 +193,9 @@ namespace boutiqueshope.UI
 
         public string GenerarCodigoBarras(int productoId, string talla, string color)
         {
-            // Crear una cadena base única y estable
             string raw = $"{productoId:D6}{talla.ToUpperInvariant()}{color.ToUpperInvariant()}";
-
-            // Convertir a números usando un hash SHA-256 (estable y sin colisiones prácticas)
             string numeric = ConvertToNumericHash(raw);
-
-            // Tomar los primeros 12 dígitos
             string base12 = numeric.Substring(0, 12);
-
-            // Calcular checksum EAN-13
             int checksum = CalcularChecksumEAN13(base12);
 
             return base12 + checksum.ToString();
@@ -331,11 +227,8 @@ namespace boutiqueshope.UI
             return modulo == 0 ? 0 : 10 - modulo;
         }
 
-        private void crearVariacionProducto()
+        private void CrearVariacionProducto()
         {
-            int productoId = int.Parse(lblProductoId.Text);
-            string codigoProducto = lblCodigoSku.Text.Trim().ToUpper();
-
             var tallas = ObtenerCheckListBox(checkedListBoxTallas);
             var colores = ObtenerCheckListBox(checkedListBoxColores);
 
@@ -357,23 +250,27 @@ namespace boutiqueshope.UI
                 select new ProductoVariacion
                 {
                     Id = 0,
-                    ProductoId = productoId,
+                    ProductoId = _productoSearch.Id,
                     Talla = talla,
                     Color = color,
-                    CodigoSku = GenerarCodigoSKU(lblCodProdut.Text, talla, color),
-                    CodigoBarras = GenerarCodigoBarras(productoId, talla, color),
+                    CodigoSku = GenerarCodigoSKU(_productoSearch.CodigoSku, talla, color),
+                    CodigoBarras = GenerarCodigoBarras(_productoSearch.Id, talla, color),
                     PrecioVenta = 0.00m,
                     Costo = 0.00m,
-                    Activo = true
+                    Activo = true,
+                    FechaCreacion = DateTime.Now,
+                    Impuesto = 0
                 };
 
             foreach (var variacion in nuevasVariaciones)
             {
                 listaVariaciones.Add(variacion);
             }
-            
-            dataGridViewVariacion.DataSource = listaVariaciones;
-            configurarDatagridVariacion();
+
+            dataGridViewVariacion.ClearSelection();
+            dataGridViewVariacion.CurrentCell = null;
+            listaVariaciones = new BindingList<ProductoVariacion>(listaVariaciones);
+            dataGridViewVariacion.DataSource = listaVariaciones;            
         }
 
         private bool ExisteVariacion(List<string> tallas, List<string> colores)
@@ -396,7 +293,7 @@ namespace boutiqueshope.UI
 
         private void btnAgregarVariacion_Click(object sender, EventArgs e)
         {
-            crearVariacionProducto();
+            CrearVariacionProducto();
             ColorearFilas();
         }
 
@@ -418,13 +315,13 @@ namespace boutiqueshope.UI
             string col = dataGridViewVariacion.Columns[e.ColumnIndex].Name;
             int id = Convert.ToInt32(dataGridViewVariacion.Rows[e.RowIndex].Cells["Id"].Value);
 
-            if ((col == "PrecioVenta" || col == "Costo" || col == "Activo") &&
+            if ((col == "PrecioVenta" || col == "Costo" || col == "Activo" || col == "Impuesto") &&
                 (id > 0))
             {
                 dataGridViewVariacion.Rows[e.RowIndex].Cells["modificado"].Value = "1";
                 dataGridViewVariacion.Rows[e.RowIndex].DefaultCellStyle.BackColor = colorUpdate;
+                CargarDatosFilaSeleccionada(dataGridViewVariacion.CurrentRow);
             }
-
         }
 
         private void dataGridViewVariacion_CurrentCellChanged(object sender, EventArgs e)
@@ -462,44 +359,24 @@ namespace boutiqueshope.UI
                 CodigoSku = row.Cells["CodigoSKU"].Value?.ToString(),
                 PrecioVenta = Convert.ToDecimal(row.Cells["PrecioVenta"].Value),
                 Costo = Convert.ToDecimal(row.Cells["Costo"].Value),
-                Activo = Convert.ToBoolean(row.Cells["Activo"].Value)
+                Activo = Convert.ToBoolean(row.Cells["Activo"].Value),
+                Impuesto = Convert.ToInt32(row.Cells["Impuesto"].Value)
             };
         }
 
-        private async void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            txtProducto.Text = string.Empty;
-            txtCodigoSku.Text = string.Empty;
-            txtProducto.Focus();
-
-            dataGridViewProducto.Enabled = false;
-
-            limpiarGridVariacion();
-            await CargarProductosAsync();
-        }
-
-      
         #endregion
-
-        private async Task ResponseAction(Response<ProductoVariacion> response)
-        {
-            UIHelper.MostrarRespuesta(response);
-            if (response.Exitoso) LimpiarFormulario();
-        }
-
         private async void btnGestionarProducto_Click(object sender, EventArgs e)
         {
             List<ProductoVariacion> listUpdate = ObtenerVariacionesModificadas();
             if (listUpdate.Count > 0)
             {
                 var respuesta = await _productoVariacion.SaveVariacionesAsync(listUpdate);
-                await ResponseAction(respuesta);
+                UIHelper.MostrarRespuesta(respuesta);
+                if (respuesta.Exitoso) LimpiarFormulario();
+            } else
+            {
+                UIHelper.MostrarAdvertencia("No hay cambios para guardar.");
             }
-
-            limpiarCheckBox(checkedListBoxTallas);
-            limpiarCheckBox(checkedListBoxColores);
-            limpiarGridVariacion();
-            LimpiarFormulario();
         }
 
         private void dataGridViewVariacion_SelectionChanged(object sender, EventArgs e)
@@ -511,42 +388,11 @@ namespace boutiqueshope.UI
         }
         private void LimpiarFormulario()
         {
-            txtProducto.Clear();
-            txtCodigoSku.Clear();
-            txtProducto.Focus();
             dataGridViewVariacion.CurrentCell = null;
             dataGridViewVariacion.ClearSelection();
-            lblProductoId.Text = string.Empty;
-            lblInformacion.Text = string.Empty;
-        }
-
-        private async void dataGridViewVariacion_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            if (dataGridViewVariacion.Columns[e.ColumnIndex].Name != "Acciones")
-                return;
-
-            dataGridViewVariacion.CellClick -= dataGridViewVariacion_CellClick;
-
-            try
-            {
-                var fila = dataGridViewVariacion.Rows[e.RowIndex];
-                int idVariacion = Convert.ToInt32(fila.Cells["Id"].Value);
-
-                if (idVariacion > 0)
-                {
-                    await EliminarVariacionDataBase(e.RowIndex);
-                }
-                else
-                {
-                    EliminarVariacionDataGrid(e.RowIndex);
-                }
-            }
-            finally
-            {
-                dataGridViewVariacion.CellClick += dataGridViewVariacion_CellClick;
-            }
+            LimpiarCheckBox(checkedListBoxTallas);
+            LimpiarCheckBox(checkedListBoxColores);
+            LimpiarGridVariacion();
         }
 
         private async Task EliminarVariacionDataBase(int rowIndex)
@@ -574,11 +420,39 @@ namespace boutiqueshope.UI
             listaVariaciones.RemoveAt(rowIndex);
         }
 
-        private void dataGridViewProducto_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private async void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            dataGridViewProducto.ClearSelection();
-            dataGridViewProducto.CurrentCell = null;
-            txtProducto.Focus();
+            SearchProductUI formSearch = new SearchProductUI();
+            formSearch.SearchProduct += (productoRecibido) =>
+            {
+                txtProductoNombre.Text = productoRecibido.Nombre.Trim();
+                _productoSearch = productoRecibido;
+                cargarVariaciones();
+            };
+            formSearch.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
+
+        private async void dataGridViewVariacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dataGridViewVariacion.Columns[e.ColumnIndex].Name == "btnEliminar")
+            {
+                var fila = dataGridViewVariacion.Rows[e.RowIndex];
+                int idVariacion = Convert.ToInt32(fila.Cells["Id"].Value);
+
+                if (idVariacion > 0)
+                {
+                    await EliminarVariacionDataBase(e.RowIndex);
+                }
+                else
+                {
+                    EliminarVariacionDataGrid(e.RowIndex);
+                }
+            }
         }
     }
 }

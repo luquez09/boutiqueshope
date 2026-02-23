@@ -29,7 +29,8 @@ namespace BoutiqueShope.Infrastructure.Repositories
                                     pv.talla, 
                                     pv.color,
                                     pv.codigoSku,
-                                    pv.codigo_barras
+                                    pv.codigo_barras,
+                                    pv.impuesto
                                     FROM producto p
                                     INNER JOIN producto_variacion pv ON p.id = pv.producto_id
                                     WHERE p.nombre ILIKE %@busqueda%
@@ -144,7 +145,8 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 PrecioVenta = dr.GetInt32(dr.GetOrdinal("precio_venta")),
                 Costo = dr.GetInt32(dr.GetOrdinal("costo")),
                 Activo = dr.GetBoolean(dr.GetOrdinal("activo")),
-                FechaCreacion = dr.GetDateTime(dr.GetOrdinal("fecha_creacion"))
+                FechaCreacion = dr.GetDateTime(dr.GetOrdinal("fecha_creacion")),
+                Impuesto = dr.GetInt32(dr.GetOrdinal("impuesto"))
             };
         }
 
@@ -159,14 +161,15 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 Color = dr.GetString(dr.GetOrdinal("color")),
                 CodigoBarra = dr.GetString(dr.GetOrdinal("codigoSku")),
                 CodigoSku = dr.GetString(dr.GetOrdinal("codigo_barra")),
-                PrecioVenta = dr.GetInt32(dr.GetOrdinal("precio_venta"))
+                PrecioVenta = dr.GetInt32(dr.GetOrdinal("precio_venta")),
+                Impuesto = dr.GetInt32(dr.GetOrdinal("impuesto"))
             };
         }
 
         protected override string GetInsertSql()
         {
-            return @"INSERT INTO producto_variacion (producto_id, talla, color, codigo_barras, precio_venta, costo, activo, fecha_creacion)
-                    VALUES(@productoId, @talla, @color, @codigo_barras, @precio_venta, @costo, @activo, NOW())";
+            return @"INSERT INTO producto_variacion (producto_id, talla, color, codigo_barras, precio_venta, costo, activo, fecha_creacion, impuesto)
+                    VALUES(@productoId, @talla, @color, @codigo_barras, @precio_venta, @costo, @activo, NOW(), @impuesto)";
         }
 
         protected override string GetUpdateSql()
@@ -177,7 +180,8 @@ namespace BoutiqueShope.Infrastructure.Repositories
                                     codigo_barras=@codigo_barras,
                                     precio_venta=@precio_venta,
                                     costo=@costo,
-                                    activo=@activo
+                                    activo=@activo,
+                                    impuesto=@impuesto
                             WHERE id=@id";
         }
 
@@ -185,7 +189,8 @@ namespace BoutiqueShope.Infrastructure.Repositories
         {
             return @"UPDATE producto_variacion SET  precio_venta=@precio_venta,
                                                     costo=@costo,
-                                                    activo=@activo
+                                                    activo=@activo,
+                                                    impuesto=@impuesto
                                                     WHERE id=@id";
         }
 
@@ -199,6 +204,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@precio_venta", entity.PrecioVenta);
             cmd.Parameters.AddWithValue("@costo", entity.Costo);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
+            cmd.Parameters.AddWithValue("@impuesto", entity.Impuesto);
         }
 
         protected override void MapUpdateParameters(NpgsqlCommand cmd, ProductoVariacion entity)
@@ -211,6 +217,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             cmd.Parameters.AddWithValue("@precio_venta", entity.PrecioVenta);
             cmd.Parameters.AddWithValue("@costo", entity.Costo);
             cmd.Parameters.AddWithValue("@activo", entity.Activo);
+            cmd.Parameters.AddWithValue("@impuesto", entity.Impuesto);
         }
     }
 }

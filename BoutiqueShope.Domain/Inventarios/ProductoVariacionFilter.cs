@@ -12,6 +12,7 @@ namespace BoutiqueShope.Domain.Inventarios
         public String CodigoSku { get; set; }
         public String CodigoBarra { get; set; }
         public Double PrecioVenta { get; set; }
+        public Double Impuesto { get; set; }
         public String DisplayPOS => $"{Nombre} ({Color} - {Talla})";
     }
 }

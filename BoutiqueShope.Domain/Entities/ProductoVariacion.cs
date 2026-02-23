@@ -12,9 +12,10 @@ namespace BoutiqueShope.Domain.Entities
         public string CodigoSku { get; set; }
         public decimal PrecioVenta { get; set; }
         public decimal Costo { get; set; }
+        public int Impuesto { get; set; }
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        public string NombreVariacion => $"{Talla} - {Color}";
+        //public string NombreVariacion => $"{Talla} - {Color}";
     }
 }
