@@ -34,30 +34,25 @@ namespace boutiqueshope.UI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblIva = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblCodigoSku = new System.Windows.Forms.Label();
-            this.lblFechaCreacion = new System.Windows.Forms.Label();
-            this.btnAgregarVariacion = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblCosto = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnGestionarProducto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.lblPrecioVenta = new System.Windows.Forms.Label();
             this.lblCodigoBarra = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblCosto = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblFechaCreacion = new System.Windows.Forms.Label();
+            this.btnAgregarVariacion = new System.Windows.Forms.Button();
+            this.btnGestionarProducto = new System.Windows.Forms.Button();
             this.checkedListBoxTallas = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxColores = new System.Windows.Forms.CheckedListBox();
             this.lblColores = new System.Windows.Forms.Label();
             this.lblTallas = new System.Windows.Forms.Label();
             this.dataGridViewVariacion = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtProductoNombre = new System.Windows.Forms.TextBox();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.lblInformacion = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblIva = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Impuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +66,11 @@ namespace boutiqueshope.UI
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtProductoNombre = new System.Windows.Forms.TextBox();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.lblInformacion = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVariacion)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +114,28 @@ namespace boutiqueshope.UI
             this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 208);
             this.tableLayoutPanel1.TabIndex = 33;
             // 
+            // lblIva
+            // 
+            this.lblIva.AutoSize = true;
+            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIva.Location = new System.Drawing.Point(181, 102);
+            this.lblIva.Name = "lblIva";
+            this.lblIva.Size = new System.Drawing.Size(14, 20);
+            this.lblIva.TabIndex = 26;
+            this.lblIva.Text = "-";
+            this.lblIva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 20);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "IVA";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -135,6 +157,83 @@ namespace boutiqueshope.UI
             this.lblCodigoSku.TabIndex = 18;
             this.lblCodigoSku.Text = "-";
             this.lblCodigoSku.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Codigo Barras";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblPrecioVenta
+            // 
+            this.lblPrecioVenta.AutoSize = true;
+            this.lblPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioVenta.Location = new System.Drawing.Point(181, 136);
+            this.lblPrecioVenta.Name = "lblPrecioVenta";
+            this.lblPrecioVenta.Size = new System.Drawing.Size(14, 20);
+            this.lblPrecioVenta.TabIndex = 20;
+            this.lblPrecioVenta.Text = "-";
+            this.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCodigoBarra
+            // 
+            this.lblCodigoBarra.AutoSize = true;
+            this.lblCodigoBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoBarra.Location = new System.Drawing.Point(181, 34);
+            this.lblCodigoBarra.Name = "lblCodigoBarra";
+            this.lblCodigoBarra.Size = new System.Drawing.Size(14, 20);
+            this.lblCodigoBarra.TabIndex = 16;
+            this.lblCodigoBarra.Text = "-";
+            this.lblCodigoBarra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 68);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 20);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "Costo";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 136);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 20);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Precio Venta";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCosto
+            // 
+            this.lblCosto.AutoSize = true;
+            this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCosto.Location = new System.Drawing.Point(181, 68);
+            this.lblCosto.Name = "lblCosto";
+            this.lblCosto.Size = new System.Drawing.Size(14, 20);
+            this.lblCosto.TabIndex = 22;
+            this.lblCosto.Text = "-";
+            this.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(3, 170);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(121, 20);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Fecha Creacion";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblFechaCreacion
             // 
@@ -162,39 +261,6 @@ namespace boutiqueshope.UI
             this.btnAgregarVariacion.UseVisualStyleBackColor = false;
             this.btnAgregarVariacion.Click += new System.EventHandler(this.btnAgregarVariacion_Click);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 170);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(121, 20);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Fecha Creacion";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCosto
-            // 
-            this.lblCosto.AutoSize = true;
-            this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(181, 68);
-            this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(14, 20);
-            this.lblCosto.TabIndex = 22;
-            this.lblCosto.Text = "-";
-            this.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 68);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 20);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "Costo";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // btnGestionarProducto
             // 
             this.btnGestionarProducto.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -211,58 +277,14 @@ namespace boutiqueshope.UI
             this.btnGestionarProducto.UseVisualStyleBackColor = false;
             this.btnGestionarProducto.Click += new System.EventHandler(this.btnGestionarProducto_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Codigo Barras";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 136);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 20);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Precio Venta";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblPrecioVenta
-            // 
-            this.lblPrecioVenta.AutoSize = true;
-            this.lblPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioVenta.Location = new System.Drawing.Point(181, 136);
-            this.lblPrecioVenta.Name = "lblPrecioVenta";
-            this.lblPrecioVenta.Size = new System.Drawing.Size(14, 20);
-            this.lblPrecioVenta.TabIndex = 20;
-            this.lblPrecioVenta.Text = "-";
-            this.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCodigoBarra
-            // 
-            this.lblCodigoBarra.AutoSize = true;
-            this.lblCodigoBarra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigoBarra.Location = new System.Drawing.Point(181, 34);
-            this.lblCodigoBarra.Name = "lblCodigoBarra";
-            this.lblCodigoBarra.Size = new System.Drawing.Size(14, 20);
-            this.lblCodigoBarra.TabIndex = 16;
-            this.lblCodigoBarra.Text = "-";
-            this.lblCodigoBarra.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // checkedListBoxTallas
             // 
             this.checkedListBoxTallas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.checkedListBoxTallas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxTallas.FormattingEnabled = true;
-            this.checkedListBoxTallas.Location = new System.Drawing.Point(181, 150);
+            this.checkedListBoxTallas.Location = new System.Drawing.Point(205, 150);
             this.checkedListBoxTallas.Name = "checkedListBoxTallas";
-            this.checkedListBoxTallas.Size = new System.Drawing.Size(143, 189);
+            this.checkedListBoxTallas.Size = new System.Drawing.Size(158, 189);
             this.checkedListBoxTallas.TabIndex = 32;
             // 
             // checkedListBoxColores
@@ -272,7 +294,7 @@ namespace boutiqueshope.UI
             this.checkedListBoxColores.FormattingEnabled = true;
             this.checkedListBoxColores.Location = new System.Drawing.Point(16, 150);
             this.checkedListBoxColores.Name = "checkedListBoxColores";
-            this.checkedListBoxColores.Size = new System.Drawing.Size(146, 189);
+            this.checkedListBoxColores.Size = new System.Drawing.Size(170, 189);
             this.checkedListBoxColores.TabIndex = 31;
             // 
             // lblColores
@@ -290,7 +312,7 @@ namespace boutiqueshope.UI
             // 
             this.lblTallas.AutoSize = true;
             this.lblTallas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTallas.Location = new System.Drawing.Point(177, 127);
+            this.lblTallas.Location = new System.Drawing.Point(201, 127);
             this.lblTallas.Name = "lblTallas";
             this.lblTallas.Size = new System.Drawing.Size(50, 20);
             this.lblTallas.TabIndex = 30;
@@ -337,84 +359,6 @@ namespace boutiqueshope.UI
             this.dataGridViewVariacion.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVariacion_CellValueChanged);
             this.dataGridViewVariacion.CurrentCellChanged += new System.EventHandler(this.dataGridViewVariacion_CurrentCellChanged);
             this.dataGridViewVariacion.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewVariacion_EditingControlShowing);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Buscar Producto";
-            // 
-            // txtProductoNombre
-            // 
-            this.txtProductoNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProductoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductoNombre.Location = new System.Drawing.Point(17, 82);
-            this.txtProductoNombre.Name = "txtProductoNombre";
-            this.txtProductoNombre.ReadOnly = true;
-            this.txtProductoNombre.Size = new System.Drawing.Size(295, 22);
-            this.txtProductoNombre.TabIndex = 36;
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackgroundImage = global::boutiqueshope.Properties.Resources.Search;
-            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(318, 75);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(45, 43);
-            this.btnBuscarProducto.TabIndex = 37;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // lblInformacion
-            // 
-            this.lblInformacion.AutoSize = true;
-            this.lblInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacion.Location = new System.Drawing.Point(10, 571);
-            this.lblInformacion.Name = "lblInformacion";
-            this.lblInformacion.Size = new System.Drawing.Size(0, 20);
-            this.lblInformacion.TabIndex = 38;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(616, 283);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(114, 54);
-            this.btnCancelar.TabIndex = 39;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 20);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "IVA";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblIva
-            // 
-            this.lblIva.AutoSize = true;
-            this.lblIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIva.Location = new System.Drawing.Point(181, 102);
-            this.lblIva.Name = "lblIva";
-            this.lblIva.Size = new System.Drawing.Size(14, 20);
-            this.lblIva.TabIndex = 26;
-            this.lblIva.Text = "-";
-            this.lblIva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Id
             // 
@@ -520,6 +464,62 @@ namespace boutiqueshope.UI
             this.Activo.HeaderText = "Activo";
             this.Activo.Name = "Activo";
             this.Activo.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Buscar Producto";
+            // 
+            // txtProductoNombre
+            // 
+            this.txtProductoNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoNombre.Location = new System.Drawing.Point(17, 82);
+            this.txtProductoNombre.Name = "txtProductoNombre";
+            this.txtProductoNombre.ReadOnly = true;
+            this.txtProductoNombre.Size = new System.Drawing.Size(295, 22);
+            this.txtProductoNombre.TabIndex = 36;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackgroundImage = global::boutiqueshope.Properties.Resources.Search;
+            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(318, 75);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(45, 43);
+            this.btnBuscarProducto.TabIndex = 37;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // lblInformacion
+            // 
+            this.lblInformacion.AutoSize = true;
+            this.lblInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacion.Location = new System.Drawing.Point(10, 571);
+            this.lblInformacion.Name = "lblInformacion";
+            this.lblInformacion.Size = new System.Drawing.Size(0, 20);
+            this.lblInformacion.TabIndex = 38;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(616, 283);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(114, 54);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // ProductoVariacionUI
             // 

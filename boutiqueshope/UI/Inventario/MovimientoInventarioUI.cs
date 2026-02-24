@@ -1,36 +1,30 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BoutiqueShope.Application;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.Application.Servicios.Ventas;
 using BoutiqueShope.CrossCutting;
+using BoutiqueShope.Domain.Entities;
 using BoutiqueShope.Domain.Inventarios;
 
 namespace boutiqueshope.UI.Inventario
 {
     public partial class MovimientoInventarioUI : Form
     {
-
-        private ProductoService _productoService;
         private AlmacenService _almacenService;
         private VariacionProductoService _variacionProductoService;
         private UsuarioService _usuarioService;
+        private Producto _productoSearch;
 
         private MovimientoInventarioService _movimientoInventarioService;
         public MovimientoInventarioUI()
         {
             InitializeComponent();
-            _productoService = new ProductoService();
             _almacenService = new AlmacenService();
             _variacionProductoService = new VariacionProductoService();
             _usuarioService = new UsuarioService();
+            _productoSearch = new Producto();
 
             _movimientoInventarioService = new MovimientoInventarioService();
 
@@ -41,16 +35,8 @@ namespace boutiqueshope.UI.Inventario
         {
             try
             {
-                var productoResult = await _productoService.ListarAsync();
                 var almacenResult = await _almacenService.ListarAsync();
                 var usuarioResult = await _usuarioService.ListarAsync();
-
-                if (productoResult.Exitoso)
-                {
-                    comboProducto.DataSource = productoResult.Listado;
-                    comboProducto.DisplayMember = "Nombre";
-                    comboProducto.ValueMember = "Id";
-                }
 
                 if (almacenResult.Exitoso)
                 {
@@ -95,31 +81,11 @@ namespace boutiqueshope.UI.Inventario
 
         private FiltorInventario CapturarFiltro()
         {
-
-            DateTime fechaInicio = dtDateDesde.Value.Date;
-            DateTime fechaFin = dtDateHasta.Value.Date.AddDays(1).AddSeconds(-1);
-
-            if (fechaInicio > fechaFin)
-            {
-                UIHelper.MostrarError("La fecha de inicio no puede ser mayor que la fecha de fin.");
-                return null;
-            }
-
-            if (comboProducto.SelectedValue == null || comboAlmacen.SelectedValue == null || comboVariacion.SelectedValue == null || comboUsuario.SelectedValue == null)
-            {
-                UIHelper.MostrarError("Por favor, seleccione un producto, almacén, variación y usuario.");
-                return null;
-            }
-
-            if ((int)comboProducto.SelectedValue == 0 || (int)comboAlmacen.SelectedValue == 0 || (int)comboVariacion.SelectedValue == 0 || (int)comboUsuario.SelectedValue == 0)
-            {
-                UIHelper.MostrarError("Por favor, seleccione un producto, almacén, variación y usuario válidos.");
-                return null;
-            }
+            if (!ValidacionesFiltros()) return null;
 
             return new FiltorInventario
             {
-                productoId = (int)comboProducto.SelectedValue,
+                productoId = _productoSearch.Id,
                 almacenId = (int)comboAlmacen.SelectedValue,
                 variacionId = (int)comboVariacion.SelectedValue,
                 usuarioId = (int)comboUsuario.SelectedValue,
@@ -130,19 +96,45 @@ namespace boutiqueshope.UI.Inventario
             };
         }
 
+        private bool ValidacionesFiltros()
+        {
+            DateTime fechaHasta = dtDateHasta.Value.Date.AddDays(1).AddSeconds(-1);
+            if (comboAlmacen.SelectedItem == null)
+            {
+                UIHelper.MostrarError("Seleccione un almacén.");
+                return false;
+            }
+            if (comboUsuario.SelectedItem == null)
+            {
+                UIHelper.MostrarError("Seleccione un usuario.");
+                return false;
+            }
+            if (dtDateDesde.Value.Date > fechaHasta)
+            {
+                UIHelper.MostrarError("La fecha 'Desde' no puede ser mayor que la fecha 'Hasta'.");
+                return false;
+            }
+            return true;
+        }
+
         private async Task CargarDataHistorial()
         {
-            var listadoMovimientos = await _movimientoInventarioService.GetAllMovimientoForIds(CapturarFiltro());
+            var resultado = await _movimientoInventarioService.GetAllMovimientoForIds(CapturarFiltro());
 
-            if (listadoMovimientos.Exitoso)
+            if (resultado.Exitoso)
             {
-                dataGridViewMovimientos.DataSource = listadoMovimientos.Listado;
-                dataGridViewMovimientos.CurrentCell = null;
-                dataGridViewMovimientos.ClearSelection();
+                dataGridViewMovimientos.DataSource = null;
+                dataGridViewMovimientos.DataSource = resultado.Listado;
+
+                if (dataGridViewMovimientos.Rows.Count > 0)
+                {
+                    dataGridViewMovimientos.CurrentCell = null;
+                    dataGridViewMovimientos.ClearSelection();
+                }
             }
             else
             {
-                UIHelper.MostrarError($"Error al cargar historial: {listadoMovimientos.Mensaje}");
+                UIHelper.MostrarError($"Error al cargar historial: {resultado.Mensaje}");
             }
         }
 
@@ -156,11 +148,9 @@ namespace boutiqueshope.UI.Inventario
             dtDateDesde.Value = DateTime.Now.AddDays(-30);
         }
 
-        private async void GetAllProductoVariacion()
+        private async void CargarComboVariaciones()
         {
-            int idProducto = (int)comboProducto.SelectedValue;
-            var variacionProductoResult = await _variacionProductoService.ObtenerPorIdProductoAsync(idProducto);
-
+            var variacionProductoResult = await _variacionProductoService.ObtenerPorIdProductoAsync(_productoSearch.Id);
             if (variacionProductoResult.Exitoso)
             {
                 comboVariacion.DataSource = null;
@@ -173,12 +163,18 @@ namespace boutiqueshope.UI.Inventario
                 UIHelper.MostrarError($"Error al cargar variaciones: {variacionProductoResult.Mensaje}");
             }
         }
-        private void comboProducto_SelectedIndexChanged(object sender, EventArgs e)
+      
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            if (comboProducto.SelectedValue != null && int.TryParse(comboProducto.SelectedValue.ToString(), out int idProducto))
+            SearchProductUI formSearch = new SearchProductUI();
+            formSearch.SearchProduct += (productoRecibido) =>
             {
-                GetAllProductoVariacion();
-            }
+                _productoSearch = productoRecibido;
+                txtProductoBuscar.Text = productoRecibido.Nombre;
+                CargarComboVariaciones();
+            };
+            formSearch.ShowDialog();
         }
     }
 }

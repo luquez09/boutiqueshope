@@ -67,17 +67,17 @@ namespace boutiqueshope.UI.Inventario
             this.layoutProductoGeneral.Controls.Add(this.label2, 0, 0);
             this.layoutProductoGeneral.Controls.Add(this.label3, 0, 1);
             this.layoutProductoGeneral.Controls.Add(this.txtProducto, 2, 1);
-            this.layoutProductoGeneral.Controls.Add(this.btnSeleccionar, 0, 2);
-            this.layoutProductoGeneral.Controls.Add(this.btnCancelar, 3, 2);
+            this.layoutProductoGeneral.Controls.Add(this.btnCancelar, 5, 2);
+            this.layoutProductoGeneral.Controls.Add(this.btnSeleccionar, 2, 2);
             this.layoutProductoGeneral.Location = new System.Drawing.Point(9, 9);
             this.layoutProductoGeneral.Margin = new System.Windows.Forms.Padding(0);
             this.layoutProductoGeneral.Name = "layoutProductoGeneral";
             this.layoutProductoGeneral.RowCount = 3;
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.61069F));
-            this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.21739F));
-            this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.13044F));
+            this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.71756F));
+            this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.67176F));
             this.layoutProductoGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.layoutProductoGeneral.Size = new System.Drawing.Size(662, 131);
+            this.layoutProductoGeneral.Size = new System.Drawing.Size(662, 119);
             this.layoutProductoGeneral.TabIndex = 1;
             // 
             // label2
@@ -88,7 +88,7 @@ namespace boutiqueshope.UI.Inventario
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(656, 27);
+            this.label2.Size = new System.Drawing.Size(656, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "BUSCAR PRODUCTO";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,18 +99,19 @@ namespace boutiqueshope.UI.Inventario
             this.layoutProductoGeneral.SetColumnSpan(this.label3, 2);
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 27);
+            this.label3.Location = new System.Drawing.Point(3, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 52);
+            this.label3.Size = new System.Drawing.Size(126, 31);
             this.label3.TabIndex = 1;
             this.label3.Text = "Nombre";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtProducto
             // 
+            this.txtProducto.BackColor = System.Drawing.Color.PaleGreen;
             this.layoutProductoGeneral.SetColumnSpan(this.txtProducto, 7);
             this.txtProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProducto.Location = new System.Drawing.Point(135, 30);
+            this.txtProducto.Location = new System.Drawing.Point(135, 27);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(454, 26);
             this.txtProducto.TabIndex = 8;
@@ -121,9 +122,9 @@ namespace boutiqueshope.UI.Inventario
             this.btnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.layoutProductoGeneral.SetColumnSpan(this.btnSeleccionar, 3);
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(3, 82);
+            this.btnSeleccionar.Location = new System.Drawing.Point(135, 58);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(177, 46);
+            this.btnSeleccionar.Size = new System.Drawing.Size(197, 46);
             this.btnSeleccionar.TabIndex = 15;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = false;
@@ -134,9 +135,9 @@ namespace boutiqueshope.UI.Inventario
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.layoutProductoGeneral.SetColumnSpan(this.btnCancelar, 3);
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(201, 82);
+            this.btnCancelar.Location = new System.Drawing.Point(338, 58);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(135, 46);
+            this.btnCancelar.Size = new System.Drawing.Size(185, 46);
             this.btnCancelar.TabIndex = 16;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -180,12 +181,12 @@ namespace boutiqueshope.UI.Inventario
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewProducto.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewProducto.Location = new System.Drawing.Point(9, 143);
+            this.dataGridViewProducto.Location = new System.Drawing.Point(9, 131);
             this.dataGridViewProducto.MultiSelect = false;
             this.dataGridViewProducto.Name = "dataGridViewProducto";
             this.dataGridViewProducto.ReadOnly = true;
             this.dataGridViewProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProducto.Size = new System.Drawing.Size(659, 155);
+            this.dataGridViewProducto.Size = new System.Drawing.Size(659, 167);
             this.dataGridViewProducto.TabIndex = 2;
             // 
             // Id
@@ -267,6 +268,7 @@ namespace boutiqueshope.UI.Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(680, 310);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewProducto);

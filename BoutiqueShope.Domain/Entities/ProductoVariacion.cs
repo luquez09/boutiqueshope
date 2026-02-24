@@ -16,6 +16,6 @@ namespace BoutiqueShope.Domain.Entities
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        //public string NombreVariacion => $"{Talla} - {Color}";
+        public string NombreVariacion => $"{Talla} - {Color}";
     }
 }

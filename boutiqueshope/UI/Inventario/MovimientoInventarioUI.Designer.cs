@@ -33,33 +33,30 @@ namespace boutiqueshope.UI.Inventario
             this.PanelFiltros = new System.Windows.Forms.Panel();
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.comboProducto = new System.Windows.Forms.ComboBox();
             this.comboAlmacen = new System.Windows.Forms.ComboBox();
-            this.comboUsuario = new System.Windows.Forms.ComboBox();
+            this.txtProductoBuscar = new System.Windows.Forms.TextBox();
             this.comboVariacion = new System.Windows.Forms.ComboBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.comboUsuario = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rdTodosTipoMov = new System.Windows.Forms.RadioButton();
             this.rdSalidaTipoMov = new System.Windows.Forms.RadioButton();
             this.rdEntradaTipoMov = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdTodosDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdTrasladoDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdAjusteDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdCompraDocuOrigen = new System.Windows.Forms.RadioButton();
             this.rdVentaDocuOrigen = new System.Windows.Forms.RadioButton();
-            this.lblFechaDesde = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.dtDateDesde = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaHasta = new System.Windows.Forms.Label();
             this.dtDateHasta = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -75,6 +72,7 @@ namespace boutiqueshope.UI.Inventario
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.PanelFiltros.SuspendLayout();
             this.groupBoxFiltros.SuspendLayout();
@@ -144,45 +142,54 @@ namespace boutiqueshope.UI.Inventario
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.46409F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.72876F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.46366F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.53326F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.82799F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.122449F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.57726F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 291F));
+            this.tableLayoutPanel2.Controls.Add(this.btnBuscarProducto, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label8, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label9, 2, 4);
-            this.tableLayoutPanel2.Controls.Add(this.btnBuscar, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.comboProducto, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboAlmacen, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboUsuario, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboVariacion, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnLimpiar, 1, 5);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.lblFechaDesde, 3, 5);
-            this.tableLayoutPanel2.Controls.Add(this.dtDateDesde, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.lblFechaHasta, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.dtDateHasta, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.txtProductoBuscar, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboVariacion, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboUsuario, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label7, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.dtDateDesde, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dtDateHasta, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnBuscar, 1, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 22);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel2.RowCount = 6;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.12963F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.2037F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.81481F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.07407F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.37037F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.46296F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(997, 236);
             this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackgroundImage = global::boutiqueshope.Properties.Resources.Search;
+            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(556, 13);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(36, 30);
+            this.btnBuscarProducto.TabIndex = 38;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
             // 
             // label2
             // 
@@ -202,127 +209,80 @@ namespace boutiqueshope.UI.Inventario
             this.label3.TabIndex = 1;
             this.label3.Text = "Almacen";
             // 
-            // label4
+            // comboAlmacen
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 18);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Tipo Movimiento";
+            this.comboAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboAlmacen.FormattingEnabled = true;
+            this.comboAlmacen.Location = new System.Drawing.Point(125, 49);
+            this.comboAlmacen.Name = "comboAlmacen";
+            this.comboAlmacen.Size = new System.Drawing.Size(424, 26);
+            this.comboAlmacen.TabIndex = 11;
             // 
-            // label5
+            // txtProductoBuscar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 141);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 18);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Documento Origen";
+            this.txtProductoBuscar.BackColor = System.Drawing.Color.LightGreen;
+            this.txtProductoBuscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductoBuscar.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProductoBuscar.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoBuscar.Location = new System.Drawing.Point(125, 13);
+            this.txtProductoBuscar.Name = "txtProductoBuscar";
+            this.txtProductoBuscar.ReadOnly = true;
+            this.txtProductoBuscar.Size = new System.Drawing.Size(424, 25);
+            this.txtProductoBuscar.TabIndex = 19;
             // 
-            // label6
+            // comboVariacion
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(609, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 18);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Variacion";
+            this.comboVariacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboVariacion.FormattingEnabled = true;
+            this.comboVariacion.Location = new System.Drawing.Point(698, 13);
+            this.comboVariacion.Name = "comboVariacion";
+            this.comboVariacion.Size = new System.Drawing.Size(264, 26);
+            this.comboVariacion.TabIndex = 13;
+            // 
+            // comboUsuario
+            // 
+            this.comboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboUsuario.FormattingEnabled = true;
+            this.comboUsuario.Location = new System.Drawing.Point(698, 49);
+            this.comboUsuario.Name = "comboUsuario";
+            this.comboUsuario.Size = new System.Drawing.Size(264, 26);
+            this.comboUsuario.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(609, 46);
+            this.label7.Location = new System.Drawing.Point(598, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "Usuario";
             // 
-            // label8
+            // label6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(609, 106);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 18);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Fecha Desde";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(598, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 18);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Variacion";
             // 
-            // label9
+            // label4
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(609, 141);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(97, 18);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Fecha Hasta";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBuscar.Location = new System.Drawing.Point(13, 176);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(139, 47);
-            this.btnBuscar.TabIndex = 8;
-            this.btnBuscar.Text = "REALIZAR BUSQUEDA";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // comboProducto
-            // 
-            this.comboProducto.FormattingEnabled = true;
-            this.comboProducto.Location = new System.Drawing.Point(173, 13);
-            this.comboProducto.Name = "comboProducto";
-            this.comboProducto.Size = new System.Drawing.Size(424, 26);
-            this.comboProducto.TabIndex = 10;
-            this.comboProducto.SelectedIndexChanged += new System.EventHandler(this.comboProducto_SelectedIndexChanged);
-            // 
-            // comboAlmacen
-            // 
-            this.comboAlmacen.FormattingEnabled = true;
-            this.comboAlmacen.Location = new System.Drawing.Point(173, 49);
-            this.comboAlmacen.Name = "comboAlmacen";
-            this.comboAlmacen.Size = new System.Drawing.Size(424, 26);
-            this.comboAlmacen.TabIndex = 11;
-            // 
-            // comboUsuario
-            // 
-            this.comboUsuario.FormattingEnabled = true;
-            this.comboUsuario.Location = new System.Drawing.Point(720, 49);
-            this.comboUsuario.Name = "comboUsuario";
-            this.comboUsuario.Size = new System.Drawing.Size(264, 26);
-            this.comboUsuario.TabIndex = 12;
-            // 
-            // comboVariacion
-            // 
-            this.comboVariacion.FormattingEnabled = true;
-            this.comboVariacion.Location = new System.Drawing.Point(720, 13);
-            this.comboVariacion.Name = "comboVariacion";
-            this.comboVariacion.Size = new System.Drawing.Size(264, 26);
-            this.comboVariacion.TabIndex = 13;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLimpiar.Location = new System.Drawing.Point(173, 176);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(143, 47);
-            this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "LIMPIAR BUSQUEDA";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 36);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Tipo Movimiento";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rdTodosTipoMov);
             this.panel1.Controls.Add(this.rdSalidaTipoMov);
             this.panel1.Controls.Add(this.rdEntradaTipoMov);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(173, 109);
+            this.panel1.Location = new System.Drawing.Point(125, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(430, 29);
+            this.panel1.Size = new System.Drawing.Size(425, 33);
             this.panel1.TabIndex = 16;
             // 
             // rdTodosTipoMov
@@ -360,6 +320,15 @@ namespace boutiqueshope.UI.Inventario
             this.rdEntradaTipoMov.Text = "Entrada";
             this.rdEntradaTipoMov.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 36);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Documento Origen";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.rdTodosDocuOrigen);
@@ -367,10 +336,9 @@ namespace boutiqueshope.UI.Inventario
             this.panel2.Controls.Add(this.rdAjusteDocuOrigen);
             this.panel2.Controls.Add(this.rdCompraDocuOrigen);
             this.panel2.Controls.Add(this.rdVentaDocuOrigen);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(173, 144);
+            this.panel2.Location = new System.Drawing.Point(125, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(430, 26);
+            this.panel2.Size = new System.Drawing.Size(425, 33);
             this.panel2.TabIndex = 17;
             // 
             // rdTodosDocuOrigen
@@ -430,34 +398,36 @@ namespace boutiqueshope.UI.Inventario
             this.rdVentaDocuOrigen.Text = "Venta";
             this.rdVentaDocuOrigen.UseVisualStyleBackColor = true;
             // 
-            // lblFechaDesde
+            // label8
             // 
-            this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(720, 173);
-            this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(0, 18);
-            this.lblFechaDesde.TabIndex = 14;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(598, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 36);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Fecha Desde";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(598, 127);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 36);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Fecha Hasta";
             // 
             // dtDateDesde
             // 
             this.dtDateDesde.Checked = false;
-            this.dtDateDesde.Location = new System.Drawing.Point(720, 109);
+            this.dtDateDesde.Location = new System.Drawing.Point(698, 83);
             this.dtDateDesde.MaxDate = new System.DateTime(2709, 12, 31, 0, 0, 0, 0);
             this.dtDateDesde.Name = "dtDateDesde";
             this.dtDateDesde.Size = new System.Drawing.Size(264, 26);
             this.dtDateDesde.TabIndex = 1;
             // 
-            // lblFechaHasta
-            // 
-            this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(13, 82);
-            this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(0, 18);
-            this.lblFechaHasta.TabIndex = 15;
-            // 
             // dtDateHasta
             // 
-            this.dtDateHasta.Location = new System.Drawing.Point(720, 144);
+            this.dtDateHasta.Location = new System.Drawing.Point(698, 130);
             this.dtDateHasta.Name = "dtDateHasta";
             this.dtDateHasta.Size = new System.Drawing.Size(264, 26);
             this.dtDateHasta.TabIndex = 18;
@@ -577,6 +547,24 @@ namespace boutiqueshope.UI.Inventario
             this.CostoTotal.HeaderText = "CostoTotal";
             this.CostoTotal.Name = "CostoTotal";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(125, 173);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Padding = new System.Windows.Forms.Padding(5);
+            this.btnBuscar.Size = new System.Drawing.Size(204, 47);
+            this.btnBuscar.TabIndex = 39;
+            this.btnBuscar.Text = "REALIZAR BUSQUEDA";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // MovimientoInventarioUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,14 +610,7 @@ namespace boutiqueshope.UI.Inventario
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ComboBox comboProducto;
         private System.Windows.Forms.ComboBox comboAlmacen;
-        private System.Windows.Forms.ComboBox comboUsuario;
-        private System.Windows.Forms.ComboBox comboVariacion;
-        private System.Windows.Forms.Label lblFechaDesde;
-        private System.Windows.Forms.Label lblFechaHasta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rdTodosTipoMov;
         private System.Windows.Forms.RadioButton rdSalidaTipoMov;
@@ -643,8 +624,6 @@ namespace boutiqueshope.UI.Inventario
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridViewMovimientos;
-        private System.Windows.Forms.DateTimePicker dtDateDesde;
-        private System.Windows.Forms.DateTimePicker dtDateHasta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
@@ -656,5 +635,12 @@ namespace boutiqueshope.UI.Inventario
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotal;
+        private System.Windows.Forms.TextBox txtProductoBuscar;
+        private System.Windows.Forms.Button btnBuscarProducto;
+        private System.Windows.Forms.ComboBox comboVariacion;
+        private System.Windows.Forms.ComboBox comboUsuario;
+        private System.Windows.Forms.DateTimePicker dtDateDesde;
+        private System.Windows.Forms.DateTimePicker dtDateHasta;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
