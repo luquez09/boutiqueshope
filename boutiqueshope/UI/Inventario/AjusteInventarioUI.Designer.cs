@@ -29,13 +29,12 @@ namespace boutiqueshope.UI.Inventario
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjusteInventarioUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.lblIdProducto = new System.Windows.Forms.Label();
             this.dataGridViewVariacion = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,13 +101,14 @@ namespace boutiqueshope.UI.Inventario
             this.tableLayoutPanel1.Controls.Add(this.txtProducto, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnBuscarProducto, 13, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblIdProducto, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(621, 18);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 103);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -130,12 +130,12 @@ namespace boutiqueshope.UI.Inventario
             this.txtProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel1.SetColumnSpan(this.txtProducto, 12);
             this.txtProducto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProducto.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProducto.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProducto.Location = new System.Drawing.Point(28, 68);
             this.txtProducto.Margin = new System.Windows.Forms.Padding(0);
             this.txtProducto.MaxLength = 200;
             this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(336, 22);
+            this.txtProducto.Size = new System.Drawing.Size(336, 25);
             this.txtProducto.TabIndex = 1;
             this.txtProducto.Tag = "Nombre del producto.";
             this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
@@ -152,7 +152,7 @@ namespace boutiqueshope.UI.Inventario
             this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Buscar Producto";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnBuscarProducto
             // 
@@ -170,15 +170,6 @@ namespace boutiqueshope.UI.Inventario
             this.btnBuscarProducto.TabIndex = 3;
             this.btnBuscarProducto.UseVisualStyleBackColor = true;
             this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // lblIdProducto
-            // 
-            this.lblIdProducto.AutoSize = true;
-            this.lblIdProducto.Location = new System.Drawing.Point(3, 34);
-            this.lblIdProducto.Name = "lblIdProducto";
-            this.lblIdProducto.Size = new System.Drawing.Size(0, 13);
-            this.lblIdProducto.TabIndex = 4;
-            this.lblIdProducto.Visible = false;
             // 
             // dataGridViewVariacion
             // 
@@ -202,14 +193,14 @@ namespace boutiqueshope.UI.Inventario
             this.dataGridViewVariacion.Name = "dataGridViewVariacion";
             this.dataGridViewVariacion.ReadOnly = true;
             this.dataGridViewVariacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewVariacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewVariacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.Format = "N2";
             this.dataGridViewVariacion.RowTemplate.DefaultCellStyle.NullValue = "0";
@@ -529,6 +520,7 @@ namespace boutiqueshope.UI.Inventario
             // 
             // txtMotivo
             // 
+            this.txtMotivo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tableLayoutPanel2.SetColumnSpan(this.txtMotivo, 2);
             this.txtMotivo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMotivo.Location = new System.Drawing.Point(145, 102);
@@ -692,7 +684,6 @@ namespace boutiqueshope.UI.Inventario
         private System.Windows.Forms.NumericUpDown numericCostoUnitario;
         private System.Windows.Forms.Label lblInformacion;
         public System.Windows.Forms.TextBox txtProducto;
-        public System.Windows.Forms.Label lblIdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Talla;

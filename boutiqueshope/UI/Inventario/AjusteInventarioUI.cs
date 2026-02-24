@@ -16,9 +16,7 @@ namespace boutiqueshope.UI.Inventario
         private AlmacenService _almacenService;
         private InventariosServices _inventarioService;
         private AjusteInventarioService _ajusteInventarioService;
-
-
-
+        private Producto _productoSearch;
         private BindingList<ProductoVariacion> listaVariaciones;
 
         public AjusteInventarioUI()
@@ -30,6 +28,8 @@ namespace boutiqueshope.UI.Inventario
             _almacenService = new AlmacenService();
             _inventarioService = new InventariosServices();
             _ajusteInventarioService = new AjusteInventarioService();
+
+            _productoSearch = new Producto();
         }
 
         private void AjusteInventarioUI_Load(object sender, EventArgs e)
@@ -65,8 +65,6 @@ namespace boutiqueshope.UI.Inventario
             dataGridViewVariacion.AutoGenerateColumns = false;
             listaVariaciones = new BindingList<ProductoVariacion>(respuesta.Listado);
             dataGridViewVariacion.DataSource = listaVariaciones;
-
-            //configurarDatagridVariacion();
             dataGridViewVariacion.ClearSelection();
             dataGridViewVariacion.CurrentCell = null;
         }
@@ -81,21 +79,19 @@ namespace boutiqueshope.UI.Inventario
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            SearchProductUI searchProducto = new SearchProductUI();
-            AddOwnedForm(searchProducto);
-
-            searchProducto.FormClosed += (s, ev) =>
+            SearchProductUI formSearch = new SearchProductUI();
+            formSearch.SearchProduct += (productoRecibido) =>
             {
+                txtProducto.Text = productoRecibido.Nombre.Trim();
+                _productoSearch = productoRecibido;
                 limpiarGridVariacion();
-                cargarVariaciones(Convert.ToInt32(lblIdProducto.Text));
+                cargarVariaciones(_productoSearch.Id);
             };
-
-            searchProducto.Show();
+            formSearch.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            lblIdProducto.Text = string.Empty;
+        {|
             txtProducto.Text = string.Empty;
             txtMotivo.Text = string.Empty;
             lblCostoPromedio.Text = "0.00";
@@ -152,14 +148,11 @@ namespace boutiqueshope.UI.Inventario
             return string.Empty;
         }
 
-
-
-
         private AjusteInventario ObtenerAjusteInventario()
         {
             AjusteInventario ajuste = new AjusteInventario
             {
-                ProductoId = Convert.ToInt32(lblIdProducto.Text),
+                ProductoId = _productoSearch.Id,
                 VariacionId = ObtenerIdVariacionSeleccionada(),
                 AlmacenId = ObtenerALmacenComboBox(),
                 DocumentoTipo =  ObtenerTipoDocumento(),
@@ -175,13 +168,13 @@ namespace boutiqueshope.UI.Inventario
 
         private async Task GetInventarioForIds()
         {
-            if (string.IsNullOrEmpty(lblIdProducto.Text) || ObtenerALmacenComboBox() == 0 || ObtenerIdVariacionSeleccionada() == 0)
+            if (_productoSearch.Id == 0 || ObtenerALmacenComboBox() == 0 || ObtenerIdVariacionSeleccionada() == 0)
             {
                 return;
             }
 
             var respuesta = await _inventarioService.GetInventarioForIds(
-                Convert.ToInt32(lblIdProducto.Text),
+                _productoSearch.Id,
                 ObtenerALmacenComboBox(),
                 ObtenerIdVariacionSeleccionada()
             );
@@ -200,7 +193,7 @@ namespace boutiqueshope.UI.Inventario
         {
             await GetInventarioForIds();
         }
-         private void btnGuardarAjuste_Click(object sender, EventArgs e)
+        private void btnGuardarAjuste_Click(object sender, EventArgs e)
         {
             GuardarAjusteDataBase();
             

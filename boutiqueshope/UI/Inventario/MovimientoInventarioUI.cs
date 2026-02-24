@@ -99,14 +99,27 @@ namespace boutiqueshope.UI.Inventario
         private bool ValidacionesFiltros()
         {
             DateTime fechaHasta = dtDateHasta.Value.Date.AddDays(1).AddSeconds(-1);
-            if (comboAlmacen.SelectedItem == null)
+
+            if (_productoSearch.Id <= 0)
             {
-                UIHelper.MostrarError("Seleccione un almacén.");
+                UIHelper.MostrarError("Buscar y seleccionar producto, para continuar.");
+                return false;
+            }
+
+            if (comboVariacion.SelectedItem == null)
+            {
+                UIHelper.MostrarError("Seleccionar variacion para continuar.");
                 return false;
             }
             if (comboUsuario.SelectedItem == null)
             {
                 UIHelper.MostrarError("Seleccione un usuario.");
+                return false;
+            }
+
+            if (comboAlmacen.SelectedItem == null)
+            {
+                UIHelper.MostrarError("Seleccione un almacen para continuar.");
                 return false;
             }
             if (dtDateDesde.Value.Date > fechaHasta)
@@ -170,9 +183,12 @@ namespace boutiqueshope.UI.Inventario
             SearchProductUI formSearch = new SearchProductUI();
             formSearch.SearchProduct += (productoRecibido) =>
             {
-                _productoSearch = productoRecibido;
-                txtProductoBuscar.Text = productoRecibido.Nombre;
-                CargarComboVariaciones();
+               if (productoRecibido != null)
+                {
+                    _productoSearch = productoRecibido;
+                    txtProductoBuscar.Text = productoRecibido.Nombre;
+                    CargarComboVariaciones();
+                }
             };
             formSearch.ShowDialog();
         }
