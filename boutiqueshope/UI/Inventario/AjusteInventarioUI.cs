@@ -91,7 +91,7 @@ namespace boutiqueshope.UI.Inventario
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {|
+        {
             txtProducto.Text = string.Empty;
             txtMotivo.Text = string.Empty;
             lblCostoPromedio.Text = "0.00";
