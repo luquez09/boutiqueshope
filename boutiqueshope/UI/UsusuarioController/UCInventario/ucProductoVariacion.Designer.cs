@@ -73,24 +73,27 @@ namespace boutiqueshope.UI.UsusuarioController.UCInventario
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(488, 144);
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(488, 125);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(101, 52);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Image = global::boutiqueshope.Properties.Resources.Buying;
+            this.btnSeleccionar.Image = global::boutiqueshope.Properties.Resources.Check_Mark;
             this.btnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSeleccionar.Location = new System.Drawing.Point(488, 68);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(101, 70);
+            this.btnSeleccionar.Size = new System.Drawing.Size(101, 51);
             this.btnSeleccionar.TabIndex = 1;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

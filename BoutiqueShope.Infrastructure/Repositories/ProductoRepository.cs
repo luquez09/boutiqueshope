@@ -12,7 +12,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
     {
         protected override string TableName => "producto";
 
-        public async Task<Response<Producto>> BuscarProducto(String nombreProducto)
+        public async Task<Response<Producto>> BuscarProducto(string nombreProducto)
         {
             try
             {
@@ -21,16 +21,24 @@ namespace BoutiqueShope.Infrastructure.Repositories
                 {
                     await conn.OpenAsync();
 
-                    string sql = "SELECT * FROM producto p WHERE p.nombre ILIKE @nombreProducto";
+                    // ELIMINADAS las comillas simples y los % del string SQL
+                    string sql = @"SELECT p.* FROM producto p
+                            INNER JOIN producto_variacion pv ON p.id = pv.producto_id
+                            WHERE p.nombre ILIKE @filtroNombre 
+                               OR pv.codigo_barras = @filtroExacto;";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@nombreProducto", $"%{nombreProducto}%");
+                        // Para el nombre usamos el valor con comodines %
+                        cmd.Parameters.AddWithValue("@filtroNombre", $"%{nombreProducto}%");
+                        cmd.Parameters.AddWithValue("@filtroExacto", nombreProducto);
 
                         using (var dr = await cmd.ExecuteReaderAsync())
                         {
                             while (await dr.ReadAsync())
+                            {
                                 lista.Add(Map(dr));
+                            }
 
                             return Response<Producto>.SuccessList(lista);
                         }
@@ -39,6 +47,7 @@ namespace BoutiqueShope.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
+                // Es buena práctica loguear 'ex' internamente y enviar un mensaje amigable
                 return Response<Producto>.Fail("Error al consultar registro - Producto busqueda", ex.Message);
             }
         }

@@ -53,6 +53,11 @@ namespace boutiqueshope.UI
             this.lblColores = new System.Windows.Forms.Label();
             this.lblTallas = new System.Windows.Forms.Label();
             this.dataGridViewVariacion = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtProductoNombre = new System.Windows.Forms.TextBox();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
+            this.lblInformacion = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Impuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,11 +71,7 @@ namespace boutiqueshope.UI
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtProductoNombre = new System.Windows.Forms.TextBox();
-            this.btnBuscarProducto = new System.Windows.Forms.Button();
-            this.lblInformacion = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.NombreVariacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVariacion)).BeginInit();
             this.SuspendLayout();
@@ -340,7 +341,8 @@ namespace boutiqueshope.UI
             this.Color,
             this.PrecioVenta,
             this.Costo,
-            this.Activo});
+            this.Activo,
+            this.NombreVariacion});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -359,6 +361,62 @@ namespace boutiqueshope.UI
             this.dataGridViewVariacion.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVariacion_CellValueChanged);
             this.dataGridViewVariacion.CurrentCellChanged += new System.EventHandler(this.dataGridViewVariacion_CurrentCellChanged);
             this.dataGridViewVariacion.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewVariacion_EditingControlShowing);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 20);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Buscar Producto";
+            // 
+            // txtProductoNombre
+            // 
+            this.txtProductoNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProductoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductoNombre.Location = new System.Drawing.Point(17, 82);
+            this.txtProductoNombre.Name = "txtProductoNombre";
+            this.txtProductoNombre.ReadOnly = true;
+            this.txtProductoNombre.Size = new System.Drawing.Size(295, 22);
+            this.txtProductoNombre.TabIndex = 36;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackgroundImage = global::boutiqueshope.Properties.Resources.Search;
+            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(318, 75);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(45, 43);
+            this.btnBuscarProducto.TabIndex = 37;
+            this.btnBuscarProducto.UseVisualStyleBackColor = true;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // lblInformacion
+            // 
+            this.lblInformacion.AutoSize = true;
+            this.lblInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacion.Location = new System.Drawing.Point(10, 571);
+            this.lblInformacion.Name = "lblInformacion";
+            this.lblInformacion.Size = new System.Drawing.Size(0, 20);
+            this.lblInformacion.TabIndex = 38;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(616, 283);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(114, 54);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Id
             // 
@@ -465,61 +523,11 @@ namespace boutiqueshope.UI
             this.Activo.Name = "Activo";
             this.Activo.Visible = false;
             // 
-            // label2
+            // NombreVariacion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 20);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Buscar Producto";
-            // 
-            // txtProductoNombre
-            // 
-            this.txtProductoNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProductoNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductoNombre.Location = new System.Drawing.Point(17, 82);
-            this.txtProductoNombre.Name = "txtProductoNombre";
-            this.txtProductoNombre.ReadOnly = true;
-            this.txtProductoNombre.Size = new System.Drawing.Size(295, 22);
-            this.txtProductoNombre.TabIndex = 36;
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackgroundImage = global::boutiqueshope.Properties.Resources.Search;
-            this.btnBuscarProducto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(318, 75);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(45, 43);
-            this.btnBuscarProducto.TabIndex = 37;
-            this.btnBuscarProducto.UseVisualStyleBackColor = true;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // lblInformacion
-            // 
-            this.lblInformacion.AutoSize = true;
-            this.lblInformacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformacion.Location = new System.Drawing.Point(10, 571);
-            this.lblInformacion.Name = "lblInformacion";
-            this.lblInformacion.Size = new System.Drawing.Size(0, 20);
-            this.lblInformacion.TabIndex = 38;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Salmon;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(616, 283);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(114, 54);
-            this.btnCancelar.TabIndex = 39;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.NombreVariacion.DataPropertyName = "NombreVariacion";
+            this.NombreVariacion.HeaderText = "NombreVariacion";
+            this.NombreVariacion.Name = "NombreVariacion";
             // 
             // ProductoVariacionUI
             // 
@@ -596,5 +604,6 @@ namespace boutiqueshope.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreVariacion;
     }
 }
