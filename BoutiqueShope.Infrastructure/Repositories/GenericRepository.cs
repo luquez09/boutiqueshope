@@ -24,7 +24,7 @@ namespace BoutiqueShope.Infrastructure
                 {
                     await conn.OpenAsync();
 
-                    string sql = $"SELECT * FROM {TableName}";
+                    string sql = $"SELECT * FROM {TableName} LIMIT 50";
 
                     using (var cmd = new NpgsqlCommand(sql, conn))
                     using (var dr = await cmd.ExecuteReaderAsync())
@@ -72,6 +72,40 @@ namespace BoutiqueShope.Infrastructure
             catch (Exception ex)
             {
                 return Response<T>.Fail("Error al consultar registro", ex.Message);
+            }
+        }
+
+        public async Task<Response<T>> GetByName(string nombreBuscar)
+        {
+            try
+            {
+                var lista = new List<T>();
+
+                using (var conn = DbConnection.GetConnection())
+                {
+                    await conn.OpenAsync();
+
+                    // El SQL queda limpio, el parámetro recibe el "trabajo sucio"
+                    string sql = $"SELECT * FROM {TableName} WHERE nombre ILIKE @nombreBuscar LIMIT 50";
+
+                    using (var cmd = new NpgsqlCommand(sql, conn))
+                    {
+                        // Agregamos los % aquí
+                        cmd.Parameters.AddWithValue("@nombreBuscar", $"%{nombreBuscar}%");
+
+                        using (var dr = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await dr.ReadAsync())
+                                lista.Add(Map(dr));
+                        }
+                    }
+                }
+
+                return Response<T>.SuccessList(lista);
+            }
+            catch (Exception ex)
+            {
+                return Response<T>.Fail("Error al obtener listado", ex.Message);
             }
         }
 

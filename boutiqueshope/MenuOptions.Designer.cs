@@ -350,6 +350,7 @@ namespace boutiqueshope
             this.btnBuscarCliente.Text = "Buscar cliente";
             this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // btnCrearCliente
             // 

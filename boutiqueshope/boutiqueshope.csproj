@@ -112,6 +112,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Clientes\GestionClientesUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Clientes\GestionClientesUI.Designer.cs">
+      <DependentUpon>GestionClientesUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Inventario\AjusteInventarioUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,10 +130,10 @@
     <Compile Include="UI\Inventario\CategoriaUI.Designer.cs">
       <DependentUpon>CategoriaUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ClienteUI.cs">
+    <Compile Include="UI\Clientes\ClienteUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ClienteUI.Designer.cs">
+    <Compile Include="UI\Clientes\ClienteUI.Designer.cs">
       <DependentUpon>ClienteUI.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Inventario\AlmacenUI.cs">
@@ -178,12 +184,6 @@
     <Compile Include="UI\UsuarioUI.Designer.cs">
       <DependentUpon>UsuarioUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\UsusuarioController\UCInventario\ucProductoVariacion.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\UsusuarioController\UCInventario\ucProductoVariacion.Designer.cs">
-      <DependentUpon>ucProductoVariacion.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MenuOptions.resx">
       <DependentUpon>MenuOptions.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +191,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Clientes\GestionClientesUI.resx">
+      <DependentUpon>GestionClientesUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inventario\AjusteInventarioUI.resx">
       <DependentUpon>AjusteInventarioUI.cs</DependentUpon>
@@ -201,7 +204,7 @@
     <EmbeddedResource Include="UI\Inventario\CategoriaUI.resx">
       <DependentUpon>CategoriaUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ClienteUI.resx">
+    <EmbeddedResource Include="UI\Clientes\ClienteUI.resx">
       <DependentUpon>ClienteUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inventario\MarcaUI.resx">
@@ -224,9 +227,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UsuarioUI.resx">
       <DependentUpon>UsuarioUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\UsusuarioController\UCInventario\ucProductoVariacion.resx">
-      <DependentUpon>ucProductoVariacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".github\copilot-instructions.md" />
     <None Include="packages.config" />
@@ -262,8 +262,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Arrow.png" />
+    <None Include="Resources\Arrow Pointing Left.png" />
+    <None Include="Resources\AddUserMale.png" />
     <Content Include="Resources\agregar-usuario.png" />
     <Content Include="Resources\agregar-usuario1.png" />
+    <None Include="Resources\Registration.png" />
     <None Include="Resources\Search-new1.png" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\Buying.png" />

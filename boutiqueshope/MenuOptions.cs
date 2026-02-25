@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using boutiqueshope.UI;
+using boutiqueshope.UI.Clientes;
 using boutiqueshope.UI.Inventario;
 
 namespace boutiqueshope
@@ -268,6 +269,11 @@ namespace boutiqueshope
         private void btnHistorialInventario_Click(object sender, EventArgs e)
         {
             OpenChildForm(new MovimientoInventarioUI());
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new GestionClientesUI());
         }
     }
 }

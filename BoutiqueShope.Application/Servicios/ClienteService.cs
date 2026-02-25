@@ -15,6 +15,7 @@ namespace BoutiqueShope.Application.Servicios
 
         public Task<Response<Cliente>> ListarAsync() => _repo.GetAllAsync();
         public Task<Response<Cliente>> ObtenerPorIdAsync(int id) => _repo.GetByIdAsync(id);
+        public Task<Response<Cliente>> ObtenerClientePorNombre(string nombre) => _repo.GetByName(nombre);
 
         public async Task<Response<Cliente>> CrearAsync(Cliente c)
         {

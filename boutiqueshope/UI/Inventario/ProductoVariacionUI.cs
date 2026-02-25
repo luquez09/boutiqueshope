@@ -14,18 +14,15 @@ namespace boutiqueshope.UI
 {
     public partial class ProductoVariacionUI : Form
     {
-        private ProductoService _productoService;
         private VariacionProductoService _productoVariacion;
         private TallasServicios _tallasServicios;
         private ColoresServicios _coloresServicios;
 
         private BindingList<ProductoVariacion> listaVariaciones;
-        private BindingList<Producto> _listProductos;
 
         private Producto _productoSearch;
         public ProductoVariacionUI()
         {
-            _productoService = new ProductoService();
             _productoVariacion = new VariacionProductoService();
             _tallasServicios = new TallasServicios();
             _coloresServicios = new ColoresServicios();

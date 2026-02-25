@@ -19,9 +19,6 @@ namespace BoutiqueShope.Application
             return await _repo.GetAllAsync();
         }
 
-        // ============================
-        // OBTENER POR ID
-        // ============================
         public async Task<Response<Usuario>> ObtenerPorIdAsync(int id)
         {
             if (id <= 0)
@@ -30,9 +27,6 @@ namespace BoutiqueShope.Application
             return await _repo.GetByIdAsync(id);
         }
 
-        // ============================
-        // CREAR USUARIO
-        // ============================
         public async Task<Response<Usuario>> CrearAsync(Usuario u)
         {
             if (string.IsNullOrWhiteSpace(u.Nombre))
@@ -48,9 +42,6 @@ namespace BoutiqueShope.Application
             return await _repo.InsertAsync(u);
         }
 
-        // ============================
-        // EDITAR USUARIO
-        // ============================
         public async Task<Response<Usuario>> EditarAsync(Usuario u)
         {
             string errorsCheck = "";
