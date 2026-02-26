@@ -49,15 +49,11 @@ namespace boutiqueshope.UI
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.groupBoxActions = new System.Windows.Forms.GroupBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dataGridCliente = new System.Windows.Forms.DataGridView();
-            this.groupBoxForm.SuspendLayout();
-            this.groupBoxActions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).BeginInit();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // groupBoxForm
@@ -111,37 +107,45 @@ namespace boutiqueshope.UI
             // 
             // txtTotalCompras
             // 
-            this.txtTotalCompras.Location = new System.Drawing.Point(417, 116);
+            this.txtTotalCompras.BackColor = System.Drawing.Color.White;
+            this.txtTotalCompras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalCompras.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalCompras.Location = new System.Drawing.Point(26, 302);
             this.txtTotalCompras.Name = "txtTotalCompras";
             this.txtTotalCompras.ReadOnly = true;
-            this.txtTotalCompras.Size = new System.Drawing.Size(197, 20);
+            this.txtTotalCompras.Size = new System.Drawing.Size(240, 19);
             this.txtTotalCompras.TabIndex = 11;
             // 
             // lblTotalCompras
             // 
             this.lblTotalCompras.AutoSize = true;
-            this.lblTotalCompras.Location = new System.Drawing.Point(334, 123);
+            this.lblTotalCompras.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCompras.Location = new System.Drawing.Point(25, 281);
             this.lblTotalCompras.Name = "lblTotalCompras";
-            this.lblTotalCompras.Size = new System.Drawing.Size(77, 13);
+            this.lblTotalCompras.Size = new System.Drawing.Size(109, 18);
             this.lblTotalCompras.TabIndex = 18;
             this.lblTotalCompras.Text = "Total compras:";
             // 
             // txtUltimaCompra
             // 
-            this.txtUltimaCompra.Location = new System.Drawing.Point(417, 88);
+            this.txtUltimaCompra.BackColor = System.Drawing.Color.White;
+            this.txtUltimaCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUltimaCompra.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUltimaCompra.Location = new System.Drawing.Point(28, 242);
             this.txtUltimaCompra.Name = "txtUltimaCompra";
             this.txtUltimaCompra.ReadOnly = true;
-            this.txtUltimaCompra.Size = new System.Drawing.Size(197, 20);
+            this.txtUltimaCompra.Size = new System.Drawing.Size(240, 19);
             this.txtUltimaCompra.TabIndex = 10;
             // 
             // lblUltimaCompra
             // 
             this.lblUltimaCompra.AutoSize = true;
-            this.lblUltimaCompra.Location = new System.Drawing.Point(334, 88);
+            this.lblUltimaCompra.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUltimaCompra.Location = new System.Drawing.Point(24, 221);
             this.lblUltimaCompra.Name = "lblUltimaCompra";
-            this.lblUltimaCompra.Size = new System.Drawing.Size(77, 13);
+            this.lblUltimaCompra.Size = new System.Drawing.Size(109, 18);
             this.lblUltimaCompra.TabIndex = 16;
-            this.lblUltimaCompra.Text = "Última compra:";
+            this.lblUltimaCompra.Text = "Última compra";
             // 
             // dtpFechaNacimiento
             // 
@@ -164,24 +168,26 @@ namespace boutiqueshope.UI
             // cmbGenero
             // 
             this.cmbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGenero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGenero.FormattingEnabled = true;
             this.cmbGenero.Items.AddRange(new object[] {
             "M",
             "F",
             "Otro"});
-            this.cmbGenero.Location = new System.Drawing.Point(543, 51);
+            this.cmbGenero.Location = new System.Drawing.Point(103, 178);
             this.cmbGenero.Name = "cmbGenero";
-            this.cmbGenero.Size = new System.Drawing.Size(214, 21);
+            this.cmbGenero.Size = new System.Drawing.Size(90, 26);
             this.cmbGenero.TabIndex = 8;
             // 
             // lblGenero
             // 
             this.lblGenero.AutoSize = true;
-            this.lblGenero.Location = new System.Drawing.Point(492, 55);
+            this.lblGenero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.Location = new System.Drawing.Point(25, 181);
             this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(45, 13);
+            this.lblGenero.Size = new System.Drawing.Size(60, 18);
             this.lblGenero.TabIndex = 11;
-            this.lblGenero.Text = "Género:";
+            this.lblGenero.Text = "Género";
             // 
             // txtDireccion
             // 
@@ -205,96 +211,121 @@ namespace boutiqueshope.UI
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(289, 52);
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(103, 144);
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(197, 20);
+            this.txtEmail.Size = new System.Drawing.Size(246, 26);
             this.txtEmail.TabIndex = 7;
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(254, 55);
+            this.lblEmail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Location = new System.Drawing.Point(23, 147);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(29, 13);
+            this.lblEmail.Size = new System.Drawing.Size(57, 18);
             this.lblEmail.TabIndex = 11;
-            this.lblEmail.Text = "Mail:";
+            this.lblEmail.Text = "Correo";
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(86, 52);
+            this.txtTelefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(103, 112);
             this.txtTelefono.MaxLength = 20;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(148, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(246, 26);
             this.txtTelefono.TabIndex = 6;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(6, 55);
+            this.lblTelefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefono.Location = new System.Drawing.Point(23, 115);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(52, 13);
+            this.lblTelefono.Size = new System.Drawing.Size(66, 18);
             this.lblTelefono.TabIndex = 9;
-            this.lblTelefono.Text = "Teléfono:";
+            this.lblTelefono.Text = "Teléfono";
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(432, 22);
+            this.txtCedula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedula.Location = new System.Drawing.Point(103, 80);
             this.txtCedula.MaxLength = 20;
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(126, 20);
+            this.txtCedula.Size = new System.Drawing.Size(169, 26);
             this.txtCedula.TabIndex = 5;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(383, 26);
+            this.lblCedula.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.Location = new System.Drawing.Point(22, 83);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(43, 13);
+            this.lblCedula.Size = new System.Drawing.Size(58, 18);
             this.lblCedula.TabIndex = 7;
-            this.lblCedula.Text = "Cédula:";
+            this.lblCedula.Text = "Cédula";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(86, 22);
+            this.txtNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(103, 48);
             this.txtNombre.MaxLength = 150;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(291, 20);
+            this.txtNombre.Size = new System.Drawing.Size(246, 26);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(6, 25);
+            this.lblNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(23, 51);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 13);
+            this.lblNombre.Size = new System.Drawing.Size(64, 18);
             this.lblNombre.TabIndex = 5;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre";
             // 
-            // groupBoxActions
+            // lblTitulo
             // 
-            this.groupBoxActions.Controls.Add(this.btnCancelar);
-            this.groupBoxActions.Controls.Add(this.btnEliminar);
-            this.groupBoxActions.Controls.Add(this.btnActualizar);
-            this.groupBoxActions.Controls.Add(this.btnAgregar);
-            this.groupBoxActions.Location = new System.Drawing.Point(12, 198);
-            this.groupBoxActions.Name = "groupBoxActions";
-            this.groupBoxActions.Size = new System.Drawing.Size(578, 56);
-            this.groupBoxActions.TabIndex = 11;
-            this.groupBoxActions.TabStop = false;
-            this.groupBoxActions.Text = "Acciones";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(7, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(244, 24);
+            this.lblTitulo.TabIndex = 21;
+            this.lblTitulo.Text = "GESTION DE CLIENTES";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btnActualizar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Image = global::boutiqueshope.Properties.Resources.Registration;
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnActualizar.Location = new System.Drawing.Point(422, 42);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(151, 59);
+            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.Text = "MODIFICAR";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancelar.Location = new System.Drawing.Point(493, 19);
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Broom;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(591, 42);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(66, 27);
+            this.btnCancelar.Size = new System.Drawing.Size(151, 59);
             this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "LIMPIAR";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -323,35 +354,65 @@ namespace boutiqueshope.UI
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAgregar.Location = new System.Drawing.Point(157, 19);
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Image = global::boutiqueshope.Properties.Resources.AddMaleUserGroup;
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregar.Location = new System.Drawing.Point(422, 42);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(66, 27);
+            this.btnAgregar.Size = new System.Drawing.Size(151, 59);
             this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // dataGridCliente
+            // btnCancel
             // 
-            this.dataGridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCliente.Location = new System.Drawing.Point(12, 260);
-            this.dataGridCliente.MultiSelect = false;
-            this.dataGridCliente.Name = "dataGridCliente";
-            this.dataGridCliente.ReadOnly = true;
-            this.dataGridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridCliente.Size = new System.Drawing.Size(777, 169);
-            this.dataGridCliente.TabIndex = 16;
-            this.dataGridCliente.SelectionChanged += new System.EventHandler(this.dataGridCliente_SelectionChanged_1);
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = global::boutiqueshope.Properties.Resources.Close;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancel.Location = new System.Drawing.Point(422, 115);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(151, 59);
+            this.btnCancel.TabIndex = 22;
+            this.btnCancel.Text = "CANCELAR";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ClienteUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 446);
-            this.Controls.Add(this.dataGridCliente);
-            this.Controls.Add(this.groupBoxActions);
-            this.Controls.Add(this.groupBoxForm);
+            this.ClientSize = new System.Drawing.Size(806, 561);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.lblClienteId);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.txtTotalCompras);
+            this.Controls.Add(this.lblTotalCompras);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.txtUltimaCompra);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.lblUltimaCompra);
+            this.Controls.Add(this.cmbGenero);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblGenero);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblCedula);
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.txtTelefono);
+            this.Controls.Add(this.lblTelefono);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ClienteUI";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Gestión de Clientes";
             this.Load += new System.EventHandler(this.ClienteUI_Load);
             this.groupBoxForm.ResumeLayout(false);
@@ -359,6 +420,7 @@ namespace boutiqueshope.UI
             this.groupBoxActions.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -390,6 +452,7 @@ namespace boutiqueshope.UI
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dataGridCliente;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
