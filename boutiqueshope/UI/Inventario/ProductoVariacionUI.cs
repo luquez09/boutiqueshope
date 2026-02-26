@@ -267,7 +267,7 @@ namespace boutiqueshope.UI
             dataGridViewVariacion.ClearSelection();
             dataGridViewVariacion.CurrentCell = null;
             listaVariaciones = new BindingList<ProductoVariacion>(listaVariaciones);
-            dataGridViewVariacion.DataSource = listaVariaciones;            
+            dataGridViewVariacion.DataSource = listaVariaciones;
         }
 
         private bool ExisteVariacion(List<string> tallas, List<string> colores)
@@ -370,7 +370,8 @@ namespace boutiqueshope.UI
                 var respuesta = await _productoVariacion.SaveVariacionesAsync(listUpdate);
                 UIHelper.MostrarRespuesta(respuesta);
                 if (respuesta.Exitoso) LimpiarFormulario();
-            } else
+            }
+            else
             {
                 UIHelper.MostrarAdvertencia("No hay cambios para guardar.");
             }

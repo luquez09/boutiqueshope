@@ -1,11 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
@@ -17,6 +12,7 @@ namespace boutiqueshope.UI.Clientes
     {
 
         private ClienteService _clienteService;
+
 
         BindingList<Cliente> todosLosUsuarios = new BindingList<Cliente>();
 
@@ -74,11 +70,6 @@ namespace boutiqueshope.UI.Clientes
             btnSiguiente.Enabled = paginaActual < totalPaginas;
         }
 
-        private void AgregarCLiente()
-        {
-            //Se debe llamapr al fomrulario para agregar.
-        }
-
         private Cliente ObtenerClienteSeleccionado()
         {
             if (dataGridViewClientes.CurrentRow != null) // Verificamos que haya una fila seleccionada
@@ -112,11 +103,22 @@ namespace boutiqueshope.UI.Clientes
                     UltimaCompra = ultimaCompra,
                     FechaCreacion = fechaCreacion
                 };
-            } else
+            }
+            else
             {
                 UIHelper.MostrarAdvertencia("Por favor, selecciona un cliente de la lista.");
                 return null;
             }
+        }
+
+        private Cliente ValidacionAcciones()
+        {
+            if (dataGridViewClientes.CurrentRow != null)
+            {
+                return ObtenerClienteSeleccionado();
+            }
+
+            return null;
         }
 
         private void GestionClientesUI_Load(object sender, EventArgs e)
@@ -124,23 +126,39 @@ namespace boutiqueshope.UI.Clientes
             ConsultarCliente();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            //Llamar formulario de agregar cliente
-        }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Cliente editarCliente = new Cliente();
             editarCliente = ObtenerClienteSeleccionado();
 
-            //Llamar formulario de edición y pasar el cliente seleccionado
-            if (editarCliente is null) {
-                UIHelper.MostrarAdvertencia("No se ha seleccionado ningún cliente para editar.");
-            } else
+            if (editarCliente is null)
             {
-
+                UIHelper.MostrarAdvertencia("No se ha seleccionado ningún cliente para editar.");
             }
+            else
+            {
+                Cliente actualizacion = ValidacionAcciones();
+                if (actualizacion is null)
+                {
+                    UIHelper.MostrarAdvertencia("No se ha seleccionado ningún cliente para editar.");
+                }
+                else
+                {
+                    ClienteUI clienteUI = new ClienteUI(actualizacion, true);
+                    clienteUI.ShowDialog();
+                    ConsultarCliente();
+                }
+            }
+        }
+
+        private async void EliminarCliente(Cliente cliente)
+        {
+            if (!UIHelper.Confirmar($"Seguro de eliminar: {cliente.Nombre} de la base de datos. ?"))
+                return;
+
+            var clienteId = cliente == null ? 0 : cliente.Id;
+            var response = await _clienteService.EliminarAsync(clienteId);
+            UIHelper.MostrarRespuesta(response);
         }
 
         private void txtUsuarioBuscar_KeyDown(object sender, KeyEventArgs e)
@@ -177,5 +195,27 @@ namespace boutiqueshope.UI.Clientes
                 CargarPagina();
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Cliente eliminacion = ValidacionAcciones();
+
+            if (eliminacion is null)
+            {
+                UIHelper.MostrarAdvertencia("No se ha seleccionado ningún cliente para eliminar.");
+            }
+            else
+            {
+                EliminarCliente(eliminacion);
+                ConsultarCliente();
+            }
+        }
+
+        private void dataGridViewClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

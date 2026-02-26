@@ -63,6 +63,16 @@ namespace boutiqueshope.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddMaleUserGroup {
+            get {
+                object obj = ResourceManager.GetObject("AddMaleUserGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddUserMale {
             get {
                 object obj = ResourceManager.GetObject("AddUserMale", resourceCulture);
@@ -86,6 +96,16 @@ namespace boutiqueshope.Properties {
         internal static System.Drawing.Bitmap Arrow_Pointing_Left {
             get {
                 object obj = ResourceManager.GetObject("Arrow Pointing Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Broom {
+            get {
+                object obj = ResourceManager.GetObject("Broom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace boutiqueshope.Properties {
         internal static System.Drawing.Bitmap Delete_Trash {
             get {
                 object obj = ResourceManager.GetObject("Delete-Trash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Denied {
+            get {
+                object obj = ResourceManager.GetObject("Denied", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

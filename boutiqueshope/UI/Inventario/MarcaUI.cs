@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BoutiqueShope.Application;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
@@ -16,7 +15,7 @@ namespace boutiqueshope.UI
         {
             _marcaService = new MarcaService();
             InitializeComponent();
-            
+
         }
 
         private async void btnAgregar_Click(object sender, EventArgs e)

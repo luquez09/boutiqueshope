@@ -22,7 +22,7 @@ namespace boutiqueshope.UI.Inventario
         {
             configurationDataGridViewProducto();
         }
-     
+
         private void configurationDataGridViewProducto()
         {
             dataGridViewProducto.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -41,7 +41,8 @@ namespace boutiqueshope.UI.Inventario
 
         private void txtProducto_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) {
+            if (e.KeyCode == Keys.Enter)
+            {
                 BuscarProducto();
             }
         }
@@ -63,7 +64,8 @@ namespace boutiqueshope.UI.Inventario
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtProducto.Text.Trim())) {
+            if (!string.IsNullOrEmpty(txtProducto.Text.Trim()))
+            {
                 if (dataGridViewProducto.CurrentCell == null)
                 {
                     UIHelper.MostrarAdvertencia("Selecciona un producto, de la lista.");
@@ -73,7 +75,8 @@ namespace boutiqueshope.UI.Inventario
                 Producto producto = (Producto)dataGridViewProducto.CurrentRow.DataBoundItem;
                 SearchProduct?.Invoke(producto);
                 Close();
-            } else
+            }
+            else
             {
                 UIHelper.MostrarAdvertencia("Ingresa el nombre del producto a buscar.");
             }

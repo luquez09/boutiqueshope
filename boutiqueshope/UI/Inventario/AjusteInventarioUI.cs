@@ -108,7 +108,7 @@ namespace boutiqueshope.UI.Inventario
             }
             var almacenSeleccionado = (Almacen)comboBoxAlmacen.SelectedItem;
             return almacenSeleccionado.Id;
-            
+
         }
 
         private string ObtenerTipoMovimiento()
@@ -155,7 +155,7 @@ namespace boutiqueshope.UI.Inventario
                 ProductoId = _productoSearch.Id,
                 VariacionId = ObtenerIdVariacionSeleccionada(),
                 AlmacenId = ObtenerALmacenComboBox(),
-                DocumentoTipo =  ObtenerTipoDocumento(),
+                DocumentoTipo = ObtenerTipoDocumento(),
                 TipoMovimiento = ObtenerTipoMovimiento(),
                 Cantidad = Convert.ToInt32(numericCantidad.Value),
                 CostoUnitario = Convert.ToInt32(numericCostoUnitario.Value),
@@ -196,7 +196,7 @@ namespace boutiqueshope.UI.Inventario
         private void btnGuardarAjuste_Click(object sender, EventArgs e)
         {
             GuardarAjusteDataBase();
-            
+
         }
 
         private async void GuardarAjusteDataBase()

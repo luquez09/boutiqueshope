@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using boutiqueshope.UI;
 using boutiqueshope.UI.Clientes;
 using boutiqueshope.UI.Inventario;
+using BoutiqueShope.Domain.Entities;
 
 namespace boutiqueshope
 {
@@ -184,7 +185,7 @@ namespace boutiqueshope
 
         private void btnCrearCliente_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new FrmCrearCliente());
+            OpenChildForm(new ClienteUI(new Cliente(), false));
         }
 
         private void btnCreditosCliente_Click(object sender, EventArgs e)

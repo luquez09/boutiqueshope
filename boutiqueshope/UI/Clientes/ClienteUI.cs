@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
@@ -11,12 +10,20 @@ namespace boutiqueshope.UI
     {
         private ClienteService _clienteService;
 
-        public ClienteUI()
+        public ClienteUI(Cliente infoCLiente, bool isUpdate)
         {
             _clienteService = new ClienteService();
             InitializeComponent();
+            SetClienteDataGrid(infoCLiente);
+            AccionBotones(isUpdate);
         }
 
+        private void AccionBotones(bool isUpdate)
+        {
+            btnAgregar.Visible = !isUpdate;
+            btnCancelar.Visible = isUpdate;
+            btnActualizar.Visible = isUpdate;
+        }
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
             var response = await _clienteService.CrearAsync(MapearCliente());
@@ -25,26 +32,19 @@ namespace boutiqueshope.UI
 
         private async void btnActualizar_Click(object sender, EventArgs e)
         {
-            var response = await _clienteService.EditarAsync(MapearCliente());
-            UIHelper.MostrarRespuesta(response);
-        }
-
-        private async void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (!UIHelper.Confirmar("Seguro de eliminar este registro ?"))
+            bool confirmacion = UIHelper.Confirmar("¿Está seguro de actualizar este cliente?");
+            if (!confirmacion)
                 return;
 
-            var clienteId = string.IsNullOrEmpty(lblClienteId.Text) ? 0 :
-                              Convert.ToInt32(lblClienteId.Text);
-            var response = await _clienteService.EliminarAsync(clienteId);
+            var response = await _clienteService.EditarAsync(MapearCliente());
             UIHelper.MostrarRespuesta(response);
+            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             CleanForm();
         }
-
 
         private void CleanForm()
         {
@@ -55,8 +55,6 @@ namespace boutiqueshope.UI
             cmbGenero.SelectedIndex = -1;
             txtTotalCompras.Text = string.Empty;
             txtUltimaCompra.Text = string.Empty;
-            dataGridCliente.ClearSelection();
-            dataGridCliente.CurrentCell = null;
             txtNombre.Focus();
         }
 
@@ -75,27 +73,17 @@ namespace boutiqueshope.UI
             };
         }
 
-        private void CargarDatosDesdeGrid()
+        private void SetClienteDataGrid(Cliente cliente)
         {
-            if (dataGridCliente.SelectedRows == null)
-                return;
-
-            if (dataGridCliente.SelectedRows.Count > 0)
-            {
-                var fila = dataGridCliente.SelectedRows[0];
-
-                lblClienteId.Text = fila.Cells["Id"].Value?.ToString() ?? string.Empty;
-                txtNombre.Text = fila.Cells["Nombre"].Value?.ToString() ?? string.Empty;
-                txtCedula.Text = fila.Cells["Cedula"].Value?.ToString() ?? string.Empty;
-                txtTelefono.Text = fila.Cells["Telefono"].Value?.ToString() ?? string.Empty;
-                txtEmail.Text = fila.Cells["Email"].Value?.ToString() ?? string.Empty;
-
-                var generoVal = fila.Cells["Genero"].Value?.ToString() ?? string.Empty;
-                cmbGenero.SelectedIndex = string.IsNullOrEmpty(generoVal) ? -1 : cmbGenero.FindStringExact(generoVal);
-
-                txtTotalCompras.Text = fila.Cells["TotalCompras"].Value?.ToString() ?? "0";
-                txtUltimaCompra.Text = fila.Cells["UltimaCompra"].Value?.ToString() ?? string.Empty;
-            }
+            lblClienteId.Text = cliente.Id.ToString();
+            txtNombre.Text = cliente.Nombre;
+            txtTelefono.Text = cliente.Telefono;
+            txtCedula.Text = cliente.Cedula;
+            txtEmail.Text = cliente.Email;
+            cmbGenero.SelectedIndex = string.IsNullOrEmpty(cliente.Genero) ? -1 : cmbGenero.FindStringExact(cliente.Genero);
+            txtTotalCompras.Text = cliente.TotalCompras.ToString("F2");
+            txtUltimaCompra.Text = cliente.UltimaCompra.HasValue ? cliente.UltimaCompra.Value.ToString("yyyy-MM-dd") : string.Empty;
+            txtEmail.Text = cliente.Email;
         }
 
         private async void ClienteUI_Load(object sender, EventArgs e)
@@ -113,14 +101,14 @@ namespace boutiqueshope.UI
             InputValidatorHelper.SoloNumeros(e);
         }
 
-        private void dataGridCliente_SelectionChanged_1(object sender, EventArgs e)
-        {
-            CargarDatosDesdeGrid();
-        }
-
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             InputValidatorHelper.SoloNumeros(e);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

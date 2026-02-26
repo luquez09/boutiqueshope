@@ -28,19 +28,13 @@ namespace boutiqueshope.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBoxForm = new System.Windows.Forms.GroupBox();
             this.lblClienteId = new System.Windows.Forms.Label();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.txtTotalCompras = new System.Windows.Forms.TextBox();
             this.lblTotalCompras = new System.Windows.Forms.Label();
             this.txtUltimaCompra = new System.Windows.Forms.TextBox();
             this.lblUltimaCompra = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.lblFechaNacimiento = new System.Windows.Forms.Label();
             this.cmbGenero = new System.Windows.Forms.ComboBox();
             this.lblGenero = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.lblDireccion = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
@@ -56,35 +50,6 @@ namespace boutiqueshope.UI
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // groupBoxForm
-            // 
-            this.groupBoxForm.Controls.Add(this.lblClienteId);
-            this.groupBoxForm.Controls.Add(this.chkActivo);
-            this.groupBoxForm.Controls.Add(this.txtTotalCompras);
-            this.groupBoxForm.Controls.Add(this.lblTotalCompras);
-            this.groupBoxForm.Controls.Add(this.txtUltimaCompra);
-            this.groupBoxForm.Controls.Add(this.lblUltimaCompra);
-            this.groupBoxForm.Controls.Add(this.dtpFechaNacimiento);
-            this.groupBoxForm.Controls.Add(this.lblFechaNacimiento);
-            this.groupBoxForm.Controls.Add(this.cmbGenero);
-            this.groupBoxForm.Controls.Add(this.lblGenero);
-            this.groupBoxForm.Controls.Add(this.txtDireccion);
-            this.groupBoxForm.Controls.Add(this.lblDireccion);
-            this.groupBoxForm.Controls.Add(this.txtEmail);
-            this.groupBoxForm.Controls.Add(this.lblEmail);
-            this.groupBoxForm.Controls.Add(this.txtTelefono);
-            this.groupBoxForm.Controls.Add(this.lblTelefono);
-            this.groupBoxForm.Controls.Add(this.txtCedula);
-            this.groupBoxForm.Controls.Add(this.lblCedula);
-            this.groupBoxForm.Controls.Add(this.txtNombre);
-            this.groupBoxForm.Controls.Add(this.lblNombre);
-            this.groupBoxForm.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxForm.Name = "groupBoxForm";
-            this.groupBoxForm.Size = new System.Drawing.Size(777, 180);
-            this.groupBoxForm.TabIndex = 0;
-            this.groupBoxForm.TabStop = false;
-            this.groupBoxForm.Text = "Datos de cliente";
-            // 
             // lblClienteId
             // 
             this.lblClienteId.AutoSize = true;
@@ -93,17 +58,6 @@ namespace boutiqueshope.UI
             this.lblClienteId.Size = new System.Drawing.Size(0, 13);
             this.lblClienteId.TabIndex = 20;
             this.lblClienteId.Visible = false;
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(337, 155);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(56, 17);
-            this.chkActivo.TabIndex = 4;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
             // 
             // txtTotalCompras
             // 
@@ -147,24 +101,6 @@ namespace boutiqueshope.UI
             this.lblUltimaCompra.TabIndex = 16;
             this.lblUltimaCompra.Text = "Última compra";
             // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(121, 88);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.ShowCheckBox = true;
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(197, 20);
-            this.dtpFechaNacimiento.TabIndex = 9;
-            // 
-            // lblFechaNacimiento
-            // 
-            this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(6, 88);
-            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(109, 13);
-            this.lblFechaNacimiento.TabIndex = 14;
-            this.lblFechaNacimiento.Text = "Fecha de nacimiento:";
-            // 
             // cmbGenero
             // 
             this.cmbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -188,26 +124,6 @@ namespace boutiqueshope.UI
             this.lblGenero.Size = new System.Drawing.Size(60, 18);
             this.lblGenero.TabIndex = 11;
             this.lblGenero.Text = "Género";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDireccion.Location = new System.Drawing.Point(86, 142);
-            this.txtDireccion.Multiline = true;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccion.Size = new System.Drawing.Size(232, 30);
-            this.txtDireccion.TabIndex = 12;
-            // 
-            // lblDireccion
-            // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(6, 145);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(55, 13);
-            this.lblDireccion.TabIndex = 13;
-            this.lblDireccion.Text = "Dirección:";
             // 
             // txtEmail
             // 
@@ -300,9 +216,8 @@ namespace boutiqueshope.UI
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.btnActualizar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.Image = global::boutiqueshope.Properties.Resources.Registration;
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnActualizar.Location = new System.Drawing.Point(422, 42);
@@ -316,8 +231,7 @@ namespace boutiqueshope.UI
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::boutiqueshope.Properties.Resources.Broom;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancelar.Location = new System.Drawing.Point(591, 42);
@@ -329,33 +243,10 @@ namespace boutiqueshope.UI
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnEliminar.Location = new System.Drawing.Point(321, 19);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(66, 27);
-            this.btnEliminar.TabIndex = 14;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnActualizar.Location = new System.Drawing.Point(239, 19);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(66, 27);
-            this.btnActualizar.TabIndex = 13;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Image = global::boutiqueshope.Properties.Resources.AddMaleUserGroup;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAgregar.Location = new System.Drawing.Point(422, 42);
@@ -369,10 +260,9 @@ namespace boutiqueshope.UI
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = global::boutiqueshope.Properties.Resources.Close;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(422, 115);
@@ -388,7 +278,7 @@ namespace boutiqueshope.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 561);
+            this.ClientSize = new System.Drawing.Size(761, 374);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblClienteId);
@@ -410,35 +300,26 @@ namespace boutiqueshope.UI
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.lblTelefono);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ClienteUI";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Gestión de Clientes";
             this.Load += new System.EventHandler(this.ClienteUI_Load);
-            this.groupBoxForm.ResumeLayout(false);
-            this.groupBoxForm.PerformLayout();
-            this.groupBoxActions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBoxForm;
         private System.Windows.Forms.Label lblClienteId;
-        private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.TextBox txtTotalCompras;
         private System.Windows.Forms.Label lblTotalCompras;
         private System.Windows.Forms.TextBox txtUltimaCompra;
         private System.Windows.Forms.Label lblUltimaCompra;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.Label lblFechaNacimiento;
         private System.Windows.Forms.ComboBox cmbGenero;
         private System.Windows.Forms.Label lblGenero;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtTelefono;
@@ -447,9 +328,7 @@ namespace boutiqueshope.UI
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.GroupBox groupBoxActions;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblTitulo;

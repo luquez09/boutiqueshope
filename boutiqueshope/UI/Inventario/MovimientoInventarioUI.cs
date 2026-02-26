@@ -176,14 +176,14 @@ namespace boutiqueshope.UI.Inventario
                 UIHelper.MostrarError($"Error al cargar variaciones: {variacionProductoResult.Mensaje}");
             }
         }
-      
+
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             SearchProductUI formSearch = new SearchProductUI();
             formSearch.SearchProduct += (productoRecibido) =>
             {
-               if (productoRecibido != null)
+                if (productoRecibido != null)
                 {
                     _productoSearch = productoRecibido;
                     txtProductoBuscar.Text = productoRecibido.Nombre;

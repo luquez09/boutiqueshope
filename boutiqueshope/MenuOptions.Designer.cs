@@ -664,7 +664,6 @@ namespace boutiqueshope
             this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSidebar);
-            this.MaximizeBox = false;
             this.Name = "MenuOptions";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

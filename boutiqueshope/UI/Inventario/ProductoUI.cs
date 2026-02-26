@@ -6,7 +6,6 @@ using boutiqueshope.UI.Inventario;
 using BoutiqueShope.Application.Servicios;
 using BoutiqueShope.CrossCutting;
 using BoutiqueShope.Domain.Entities;
-using BoutiqueShope.Domain.Inventario;
 
 namespace boutiqueshope.UI
 {

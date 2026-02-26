@@ -43,10 +43,10 @@ namespace boutiqueshope.UI.Clientes
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtUsuarioBuscar = new System.Windows.Forms.TextBox();
             this.lblEstadoPagina = new System.Windows.Forms.Label();
+            this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@ namespace boutiqueshope.UI.Clientes
             this.dataGridViewClientes.ReadOnly = true;
             this.dataGridViewClientes.Size = new System.Drawing.Size(535, 249);
             this.dataGridViewClientes.TabIndex = 1;
+            this.dataGridViewClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellContentClick);
             // 
             // Id
             // 
@@ -192,6 +193,16 @@ namespace boutiqueshope.UI.Clientes
             this.lblEstadoPagina.TabIndex = 7;
             this.lblEstadoPagina.Text = "Pagina 0 de 0";
             // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Image = global::boutiqueshope.Properties.Resources.Arrow_Pointing_Left;
+            this.btnAnterior.Location = new System.Drawing.Point(460, 371);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(43, 27);
+            this.btnAnterior.TabIndex = 9;
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
             // btnSiguiente
             // 
             this.btnSiguiente.Image = global::boutiqueshope.Properties.Resources.Arrow;
@@ -212,35 +223,25 @@ namespace boutiqueshope.UI.Clientes
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(148, 50);
             this.btnActualizar.TabIndex = 6;
-            this.btnActualizar.Text = "ACTUALIZAR";
+            this.btnActualizar.Text = "MODIFICAR";
             this.btnActualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // btnAgregar
+            // btnEliminar
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Image = global::boutiqueshope.Properties.Resources.AddUserMale;
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(564, 121);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(148, 50);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = "AGREGAR";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnAnterior
-            // 
-            this.btnAnterior.Image = global::boutiqueshope.Properties.Resources.Arrow_Pointing_Left;
-            this.btnAnterior.Location = new System.Drawing.Point(460, 371);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(43, 27);
-            this.btnAnterior.TabIndex = 9;
-            this.btnAnterior.UseVisualStyleBackColor = true;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Image = global::boutiqueshope.Properties.Resources.Denied;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(564, 121);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(148, 50);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "ELIMINAR";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // GestionClientesUI
             // 
@@ -253,7 +254,7 @@ namespace boutiqueshope.UI.Clientes
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txtUsuarioBuscar);
             this.Controls.Add(this.lblBusqueda);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.lblInformacion);
             this.Controls.Add(this.dataGridViewClientes);
             this.Controls.Add(this.lblTitulo);
@@ -274,7 +275,6 @@ namespace boutiqueshope.UI.Clientes
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Label lblInformacion;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.TextBox txtUsuarioBuscar;
         private System.Windows.Forms.Button btnActualizar;
@@ -290,5 +290,6 @@ namespace boutiqueshope.UI.Clientes
         private System.Windows.Forms.Label lblEstadoPagina;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
